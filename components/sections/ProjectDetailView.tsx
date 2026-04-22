@@ -5,6 +5,7 @@ import { ArrowLeft, Braces, ExternalLink, Github, Layers, Trophy } from "lucide-
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import type { Project } from "@/data/projects";
+import { ProjectImageGallery } from "@/components/projects/ProjectImageGallery";
 import { Link } from "@/navigation";
 
 const MotionLink = m(Link);
@@ -29,6 +30,10 @@ export function ProjectDetailView({
   const t = useTranslations("projects");
   const tCommon = useTranslations("common");
 
+  const liveHref = project.liveUrl?.trim();
+  const showLive = Boolean(liveHref);
+  const galleryImages = project.images ?? [];
+
   return (
     <article className="mx-auto max-w-6xl px-4 py-12 md:px-6">
       <m.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
@@ -42,8 +47,8 @@ export function ProjectDetailView({
           {tCommon("back")}
         </MotionLink>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
-          <div>
+        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-10">
+          <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2">
               {project.award && awardLabel ? (
                 <m.span
@@ -81,9 +86,23 @@ export function ProjectDetailView({
                 </span>
               ))}
             </div>
+
+            {showLive ? (
+              <m.a
+                href={liveHref}
+                target="_blank"
+                rel="noreferrer"
+                className="group/live mt-5 inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-4 py-3 text-center text-sm font-semibold text-white shadow-md shadow-[color-mix(in_srgb,var(--accent)_25%,transparent)] transition-[box-shadow,background-color] hover:bg-[var(--accent-hover)] hover:shadow-lg sm:w-fit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <ExternalLink className="h-4 w-4 shrink-0 transition duration-300 group-hover/live:-translate-y-0.5 group-hover/live:translate-x-0.5 rtl:-scale-x-100 motion-reduce:transition-none" aria-hidden />
+                {t("live")}
+              </m.a>
+            ) : null}
           </div>
 
-          <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] card-surface">
+          <div className="relative aspect-[16/10] min-h-0 w-full overflow-hidden rounded-[2rem] card-surface ring-1 ring-[var(--border)]/40">
             <Image
               src={project.thumbnail}
               alt=""
@@ -96,38 +115,33 @@ export function ProjectDetailView({
         </div>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <section>
+          <section className="min-w-0">
             <h2 className="text-lg font-semibold text-[var(--text-primary)]">{t("overview")}</h2>
-            <p className="mt-3 whitespace-pre-line text-[var(--text-secondary)] leading-relaxed">{body}</p>
-            <ul className="mt-6 space-y-2 text-sm text-[var(--text-secondary)] list-disc ps-5 [dir=rtl]:ps-0 [dir=rtl]:pe-5">
+            <p className="mt-3 whitespace-pre-line leading-relaxed text-[var(--text-secondary)]">{body}</p>
+
+            {galleryImages.length > 0 ? (
+              <>
+                <h3 className="mt-10 text-base font-semibold text-[var(--text-primary)]">{t("gallery_title")}</h3>
+                <ProjectImageGallery images={galleryImages} altBase={title} />
+              </>
+            ) : null}
+
+            <ul className="mt-8 list-disc space-y-2 ps-5 text-sm text-[var(--text-secondary)] [dir=rtl]:ps-0 [dir=rtl]:pe-5">
               {highlights.map((h) => (
                 <li key={h}>{h}</li>
               ))}
             </ul>
           </section>
 
-          <aside className="card-surface rounded-3xl p-6">
+          <aside className="card-surface h-fit rounded-3xl p-6">
             <p className="text-sm text-[var(--text-muted)]">
               {project.startDate}
               {project.endDate ? ` — ${project.endDate}` : ""}
             </p>
             <div className="mt-4 space-y-2">
-              {project.liveUrl ? (
+              {project.githubUrl?.trim() ? (
                 <m.a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group/live flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-4 py-3 text-center text-sm font-semibold text-white shadow-md shadow-[color-mix(in_srgb,var(--accent)_25%,transparent)] transition-[box-shadow,background-color] hover:bg-[var(--accent-hover)] hover:shadow-lg"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <ExternalLink className="h-4 w-4 shrink-0 transition duration-300 group-hover/live:-translate-y-0.5 group-hover/live:translate-x-0.5 rtl:-scale-x-100 motion-reduce:transition-none" aria-hidden />
-                  {t("live")}
-                </m.a>
-              ) : null}
-              {project.githubUrl ? (
-                <m.a
-                  href={project.githubUrl}
+                  href={project.githubUrl.trim()}
                   target="_blank"
                   rel="noreferrer"
                   className="group/gh flex items-center justify-center gap-2 rounded-xl border border-[var(--border)] px-4 py-3 text-center text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--accent)]/40 hover:bg-[var(--accent-subtle)]"

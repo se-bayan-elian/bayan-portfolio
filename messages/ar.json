@@ -43,6 +43,8 @@
     "education_heading": "التعليم",
     "download_cv": "تحميل السيرة الذاتية",
     "hackathon_title": "إنجاز في الهاكاثون",
+    "certificate": "الشهادة",
+    "transcript": "كشف الدرجات",
     "hackathon_body": "المركز الأول — هاكاثون الذكاء الاصطناعي الوطني في Techno Park لمنصة استطلاعات مدعومة بالذكاء الاصطناعي."
   },
   "projects": {
@@ -57,7 +59,12 @@
     "view_all": "كل المشاريع",
     "overview": "نظرة عامة",
     "view_details": "التفاصيل",
-    "live": "مباشر",
+    "live": "زيارة",
+    "gallery_title": "لقطات",
+    "gallery_dialog_label": "معرض صور المشروع",
+    "gallery_close": "إغلاق المعرض",
+    "gallery_prev": "الصورة السابقة",
+    "gallery_next": "الصورة التالية",
     "in_progress": "قيد التنفيذ",
     "archived": "مؤرشف",
     "award_ribbon": "المركز الأول — هاكاثون الذكاء الاصطناعي الوطني"
@@ -75,6 +82,8 @@
     "current": "حالياً",
     "remote": "عن بُعد",
     "education": "التعليم",
+    "certificate": "الشهادة",
+    "transcript": "كشف الدرجات",
     "view_timeline": "الخط الزمني الكامل",
     "responsibilities": "المسؤوليات الرئيسية",
     "tech": "التقنيات"
@@ -98,7 +107,8 @@
   },
   "footer": {
     "rights": "جميع الحقوق محفوظة.",
-    "built_with": "مبني بـ Next.js و Tailwind"
+    "built_with": "مبني بـ Next.js و Tailwind",
+    "made_with": "صُنع بـ"
   },
   "common": {
     "read_more": "اقرأ المزيد",

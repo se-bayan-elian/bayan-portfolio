@@ -15,6 +15,12 @@ const config: Config = {
           "var(--font-geist-sans)",
           "sans-serif",
         ],
+        logo: [
+          "var(--font-outfit)",
+          "var(--font-geist-sans)",
+          "system-ui",
+          "sans-serif",
+        ],
       },
       boxShadow: {
         glow: "var(--shadow-glow)",

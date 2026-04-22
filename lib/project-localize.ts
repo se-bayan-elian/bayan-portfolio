@@ -9,15 +9,10 @@ export function projectLocalized(p: Project, locale: Locale) {
     locale === "ar"
       ? p.highlightsAr
       : locale === "fr"
-        ? p.highlights
+        ? p.highlightsFr
         : p.highlights;
 
-  const body =
-    locale === "en"
-      ? p.longDescription
-      : locale === "ar"
-        ? [p.descriptionAr, "", ...p.highlightsAr.map((h) => `• ${h}`)].join("\n")
-        : [p.descriptionFr, "", ...p.highlights.map((h) => `• ${h}`)].join("\n");
+  const body = pickStr(locale, p.longDescription, p.longDescriptionAr, p.longDescriptionFr);
 
   return { title, description, highlights, body };
 }

@@ -4,7 +4,7 @@ export const personal = {
   nameFr: "Bayan Alreqeb",
 
   title: "Full Stack Engineer",
-  titleAr: "مهندس برمجيات خبير",
+  titleAr: "مهندس برمجيات ومطور ويب",
   titleFr: "Ingénieur Full Stack",
 
   taglines: [
@@ -18,7 +18,7 @@ export const personal = {
     "متخصص Next.js و Nest.js",
     "بناء أنظمة ويب قابلة للتوسع",
     "مطور تطبيقات React Native",
-    "مدافع عن البنية النظيفة",
+    "محب للبنية النظيفة",
   ],
   taglinesFr: [
     "Spécialiste Next.js & Nest.js",
@@ -47,8 +47,8 @@ export const personal = {
   siteUrl: "https://bayan-elian.dev",
 
   social: {
-    github: "https://github.com/bezo2003",
-    linkedin: "https://linkedin.com/in/bayan-elian",
+    github: "https://github.com/se-bayan-elian",
+    linkedin: "https://www.linkedin.com/in/bayan-reqib-20b160248",
     email: "mailto:bezo2024@gmail.com",
     twitter: "",
     youtube: "",

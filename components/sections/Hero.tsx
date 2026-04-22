@@ -76,16 +76,6 @@ export function Hero() {
             className="flex flex-wrap items-center gap-2"
           >
             <m.span
-              className="group/badge glass-control inline-flex cursor-default items-center gap-2 rounded-full px-3 py-1 text-xs font-medium text-[var(--text-secondary)]"
-              whileHover={badgeHover}
-              whileTap={badgeTap}
-              transition={{ type: "spring", stiffness: 420, damping: 26 }}
-            >
-              <Sparkles className="h-3.5 w-3.5 shrink-0 text-[var(--accent)] transition duration-300 ease-out group-hover/badge:rotate-12 group-hover/badge:scale-110 motion-reduce:transition-none" aria-hidden />
-              {t("greeting")}
-            </m.span>
-
-            <m.span
               className="hero-badge-years group/badge inline-flex cursor-default items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)]/18 to-[var(--accent-2)]/12 px-3 py-1 text-xs font-semibold text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20"
               whileHover={badgeHover}
               whileTap={badgeTap}
@@ -144,7 +134,7 @@ export function Hero() {
             {locale === "ar" ? (
               <m.span
                 variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
-                className="text-gradient-hero block"
+                className="text-gradient-hero py-2 block"
               >
                 {name}
               </m.span>
@@ -201,7 +191,7 @@ export function Hero() {
           >
             <MotionLink
               href="/projects"
-              className="hero-cta-primary group/cta inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-[box-shadow] duration-300 hover:shadow-glow"
+              className="btn-fx-primary hero-cta-primary group/cta relative inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-[box-shadow] duration-300 hover:shadow-glow"
               whileHover={ctaHover}
               whileTap={ctaTap}
             >
@@ -212,7 +202,7 @@ export function Hero() {
             </MotionLink>
             <MotionLink
               href="/contact"
-              className="group/cta glass-control inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:text-[var(--accent)]"
+              className="btn-fx-glass group/cta glass-control relative inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-2xl px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:text-[var(--accent)]"
               whileHover={ctaHover}
               whileTap={ctaTap}
             >
@@ -232,7 +222,7 @@ export function Hero() {
               href={personal.social.github}
               target="_blank"
               rel="noreferrer"
-              className="glass-control inline-flex h-11 w-11 text-[var(--text-secondary)] hover:text-[var(--accent)] hover:shadow-glow"
+              className="btn-fx-glass-icon glass-control relative inline-flex h-11 w-11 overflow-hidden text-[var(--text-secondary)] hover:text-[var(--accent)] hover:shadow-glow"
               aria-label="GitHub"
               whileHover={reducedMotion ? undefined : { y: -3, scale: 1.06 }}
               whileTap={reducedMotion ? undefined : { scale: 0.94 }}
@@ -244,7 +234,7 @@ export function Hero() {
               href={personal.social.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="glass-control inline-flex h-11 w-11 text-[var(--text-secondary)] hover:text-[var(--accent)] hover:shadow-glow"
+              className="btn-fx-glass-icon glass-control relative inline-flex h-11 w-11 overflow-hidden text-[var(--text-secondary)] hover:text-[var(--accent)] hover:shadow-glow"
               aria-label="LinkedIn"
               whileHover={reducedMotion ? undefined : { y: -3, scale: 1.06 }}
               whileTap={reducedMotion ? undefined : { scale: 0.94 }}
@@ -254,7 +244,7 @@ export function Hero() {
             </m.a>
             <m.a
               href={personal.social.email}
-              className="glass-control inline-flex h-11 w-11 text-[var(--text-secondary)] hover:text-[var(--accent)] hover:shadow-glow"
+              className="btn-fx-glass-icon glass-control relative inline-flex h-11 w-11 overflow-hidden text-[var(--text-secondary)] hover:text-[var(--accent)] hover:shadow-glow"
               aria-label="Email"
               whileHover={reducedMotion ? undefined : { y: -3, scale: 1.06 }}
               whileTap={reducedMotion ? undefined : { scale: 0.94 }}

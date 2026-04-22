@@ -1,6 +1,7 @@
 "use client";
 
 import { useId } from "react";
+import { m, useReducedMotion } from "framer-motion";
 import { useLocale } from "next-intl";
 import { personal } from "@/data/personal";
 import { pickStr } from "@/lib/locale-text";
@@ -29,7 +30,7 @@ function NameLine({ locale }: { locale: Locale }) {
   if (locale === "ar") {
     return (
       <span
-        className="min-w-0 bg-gradient-to-l from-[var(--logo-gradient-start)] to-[var(--logo-gradient-end)] bg-clip-text text-base font-semibold leading-tight text-transparent"
+        className="min-w-0 bg-gradient-to-l from-[var(--logo-gradient-start)] to-[var(--logo-gradient-end)] bg-clip-text text-[1.05rem] font-bold leading-tight text-transparent"
         style={{ fontFamily: "var(--font-arabic), var(--font-sans), sans-serif" }}
       >
         {full}
@@ -38,10 +39,14 @@ function NameLine({ locale }: { locale: Locale }) {
   }
   const { first, rest } = splitNameForMark(full);
   if (!rest) {
-    return <span className="text-base font-semibold text-[var(--text-primary)]">{first}</span>;
+    return (
+      <span className="font-logo text-[1.05rem] font-bold tracking-tight text-[var(--text-primary)]">
+        {first}
+      </span>
+    );
   }
   return (
-    <span className="inline min-w-0 text-base font-semibold leading-tight">
+    <span className="inline min-w-0 font-logo text-[1.05rem] font-bold leading-tight tracking-tight">
       <span className="text-[var(--text-primary)]">{first}</span>{" "}
       <span className="bg-gradient-to-r from-[var(--logo-gradient-start)] to-[var(--logo-gradient-end)] bg-clip-text text-transparent">
         {rest}
@@ -54,7 +59,10 @@ function SubtitleLine({ locale }: { locale: Locale }) {
   const line = pickStr(locale, personal.title, personal.titleAr, personal.titleFr);
   return (
     <p
-      className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-[var(--text-muted)]"
+      className={cn(
+        "text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[var(--text-muted)]",
+        locale !== "ar" && "font-logo",
+      )}
       style={locale === "ar" ? { fontFamily: "var(--font-arabic), var(--font-sans), sans-serif" } : undefined}
     >
       {line}
@@ -99,7 +107,7 @@ function LogoMark({ className, labelId }: { className?: string; labelId: string 
         y="30.5"
         textAnchor="middle"
         fill={`url(#${labelId})`}
-        style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}
+        style={{ fontFamily: "var(--font-logo-display)" }}
         fontSize="16.5"
         fontWeight="800"
         letterSpacing="-0.04em"
@@ -126,31 +134,67 @@ export function BayanLogo({ variant = "horizontal", size = "md", className }: Pr
   const reactId = useId();
   const gradId = `bayan-logo-grad-${reactId.replace(/:/g, "")}`;
   const locale = useLocale() as Locale;
+  const reduceMotion = useReducedMotion();
 
   const markSize =
     size === "sm" ? "h-8 w-8" : size === "lg" ? "h-11 w-11 md:h-12 md:w-12" : "h-9 w-9 sm:h-10 sm:w-10";
 
+  const skewHover = reduceMotion ? undefined : { skewX: locale === "ar" ? 5 : -5 };
+
   if (variant === "mark") {
     return (
-      <span className={cn("inline-flex shrink-0", className)}>
+      <m.span
+        className={cn("inline-flex shrink-0", className)}
+        whileHover={reduceMotion ? undefined : { skewX: locale === "ar" ? 6 : -6 }}
+        transition={{ type: "spring", stiffness: 440, damping: 28 }}
+      >
         <LogoMark className={markSize} labelId={gradId} />
-      </span>
+      </m.span>
     );
   }
 
   return (
-    <div
+    <m.div
       className={cn(
-        "flex min-w-0 items-center gap-2.5 sm:gap-3",
+        "group/logo inline-flex min-w-0 items-center gap-2.5 sm:gap-3",
         size === "sm" && "gap-2",
         className,
       )}
+      whileHover={skewHover}
+      transition={{ type: "spring", stiffness: 440, damping: 28 }}
     >
-      <LogoMark className={markSize} labelId={gradId} />
-      <div className="flex min-w-0 flex-col items-start gap-0 text-start">
-        <NameLine locale={locale} />
+      <m.span
+        className="relative shrink-0"
+        whileHover={reduceMotion ? undefined : { rotate: locale === "ar" ? -2 : 2 }}
+        transition={{ type: "spring", stiffness: 380, damping: 22 }}
+      >
+        <LogoMark className={markSize} labelId={gradId} />
+        <span
+          className="pointer-events-none absolute -inset-1 -z-10 rounded-2xl bg-[radial-gradient(circle_at_30%_30%,color-mix(in_srgb,var(--logo-gradient-start)_35%,transparent),transparent_65%)] opacity-0 blur-md transition-opacity duration-500 group-hover/logo:opacity-100"
+          aria-hidden
+        />
+      </m.span>
+
+      <div className="relative flex min-w-0 flex-col items-start gap-0.5 text-start">
+        <span
+          className="pointer-events-none absolute -start-3 top-1/2 hidden h-10 w-[3px] -translate-y-1/2 rounded-full bg-gradient-to-b from-[var(--logo-gradient-start)]/90 via-[var(--accent)]/35 to-[var(--logo-gradient-end)]/50 opacity-90 sm:block"
+          aria-hidden
+        />
+        <span
+          className="pointer-events-none absolute -top-2.5 end-0 flex translate-x-0.5 gap-1 opacity-80 sm:-top-3"
+          aria-hidden
+        >
+          <span className="h-1 w-1 rounded-full bg-[var(--logo-gradient-start)] shadow-[0_0_8px_color-mix(in_srgb,var(--logo-gradient-start)_60%,transparent)]" />
+          <span className="h-1 w-1 rounded-full bg-[var(--logo-gradient-end)] shadow-[0_0_8px_color-mix(in_srgb,var(--logo-gradient-end)_55%,transparent)]" />
+          <span className="hidden h-1 w-1 rounded-full bg-[var(--accent)]/90 sm:inline" />
+        </span>
+
+        <div className="flex min-w-0 items-baseline gap-2">
+          <NameLine locale={locale} />
+          
+        </div>
         <SubtitleLine locale={locale} />
       </div>
-    </div>
+    </m.div>
   );
 }

@@ -58,6 +58,11 @@
     "overview": "Aperçu",
     "view_details": "Voir le détail",
     "live": "En ligne",
+    "gallery_title": "Captures",
+    "gallery_dialog_label": "Galerie du projet",
+    "gallery_close": "Fermer la galerie",
+    "gallery_prev": "Image précédente",
+    "gallery_next": "Image suivante",
     "in_progress": "En cours",
     "archived": "Archivé",
     "award_ribbon": "1er prix — Hackathon national IA"
@@ -75,6 +80,8 @@
     "current": "Actuel",
     "remote": "À distance",
     "education": "Formation",
+    "certificate": "Certificat",
+    "transcript": "Relevé de notes",
     "view_timeline": "Parcours complet",
     "responsibilities": "Responsabilités clés",
     "tech": "Technologies"
@@ -98,7 +105,8 @@
   },
   "footer": {
     "rights": "Tous droits réservés.",
-    "built_with": "Construit avec Next.js & Tailwind"
+    "built_with": "Construit avec Next.js & Tailwind",
+    "made_with": "Créé avec"
   },
   "common": {
     "read_more": "Lire la suite",

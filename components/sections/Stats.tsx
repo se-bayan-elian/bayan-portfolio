@@ -1,12 +1,21 @@
 "use client";
 
 import { m } from "framer-motion";
-import { useLocale, useTranslations } from "next-intl";
+import { Award, Clock, FolderKanban, Globe2 } from "lucide-react";
+import { useLocale } from "next-intl";
+import type { StatIconKey } from "@/data/stats";
 import { stats } from "@/data/stats";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { glassCardHover, glassCardTap } from "@/lib/motion-variants";
 import { useLiquidGlassPointer } from "@/lib/use-liquid-glass";
 import type { Locale } from "@/i18n/routing";
+
+const STAT_ICONS: Record<StatIconKey, typeof FolderKanban> = {
+  projects: FolderKanban,
+  experience: Clock,
+  globe: Globe2,
+  award: Award,
+};
 
 function labelFor(locale: Locale, s: (typeof stats)[number]) {
   if (locale === "ar") return s.labelAr;
@@ -16,15 +25,13 @@ function labelFor(locale: Locale, s: (typeof stats)[number]) {
 
 export function Stats() {
   const locale = useLocale() as Locale;
-  const tStats = useTranslations("stats");
   const liq = useLiquidGlassPointer();
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-14 md:px-6">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((s, i) => {
-          const suffix =
-            s.label === "Hackathon Awards" ? tStats("hackathon_suffix") : s.suffix;
+          const Icon = STAT_ICONS[s.iconKey];
           return (
             <m.div
               key={s.label}
@@ -38,12 +45,19 @@ export function Stats() {
               whileHover={glassCardHover}
               whileTap={glassCardTap}
             >
-              <p className="text-sm font-medium text-[var(--text-muted)]">{labelFor(locale, s)}</p>
+              <div className="flex items-start justify-between gap-3">
+                <p className="text-sm font-medium leading-snug text-[var(--text-muted)]">
+                  {labelFor(locale, s)}
+                </p>
+                <span className="inline-flex shrink-0 rounded-xl bg-[color-mix(in_srgb,var(--accent)_14%,transparent)] p-2 text-[var(--accent)] ring-1 ring-[color-mix(in_srgb,var(--accent)_28%,transparent)]">
+                  <Icon className="h-5 w-5" aria-hidden />
+                </span>
+              </div>
               <p className="mt-3 text-3xl font-bold tabular-nums">
                 <AnimatedCounter
                   className="text-gradient-hero"
                   value={s.value}
-                  suffix={suffix}
+                  suffix={s.suffix}
                 />
               </p>
             </m.div>

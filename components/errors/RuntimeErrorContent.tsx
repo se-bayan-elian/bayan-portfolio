@@ -13,6 +13,7 @@ type Props = {
 
 export function RuntimeErrorContent({ error, reset }: Props) {
   const t = useTranslations("errors.runtime");
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     console.error(error);

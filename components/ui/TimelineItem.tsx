@@ -109,8 +109,8 @@ export function TimelineItem({
           </p>
           <ul
             className={cn(
-              "mt-2 space-y-1.5 text-sm text-[var(--text-secondary)]",
-              locale === "ar" ? "list-disc pe-4" : "list-disc ps-4",
+              "mt-2 space-y-1.5 text-sm text-[var(--text-secondary)] ps-6 list-disc"
+,
             )}
           >
             {responsibilities.slice(0, 5).map((r) => (

@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Tajawal } from "next/font/google";
+import { Geist, Geist_Mono, Outfit, Tajawal } from "next/font/google";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
@@ -10,6 +10,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Cursor } from "@/components/ui/Cursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { routing } from "@/i18n/routing";
+import '../globals.css'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,12 @@ const tajawal = Tajawal({
   variable: "--font-tajawal",
   subsets: ["arabic"],
   weight: ["400", "500", "700"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["600", "700"],
 });
 
 export function generateStaticParams() {
@@ -50,7 +57,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${tajawal.variable} min-h-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${tajawal.variable} ${outfit.variable} min-h-screen antialiased`}
       >
         <AppProviders messages={messages}>
           <LiquidAmbient />

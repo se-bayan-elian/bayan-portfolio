@@ -57,7 +57,12 @@
     "view_all": "View all projects",
     "overview": "Overview",
     "view_details": "View details",
-    "live": "Live",
+    "live": "visit",
+    "gallery_title": "Screenshots",
+    "gallery_dialog_label": "Project image gallery",
+    "gallery_close": "Close gallery",
+    "gallery_prev": "Previous image",
+    "gallery_next": "Next image",
     "in_progress": "In progress",
     "archived": "Archived",
     "award_ribbon": "1st Place — National AI Hackathon"
@@ -75,6 +80,8 @@
     "current": "Current",
     "remote": "Remote",
     "education": "Education",
+    "certificate": "Certificate",
+    "transcript": "Academic transcript",
     "view_timeline": "Full timeline",
     "responsibilities": "Key responsibilities",
     "tech": "Technologies"
@@ -98,7 +105,8 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "built_with": "Built with Next.js & Tailwind"
+    "built_with": "Built with Next.js & Tailwind",
+    "made_with": "Made with"
   },
   "common": {
     "read_more": "Read more",

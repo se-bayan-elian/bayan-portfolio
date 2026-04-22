@@ -13,6 +13,7 @@
     --font-sans: var(--font-geist-sans), system-ui, sans-serif;
     --font-mono: var(--font-geist-mono), ui-monospace, monospace;
     --font-arabic: var(--font-tajawal), var(--font-geist-sans), sans-serif;
+    --font-logo-display: var(--font-outfit), var(--font-geist-sans), system-ui, sans-serif;
 
     position: relative;
     min-height: 100vh;
@@ -501,5 +502,201 @@
   border-radius: 9999px;
   background: var(--gradient-line);
   opacity: 0.9;
+}
+
+/* CTA / glass buttons: wave sheen + soft “bubbles” on hover */
+.btn-fx-primary,
+.btn-fx-glass,
+.btn-fx-glass-icon {
+  isolation: isolate;
+}
+
+.btn-fx-primary > *,
+.btn-fx-glass > *,
+.btn-fx-glass-icon > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-fx-primary::before,
+.btn-fx-glass::before,
+.btn-fx-glass-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+      circle at 18% 88%,
+      color-mix(in srgb, #fff 16%, transparent) 0%,
+      transparent 42%
+    ),
+    radial-gradient(circle at 82% 12%, color-mix(in srgb, var(--accent-2) 35%, transparent) 0%, transparent 46%),
+    radial-gradient(circle at 52% 48%, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 38%);
+  transition: opacity 0.35s ease;
+}
+
+.btn-fx-primary:hover::before,
+.btn-fx-glass:hover::before,
+.btn-fx-glass-icon:hover::before {
+  opacity: 1;
+  animation: btn-bubbles-pop 0.85s ease-out;
+}
+
+.btn-fx-primary::after,
+.btn-fx-glass::after {
+  content: "";
+  position: absolute;
+  inset: -35% -15%;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: repeating-linear-gradient(
+    118deg,
+    transparent 0px,
+    transparent 10px,
+    color-mix(in srgb, #fff 9%, transparent) 10px,
+    color-mix(in srgb, #fff 9%, transparent) 13px
+  );
+  mask-image: linear-gradient(115deg, transparent 30%, #000 48%, transparent 72%);
+  transform: translateX(-120%) skewX(-14deg);
+  transition: opacity 0.35s ease;
+}
+
+.btn-fx-primary:hover::after,
+.btn-fx-glass:hover::after {
+  opacity: 1;
+  animation: btn-wave-sweep 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.btn-fx-glass-icon::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at 35% 65%,
+    color-mix(in srgb, var(--accent) 28%, transparent),
+    transparent 52%
+  );
+  transform: scale(0.6);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.btn-fx-glass-icon:hover::after {
+  opacity: 1;
+  transform: scale(1.08);
+  animation: btn-icon-bloom 0.65s ease-out;
+}
+
+@keyframes btn-bubbles-pop {
+  0% {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes btn-wave-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-14deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(120%) skewX(-14deg);
+    opacity: 0.15;
+  }
+}
+
+@keyframes btn-icon-bloom {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+[dir="rtl"] .btn-fx-primary::after,
+[dir="rtl"] .btn-fx-glass::after {
+  transform: translateX(120%) skewX(14deg);
+}
+
+[dir="rtl"] .btn-fx-primary:hover::after,
+[dir="rtl"] .btn-fx-glass:hover::after {
+  animation-name: btn-wave-sweep-rtl;
+}
+
+@keyframes btn-wave-sweep-rtl {
+  0% {
+    transform: translateX(120%) skewX(14deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(-120%) skewX(14deg);
+    opacity: 0.15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-fx-primary::before,
+  .btn-fx-glass::before,
+  .btn-fx-glass-icon::before,
+  .btn-fx-primary::after,
+  .btn-fx-glass::after,
+  .btn-fx-glass-icon::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    opacity: 0 !important;
+    transform: none !important;
+  }
+}
+
+/* Project cards: instant-film polaroid frame (thick bottom margin) */
+.project-polaroid-frame {
+  padding: 12px 12px 48px 12px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--bg-secondary) 90%, #ffffff);
+  box-shadow:
+    0 2px 6px rgb(0 0 0 / 0.1),
+    0 26px 58px -22px rgb(0 0 0 / 0.42),
+    inset 0 1px 0 rgb(255 255 255 / 0.42);
+}
+
+[data-theme="dark"] .project-polaroid-frame {
+  background: color-mix(in srgb, var(--bg-secondary) 78%, #1e293b);
+  box-shadow:
+    0 2px 8px rgb(0 0 0 / 0.45),
+    0 28px 64px -20px rgb(0 0 0 / 0.55),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-polaroid-frame {
+    transform: none !important;
+  }
 }
 

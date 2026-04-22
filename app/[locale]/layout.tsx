@@ -1,0 +1,71 @@
+import { Geist, Geist_Mono, Noto_Sans_Arabic } from "next/font/google";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
+import { AppProviders } from "@/components/providers/AppProviders";
+import { Footer } from "@/components/layout/Footer";
+import { BackgroundLineGrid } from "@/components/layout/BackgroundLineGrid";
+import { LiquidAmbient } from "@/components/layout/LiquidAmbient";
+import { Navbar } from "@/components/layout/Navbar";
+import { Cursor } from "@/components/ui/Cursor";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { routing } from "@/i18n/routing";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const notoArabic = Noto_Sans_Arabic({
+  variable: "--font-noto-arabic",
+  subsets: ["arabic"],
+});
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+type Props = {
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+};
+
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
+
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+  const messages = await getMessages();
+  const dir = locale === "ar" ? "rtl" : "ltr";
+
+  return (
+    <html lang={locale} dir={dir} suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${notoArabic.variable} min-h-screen antialiased`}
+      >
+        <AppProviders messages={messages}>
+          <LiquidAmbient />
+          <BackgroundLineGrid />
+          <ScrollProgress />
+          <Cursor />
+          <Navbar />
+          <main
+            id="main-content"
+            className="relative z-10 min-h-[60vh] bg-transparent pt-[5.25rem] sm:pt-[5.5rem]"
+          >
+            {children}
+          </main>
+          <Footer />
+        </AppProviders>
+      </body>
+    </html>
+  );
+}

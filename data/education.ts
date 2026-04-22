@@ -1,0 +1,31 @@
+export const education = [
+  {
+    id: "university-of-palestine",
+    institution: "University of Palestine",
+    institutionAr: "جامعة فلسطين",
+    institutionFr: "Université de Palestine",
+    logo: "/images/logos/up.png",
+    degree: "Bachelor of Software Engineering",
+    degreeAr: "بكالوريوس هندسة البرمجيات",
+    degreeFr: "Licence en Génie Logiciel",
+    field: "Software Engineering",
+    fieldAr: "هندسة البرمجيات",
+    fieldFr: "Génie Logiciel",
+    startDate: "2020",
+    endDate: "2025",
+    grade: "Excellent",
+    gradeAr: "ممتاز",
+    gradeFr: "Mention Excellent",
+    achievements: [
+      "Graduated with Excellent honors",
+      "Specialized in system design and advanced technologies",
+      "Hands-on experience through projects and internships",
+      "Mastered programming, algorithms, and software architecture",
+    ],
+    achievementsAr: [
+      "تخرج بمرتبة الشرف الممتازة",
+      "تخصص في تصميم الأنظمة والتقنيات المتقدمة",
+      "خبرة عملية من خلال المشاريع والتدريب",
+    ],
+  },
+];

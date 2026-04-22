@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "about": "من أنا",
+    "projects": "المشاريع",
+    "skills": "المهارات",
+    "experience": "الخبرة",
+    "contact": "تواصل"
+  },
+  "hero": {
+    "greeting": "مرحباً، أنا",
+    "subtitle": "مهندس برمجيات متكامل",
+    "intro": "أبني منصات ويب جاهزة للإنتاج، وواجهات REST وGraphQL، وتطبيقات React Native — بنية نظيفة، أداء قوي، وتجربة مستخدم تحقق النتائج.",
+    "available": "متاح حالياً",
+    "badge_years": "{years}+ سنوات خبرة",
+    "badge_stack": "Next.js · Nest · TypeScript",
+    "badge_langs": "العربية · الإنجليزية",
+    "stat_years_label": "الخبرة",
+    "stat_focus_label": "التخصص",
+    "stat_focus_value": "متكامل",
+    "card_snapshot": "لمحة",
+    "card_photo_alt": "صورة شخصية",
+    "cta_work": "استعرض المشاريع",
+    "cta_contact": "ابدأ محادثة",
+    "cta_work_short": "المشاريع",
+    "cta_contact_short": "تواصل",
+    "floating_next": "Next.js",
+    "floating_nest": "Nest.js",
+    "floating_rn": "React Native",
+    "floating_ts": "TypeScript"
+  },
+  "about": {
+    "title": "من أنا",
+    "bio_heading": "نبذة",
+    "info_heading": "معلومات شخصية",
+    "location_label": "الموقع",
+    "email_label": "البريد",
+    "languages_label": "اللغات",
+    "available_label": "متاح",
+    "available_yes": "نعم",
+    "available_no": "لا",
+    "specialties_heading": "ما أتخصص فيه",
+    "education_heading": "التعليم",
+    "download_cv": "تحميل السيرة الذاتية",
+    "hackathon_title": "إنجاز في الهاكاثون",
+    "hackathon_body": "المركز الأول — هاكاثون الذكاء الاصطناعي الوطني في Techno Park لمنصة استطلاعات مدعومة بالذكاء الاصطناعي."
+  },
+  "projects": {
+    "title": "المشاريع",
+    "subtitle": "أعمال مختارة عبر الويب والموبايل والذكاء الاصطناعي.",
+    "filter_all": "الكل",
+    "filter_ecommerce": "تجارة إلكترونية",
+    "filter_ai": "ذكاء اصطناعي",
+    "filter_web": "ويب",
+    "filter_mobile": "موبايل",
+    "featured": "مميز",
+    "view_all": "كل المشاريع",
+    "overview": "نظرة عامة",
+    "view_details": "التفاصيل",
+    "live": "مباشر",
+    "in_progress": "قيد التنفيذ",
+    "archived": "مؤرشف",
+    "award_ribbon": "المركز الأول — هاكاثون الذكاء الاصطناعي الوطني"
+  },
+  "skills": {
+    "title": "المهارات",
+    "subtitle": "أدوات وتقنيات أستخدمها لإطلاق منتجات فعلية.",
+    "years_short": "سنوات",
+    "featured": "بارز",
+    "explore_all": "عرض كل المهارات"
+  },
+  "experience": {
+    "title": "الخبرة",
+    "subtitle": "الأدوار، الأثر، والتقنيات.",
+    "current": "حالياً",
+    "remote": "عن بُعد",
+    "education": "التعليم",
+    "view_timeline": "الخط الزمني الكامل",
+    "responsibilities": "المسؤوليات الرئيسية",
+    "tech": "التقنيات"
+  },
+  "contact": {
+    "title": "تواصل",
+    "subtitle": "أخبرني عن منتجك أو فريقك أو فكرتك.",
+    "email": "البريد",
+    "location": "الموقع",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "status": "الحالة",
+    "status_open": "متاح لفرص جديدة",
+    "form_name": "الاسم",
+    "form_email": "البريد الإلكتروني",
+    "form_message": "الرسالة",
+    "form_submit": "إرسال",
+    "form_sending": "جاري الإرسال…",
+    "form_success": "شكراً — تم إرسال رسالتك.",
+    "form_error": "حدث خطأ. حاول مرة أخرى أو راسلني بالبريد."
+  },
+  "footer": {
+    "rights": "جميع الحقوق محفوظة.",
+    "built_with": "مبني بـ Next.js و Tailwind"
+  },
+  "common": {
+    "read_more": "اقرأ المزيد",
+    "back": "رجوع",
+    "loading": "جاري التحميل"
+  },
+  "theme": {
+    "label": "المظهر",
+    "light": "فاتح",
+    "dark": "داكن",
+    "dracula": "دراكولا",
+    "nord": "نورد",
+    "solarized": "سولارايزد"
+  },
+  "stats": {
+    "hackathon_suffix": "مركز"
+  },
+  "testimonials": {
+    "title": "آراء",
+    "subtitle": "كلمات لطيفة من المتعاونين.",
+    "empty": "المزيد من الآراء قريباً."
+  }
+}

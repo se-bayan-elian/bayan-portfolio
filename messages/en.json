@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "subtitle": "Full Stack Engineer",
+    "intro": "I ship production-ready web platforms, REST & GraphQL APIs, and React Native apps — clean architecture, solid performance, and UX that converts.",
+    "available": "Available now",
+    "badge_years": "{years}+ yrs experience",
+    "badge_stack": "Next.js · Nest · TypeScript",
+    "badge_langs": "Arabic · English",
+    "stat_years_label": "Experience",
+    "stat_focus_label": "Focus",
+    "stat_focus_value": "Full stack",
+    "card_snapshot": "Snapshot",
+    "card_photo_alt": "Bayan profile photo",
+    "cta_work": "Explore projects",
+    "cta_contact": "Start a conversation",
+    "cta_work_short": "Projects",
+    "cta_contact_short": "Contact",
+    "floating_next": "Next.js",
+    "floating_nest": "Nest.js",
+    "floating_rn": "React Native",
+    "floating_ts": "TypeScript"
+  },
+  "about": {
+    "title": "About",
+    "bio_heading": "Bio",
+    "info_heading": "Personal info",
+    "location_label": "Location",
+    "email_label": "Email",
+    "languages_label": "Languages",
+    "available_label": "Available",
+    "available_yes": "Yes",
+    "available_no": "No",
+    "specialties_heading": "What I specialize in",
+    "education_heading": "Education",
+    "download_cv": "Download CV",
+    "hackathon_title": "Hackathon achievement",
+    "hackathon_body": "1st Place — National AI Hackathon at Techno Park for an AI-powered survey platform."
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected work across web, mobile, and AI.",
+    "filter_all": "All",
+    "filter_ecommerce": "E-commerce",
+    "filter_ai": "AI",
+    "filter_web": "Web",
+    "filter_mobile": "Mobile",
+    "featured": "Featured",
+    "view_all": "View all projects",
+    "overview": "Overview",
+    "view_details": "View details",
+    "live": "Live",
+    "in_progress": "In progress",
+    "archived": "Archived",
+    "award_ribbon": "1st Place — National AI Hackathon"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Tools and technologies I use to ship production software.",
+    "years_short": "yrs",
+    "featured": "Featured",
+    "explore_all": "Explore all skills"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Roles, impact, and tech stacks.",
+    "current": "Current",
+    "remote": "Remote",
+    "education": "Education",
+    "view_timeline": "Full timeline",
+    "responsibilities": "Key responsibilities",
+    "tech": "Technologies"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Tell me about your product, team, or idea.",
+    "email": "Email",
+    "location": "Location",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "status": "Status",
+    "status_open": "Open to new opportunities",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_message": "Message",
+    "form_submit": "Send message",
+    "form_sending": "Sending…",
+    "form_success": "Thanks — your message was sent.",
+    "form_error": "Something went wrong. Try again or email directly."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "built_with": "Built with Next.js & Tailwind"
+  },
+  "common": {
+    "read_more": "Read more",
+    "back": "Back",
+    "loading": "Loading"
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "dracula": "Dracula",
+    "nord": "Nord",
+    "solarized": "Solarized"
+  },
+  "stats": {
+    "hackathon_suffix": "st place"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "Kind words from collaborators.",
+    "empty": "More testimonials coming soon."
+  }
+}

@@ -1,0 +1,409 @@
+@import "../styles/themes.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+    --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+    --font-arabic: var(--font-noto-arabic), var(--font-geist-sans), sans-serif;
+
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  [dir="rtl"] body {
+    font-family: var(--font-arabic);
+  }
+
+  ::selection {
+    background: var(--accent-subtle);
+    color: var(--text-primary);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+.liquid-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.liquid-ambient__orb {
+  position: absolute;
+  width: min(90vw, 48rem);
+  height: min(90vw, 48rem);
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.26;
+  will-change: transform;
+}
+
+.liquid-ambient__orb--a {
+  top: -18%;
+  left: -8%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent) 70%, transparent) 0%,
+    transparent 68%
+  );
+  animation: liquid-float-a 26s ease-in-out infinite;
+}
+
+.liquid-ambient__orb--b {
+  right: -12%;
+  top: 8%;
+  width: min(80vw, 40rem);
+  height: min(80vw, 40rem);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent-2) 65%, transparent) 0%,
+    transparent 70%
+  );
+  animation: liquid-float-b 32s ease-in-out infinite;
+}
+
+.liquid-ambient__orb--c {
+  left: 15%;
+  bottom: -25%;
+  width: min(85vw, 44rem);
+  height: min(85vw, 44rem);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent) 35%, var(--accent-2)) 0%,
+    transparent 65%
+  );
+  opacity: 0.2;
+  animation: liquid-float-c 38s ease-in-out -4s infinite;
+}
+
+@keyframes liquid-float-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(6%, 8%) scale(1.05);
+  }
+  66% {
+    transform: translate(-4%, 3%) scale(0.98);
+  }
+}
+
+@keyframes liquid-float-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-7%, 10%) scale(1.08);
+  }
+}
+
+@keyframes liquid-float-c {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  40% {
+    transform: translate(8%, -5%) scale(1.04);
+  }
+  80% {
+    transform: translate(-3%, 6%) scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-ambient__orb {
+    animation: none;
+    opacity: 0.14;
+  }
+}
+
+/* Shared liquid stack: frosted tints + translucent base + real backdrop blur. */
+.card-surface,
+.glass-panel {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  background-color: var(--glass-bg);
+  background-image:
+    linear-gradient(180deg, color-mix(in srgb, #ffffff 0.24, transparent) 0%, transparent 46%),
+    linear-gradient(215deg, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 55%),
+    linear-gradient(305deg, color-mix(in srgb, var(--accent-2) 10%, transparent) 0%, transparent 50%);
+  box-shadow: var(--shadow), var(--glass-highlight), var(--glass-lowlight);
+  backdrop-filter: blur(44px) saturate(1.85);
+  -webkit-backdrop-filter: blur(44px) saturate(1.85);
+  transform: translateZ(0);
+}
+
+.glass-panel {
+  border: 1px solid var(--glass-border);
+}
+
+.card-surface {
+  /* Allow outer glows / spotlight; clip content per-child where needed. */
+  overflow: visible;
+  border: 1px solid color-mix(in srgb, var(--glass-border) 65%, var(--border));
+  transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Real children above ::before/::after sheen (not decorative blur orbs). */
+.card-surface-glow > *:not([data-glass-back]) {
+  position: relative;
+  z-index: 2;
+}
+
+.card-surface-glow > [data-glass-back] {
+  z-index: 0;
+}
+
+/* Interactive liquid glass: rim light, pointer-following highlight, sheen (lift = Framer). */
+.card-surface-glow {
+  will-change: transform, box-shadow;
+}
+
+.card-surface-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 100% at var(--liq-x, 50%) var(--liq-y, 28%),
+    color-mix(in srgb, var(--accent) 22%, transparent) 0%,
+    color-mix(in srgb, var(--accent-2) 8%, transparent) 38%,
+    transparent 62%
+  );
+  opacity: 0.45;
+  transition: opacity 0.5s ease;
+}
+
+.card-surface-glow:hover::before {
+  opacity: 0.75;
+}
+
+.card-surface-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 36%,
+    color-mix(in srgb, #fff 0.18, transparent) 48%,
+    color-mix(in srgb, var(--accent) 0.1, #fff) 50%,
+    color-mix(in srgb, #fff 0.16, transparent) 52%,
+    transparent 64%,
+    transparent 100%
+  );
+  background-size: 240% 100%;
+  background-position: 100% 50%;
+  opacity: 0;
+}
+
+.card-surface-glow:hover::after {
+  opacity: 0.75;
+  animation: glass-sheen-sweep 0.85s ease-out;
+}
+
+.card-surface-glow:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--glass-border));
+  box-shadow: var(--shadow), var(--shadow-glow), var(--glass-highlight), var(--glass-lowlight),
+    0 18px 48px -12px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+@keyframes glass-sheen-sweep {
+  0% {
+    background-position: 100% 50%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-surface-glow,
+  .card-surface-glow::before,
+  .card-surface-glow::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .card-surface-glow::after {
+    opacity: 0;
+  }
+
+  .glass-nav-shell:hover {
+    transform: none;
+  }
+}
+
+.glass-nav-shell {
+  position: relative;
+  border-radius: 1.75rem;
+  background-color: var(--glass-bg-strong);
+  background-image:
+    linear-gradient(180deg, color-mix(in srgb, #ffffff 0.2, transparent) 0%, transparent 44%),
+    linear-gradient(220deg, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 52%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow), 0 24px 64px -20px color-mix(in srgb, var(--accent) 15%, transparent),
+    var(--glass-highlight), var(--glass-lowlight);
+  backdrop-filter: blur(40px) saturate(1.85);
+  -webkit-backdrop-filter: blur(40px) saturate(1.85);
+  transform: translateZ(0);
+  transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.45s ease, transform 0.5s ease;
+}
+
+.glass-nav-shell:hover {
+  box-shadow: var(--shadow), 0 28px 72px -18px color-mix(in srgb, var(--accent) 22%, transparent),
+    var(--glass-highlight), var(--glass-lowlight);
+  transform: translateY(-1px) translateZ(0);
+}
+
+.glass-nav-track {
+  position: relative;
+  border-radius: 1rem;
+  background: var(--glass-track);
+  box-shadow: inset 0 1px 0 0 color-mix(in srgb, #fff 12%, transparent);
+  border: 1px solid var(--glass-border-soft);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-pill-active {
+  background: color-mix(in srgb, var(--glass-bg-strong) 88%, var(--accent) 12%);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 28%, transparent),
+    0 8px 24px -8px color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--text-primary);
+}
+
+.glass-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.875rem;
+  border: 1px solid var(--glass-border);
+  background-color: var(--glass-bg);
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, #ffffff 0.12, transparent) 0%,
+    transparent 50%
+  );
+  color: var(--text-primary);
+  box-shadow: var(--glass-highlight);
+  backdrop-filter: blur(20px) saturate(1.55);
+  -webkit-backdrop-filter: blur(20px) saturate(1.55);
+  transform: translateZ(0);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.glass-control:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--glass-border));
+  color: var(--accent);
+  box-shadow: var(--glass-highlight), 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.glass-menu-panel {
+  border-radius: 1.5rem;
+  background-color: var(--glass-bg-strong);
+  background-image:
+    linear-gradient(180deg, color-mix(in srgb, #ffffff 0.22, transparent) 0%, transparent 46%),
+    linear-gradient(215deg, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 54%),
+    linear-gradient(305deg, color-mix(in srgb, var(--accent-2) 7%, transparent) 0%, transparent 50%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow), var(--glass-highlight);
+  backdrop-filter: blur(40px) saturate(1.8);
+  -webkit-backdrop-filter: blur(40px) saturate(1.8);
+  transform: translateZ(0);
+}
+
+@keyframes mesh-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.mesh-bg {
+  background: var(--gradient-hero);
+  background-size: 200% 200%;
+  animation: mesh-shift 38s ease infinite;
+}
+
+.hero-grid {
+  background-image: linear-gradient(var(--border) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--border) 0.5px, transparent 0.5px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000, transparent 72%);
+  opacity: 0.45;
+}
+
+.text-gradient-hero {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-heading {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.35rem;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: 0;
+  width: 2.75rem;
+  height: 0.2rem;
+  border-radius: 9999px;
+  background: var(--gradient-line);
+  opacity: 0.9;
+}
+

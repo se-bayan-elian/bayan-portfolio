@@ -111,7 +111,7 @@ export const projects: Project[] = [
       "جمعة (jmaa.sa) سوق سعودي للشراء الجماعي: يتجمّع المشترون على نفس المنتج ليحصل الجميع على سعر أقل عند اكتمال المجموعة — بشعار «اشترِ معاً ووفّر أكثر». المتجر يعرض إلكترونيات وغيرها مع مقارنة واضحة بين السعر العادي وسعر جمعة ورسائل تقسيط تمارا. على الصعيد التقني ساهمت عبر خدمات NestJS وواجهة Next.js: تكاملات دفع (منها NowLater وPaymob وAmwal Tech)، إعادة هيكلة، وإصلاح أعطال حرجة للحفاظ على موثوقية الدفع ومسارات المجموعة على نطاق واسع.",
     longDescriptionFr:
       "Jmaa (jmaa.sa) est une place de marché d'achat groupé : les acheteurs se regroupent sur un même produit pour obtenir un prix de groupe une fois le quota atteint — « Achetez ensemble. Économisez plus. » Le site met en avant l'électronique avec prix normal vs prix groupe et mentions Tamara. Côté technique : contributions NestJS et Next.js, intégrations paiement (NowLater, Paymob, Amwal Tech), refactorisations et corrections pour fiabiliser checkout et flux de groupe.",
-    thumbnail: "/images/projects/jmaa.jpg",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871111/Jmaa-Group-Shopping-Save-More-Together-04-22-2026_06_17_PM_lenneb.png",
     images: [],
     techStack: ["Next.js", "NestJS", "TypeScript", "Paymob", "NowLater", "Amwal Tech"],
     category: "ecommerce",
@@ -161,7 +161,7 @@ export const projects: Project[] = [
       "SurveyGenius (surveygenius.app) يقدّم منشئ استطلاعات بسيطاً مع تحليل أذكى: تحليلات مدعومة بالذكاء الاصطناعي، قوالب قابلة للتخصيص، ولوحات معلومات للفرق التي تحتاج إشارة سريعة من المستجيبين. بُني لصالح هاكاثون الذكاء الاصطناعي الوطني (المركز الأول): واجهة Next.js مع محرر استطلاع يشبه الـ no-code، معاينات حية، وتحليلات غنية (رسومية ونصية ورقمية). القصة التسويقية تؤكد الأمان والتخصيص وتحويل الردود الخام إلى توصيات لا مجرد رسوم بيانية.",
     longDescriptionFr:
       "SurveyGenius (surveygenius.app) propose un éditeur de sondages simple avec analyse plus intelligente : analytics IA, personnalisation et tableaux de bord pour les équipes pressées. Conçu pour le hackathon IA national (1er prix) : frontend Next.js avec éditeur type no-code, prévisualisations et analytics riches (graphiques, texte, chiffres). L'accent est mis sur sécurité, personnalisation et transformation des réponses brutes en recommandations.",
-    thumbnail: "/images/projects/survey-genius.jpg",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871114/SurveyGenius-%D8%A5%D9%86%D8%B4%D8%A7%D8%A1-%D8%A7%D8%B3%D8%AA%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A8%D8%A8%D8%B3%D8%A7%D8%B7%D8%A9_-%D8%AA%D8%AD%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D8%A8%D8%B0%D9%83%D8%A7%D8%A1-04-22-2026_06_17_PM_mbiuny.png",
     images: [],
     techStack: ["Next.js", "TypeScript", "AI/ML", "Drag & Drop", "Analytics Dashboard"],
     category: "ai",
@@ -212,7 +212,7 @@ export const projects: Project[] = [
       "rab-t.com يعرض رابط الخيال كواجهة متجر إبداعية: منتجات مميزة، أرقام للشركة (مشاريع منجزة، رضا، عملاء، خبرة)، وطبقة خدمات تُسوَّق كآمنة وسريعة ومدعومة. تقنياً الربط بين Next.js متجاوب وواجهات NestJS — يشمل محرر تصميم يشبه الوقت الفعلي ليعدّل العملاء النص والصور والألوان دون أدوات تصميم، مع إدارة طلبات ومخزون ودفع وتتبع سير عمل الطباعة من البداية للنهاية.",
     longDescriptionFr:
       "rab-t.com présente Rabt Alkhayal comme vitrine créative : produits vedettes, chiffres clés (projets, satisfaction, clients, ancienneté) et services sécurité/perf/support. Côté stack : Next.js responsive et APIs NestJS — éditeur temps réel pour texte/images/couleurs sans logiciel de design, plus commandes, stock, paiement et suivi du flux d'impression.",
-    thumbnail: "/images/projects/rabt-store.jpg",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871679/%D9%85%D9%86-%D9%86%D8%AD%D9%86-%D8%B1%D8%A8%D8%B7-%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D9%84-04-22-2026_06_24_PM_qoff5t.png",
     images: [],
     techStack: ["Next.js", "NestJS", "TypeScript", "Real-time Editor", "Payment Integration"],
     category: "ecommerce",
@@ -312,7 +312,7 @@ export const projects: Project[] = [
       "البيان الخيرية (albayancharity.org) تعرض رسالة مؤسسة البيان: مساعدات إنسانية للعائلات (منها نداءات تركز على غزة)، قصص شفافية، عدادات للمستفيدين، حضور المتطوعين، وأسئلة شائعة حول استخدام التبرعات. تقنياً تربط لوحة Next.js وShadCN وTailwind مع خلفية NestJS وMongoDB، وتدفقات OAuth2، وRBAC لأدوار الطاقم، وCI/CD عبر GitHub Actions، وNginx كوسيط عكسي، ونشر على عدة نطاقات فرعية على بنية VPS.",
     longDescriptionFr:
       "Albayan Charity (albayancharity.org) présente la fondation : aide humanitaire (appels dont Gaza), transparence, chiffres clés bénéficiaires/bénévoles, FAQ sur l'usage des dons. Ingénierie : Next.js + ShadCN + Tailwind, backend NestJS + MongoDB, OAuth2, RBAC, CI/CD GitHub Actions, Nginx et sous-domaines sur VPS.",
-    thumbnail: "/images/projects/albayan.jpg",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871935/%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9-%D8%A7%D9%84%D8%AD%D8%A7%D9%84%D9%8A-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86-04-22-2026_06_31_PM_pc5mqk.png",
     images: [],
     techStack: [
       "Next.js",
@@ -373,7 +373,7 @@ export const projects: Project[] = [
       "هواك (m-hawaak.com) يبرز البضائع السودانية في السعودية: تخفيضات موسمية (لافتات تذكر نسبة ولمدة محدودة)، أقسام رئيسية للمؤن الغذائية وللكريمات والعطور السودانية، إشارات لدفع بنكك، وشهادات عملاء في الصفحة الرئيسية. التسليم full-stack يجمع واجهة Next.js وShadCN وTailwind مع خدمات NestJS REST — كتالوج، مسارات دفع، ملفات مستخدمين، ونمذجة دقيقة للمنتجات والطلبات.",
     longDescriptionFr:
       "Hawaak (m-hawaak.com) met en avant les produits soudanais en Arabie : promotions saisonnières, rayons alimentaires et cosmétiques/parfums, paiement Bankak, témoignages clients. Full-stack Next.js + ShadCN + Tailwind et APIs NestJS — catalogue, checkout, profils, schémas produits/commandes.",
-    thumbnail: "/images/projects/hawaak.jpg",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871678/%D9%85%D8%AA%D8%AC%D8%B1-%D9%87%D9%88%D8%A7%D9%83-%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-04-22-2026_06_26_PM_nrhcmt.png",
     images: [],
     techStack: ["Next.js", "NestJS", "ShadCN", "Tailwind CSS", "TypeScript", "REST APIs"],
     category: "ecommerce",

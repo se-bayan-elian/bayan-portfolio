@@ -68,7 +68,7 @@ export function ProjectCard({
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
     >
       <m.div
-        className="card-surface overflow-x-hidden  card-surface-glow group/card relative flex h-full flex-col rounded-3xl"
+        className="card-surface !overflow-hidden  card-surface-glow group/card relative flex h-full flex-col rounded-3xl"
         onMouseMove={onCardMove}
         onMouseLeave={onCardLeave}
         whileHover={glassCardHover}
@@ -94,7 +94,7 @@ export function ProjectCard({
           className="group/img w-full  relative mx-auto block  outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
           aria-label={`${title} — ${t("view_details")}`}
         >
-          <div className="relative !overflow-hidden  min-h-[220px] w-full  rounded-[2px]   sm:min-h-[260px] md:min-h-[300px]">
+          <div className="relative   min-h-[220px] w-full  rounded-[2px]   sm:min-h-[260px] md:min-h-[300px]">
             <Image
               src={project.thumbnail}
               alt=""
@@ -183,7 +183,7 @@ export function ProjectCard({
             ) : null}
             <MotionLink
               href={`/projects/${project.slug}`}
-              className="group/view flex-1 btn-fx-primary inline-flex min-h-11 w-fit items-center gap-2 overflow-hidden rounded-xl bg-gradient-cta px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/25 transition-shadow duration-300 hover:shadow-xl hover:shadow-[var(--accent)]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] motion-reduce:transition-none"
+              className="group/view justify-between flex-1 btn-fx-primary inline-flex min-h-11 w-fit items-center gap-2 overflow-hidden rounded-xl bg-gradient-cta px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/25 transition-shadow duration-300 hover:shadow-xl hover:shadow-[var(--accent)]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] motion-reduce:transition-none"
               whileHover={{ y: -2, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={(e) => e.stopPropagation()}

@@ -46,7 +46,7 @@ export function Navbar() {
           <div className="flex w-full min-w-0 min-h-12 items-center justify-between gap-2 px-2.5 py-1.5 sm:min-h-14 sm:px-3 sm:py-2">
             <Link
               href="/"
-              className="flex min-w-0 flex-1 items-center gap-2 overflow-hidden font-semibold tracking-tight text-[var(--text-primary)]"
+              className="flex min-w-0  items-center gap-2 overflow-hidden font-semibold tracking-tight text-[var(--text-primary)]"
               onClick={() => setOpen(false)}
             >
               <span className="flex sm:hidden">

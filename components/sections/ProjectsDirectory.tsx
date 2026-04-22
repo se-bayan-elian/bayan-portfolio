@@ -1,6 +1,8 @@
 "use client";
 
-import { m } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
+import type { LucideIcon } from "lucide-react";
+import { Brain, Globe, LayoutGrid, ShoppingBag, Smartphone } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { projects } from "@/data/projects";
@@ -20,10 +22,23 @@ const filters: { key: FilterKey; labelKey: string }[] = [
   { key: "mobile", labelKey: "filter_mobile" },
 ];
 
+const filterIcon: Record<FilterKey, LucideIcon> = {
+  all: LayoutGrid,
+  ecommerce: ShoppingBag,
+  ai: Brain,
+  web: Globe,
+  mobile: Smartphone,
+};
+
 export function ProjectsDirectory() {
   const t = useTranslations("projects");
   const locale = useLocale() as Locale;
   const [active, setActive] = useState<FilterKey>("all");
+  const reduceMotion = useReducedMotion();
+  const filterMotion = {
+    whileHover: reduceMotion ? undefined : { y: -3, scale: 1.02 },
+    whileTap: reduceMotion ? undefined : { scale: 0.97 },
+  } as const;
 
   const list = useMemo(() => {
     const base =
@@ -55,23 +70,37 @@ export function ProjectsDirectory() {
         role="tablist"
         aria-label={t("title")}
       >
-        {filters.map((f) => (
-          <button
-            key={f.key}
-            type="button"
-            role="tab"
-            aria-selected={active === f.key}
-            onClick={() => setActive(f.key)}
-            className={cn(
-              "rounded-full px-4 py-2 text-sm font-semibold transition",
-              active === f.key
-                ? "bg-[var(--accent)] text-white shadow-md"
-                : "border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)]",
-            )}
-          >
-            {t(f.labelKey as "filter_all")}
-          </button>
-        ))}
+        {filters.map((f) => {
+          const Icon = filterIcon[f.key];
+          return (
+            <m.button
+              key={f.key}
+              type="button"
+              role="tab"
+              aria-selected={active === f.key}
+              onClick={() => setActive(f.key)}
+              className={cn(
+                "group/filt inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200",
+                active === f.key
+                  ? "bg-[var(--accent)] text-white shadow-md shadow-[color-mix(in_srgb,var(--accent)_25%,transparent)]"
+                  : "border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)]",
+              )}
+              {...filterMotion}
+              transition={{ type: "spring", stiffness: 420, damping: 28 }}
+            >
+              <Icon
+                className={cn(
+                  "h-3.5 w-3.5 shrink-0 transition duration-300 motion-reduce:transition-none",
+                  active === f.key
+                    ? "text-white"
+                    : "text-[var(--accent)] opacity-90 group-hover/filt:rotate-12 group-hover/filt:scale-110",
+                )}
+                aria-hidden
+              />
+              {t(f.labelKey as "filter_all")}
+            </m.button>
+          );
+        })}
       </div>
 
       <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">

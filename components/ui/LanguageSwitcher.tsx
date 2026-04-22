@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, m } from "framer-motion";
-import { Languages } from "lucide-react";
+import { Check, Languages } from "lucide-react";
 import { useLocale } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 import { routing } from "@/i18n/routing";
@@ -32,17 +32,20 @@ export function LanguageSwitcher() {
 
   return (
     <div className="relative" ref={rootRef}>
-      <button
+      <m.button
         type="button"
-        className="glass-control inline-flex h-10 min-h-10 items-center gap-2 px-3 text-sm font-medium text-[var(--text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+        className="group/lang glass-control inline-flex h-10 min-h-10 items-center gap-2 px-3 text-sm font-medium text-[var(--text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
         aria-expanded={open}
         aria-controls={panelId}
         aria-haspopup="listbox"
         onClick={() => setOpen((v) => !v)}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        transition={{ type: "spring", stiffness: 420, damping: 28 }}
       >
-        <Languages className="h-4 w-4" aria-hidden />
+        <Languages className="h-4 w-4 transition duration-300 group-hover/lang:rotate-12 motion-reduce:transition-none" aria-hidden />
         <span>{labels[locale] ?? locale.toUpperCase()}</span>
-      </button>
+      </m.button>
 
       <AnimatePresence>
         {open && (
@@ -57,19 +60,25 @@ export function LanguageSwitcher() {
           >
             {routing.locales.map((l) => (
               <li key={l} role="option" aria-selected={l === locale}>
-                <button
+                <m.button
                   type="button"
                   className={cn(
-                    "flex w-full items-center justify-between rounded-xl px-3 py-2 text-start text-sm transition hover:bg-[var(--accent-subtle)]",
+                    "flex w-full items-center justify-between gap-2 rounded-xl px-3 py-2 text-start text-sm transition-colors hover:bg-[var(--accent-subtle)]",
                     l === locale && "bg-[var(--accent-subtle)] font-semibold",
                   )}
                   onClick={() => {
                     router.replace(pathname, { locale: l });
                     setOpen(false);
                   }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
                   <span>{labels[l] ?? l}</span>
-                </button>
+                  {l === locale ? (
+                    <Check className="h-4 w-4 shrink-0 text-[var(--accent)]" aria-hidden />
+                  ) : null}
+                </m.button>
               </li>
             ))}
           </m.ul>

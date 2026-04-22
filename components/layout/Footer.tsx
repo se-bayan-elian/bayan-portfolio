@@ -1,10 +1,12 @@
 "use client";
 
 import { m } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { personal } from "@/data/personal";
 import { Link } from "@/navigation";
+
+const MotionLink = m(Link);
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -28,38 +30,51 @@ export function Footer() {
           <p className="mt-1 text-xs text-[var(--text-muted)]">{t("built_with")}</p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <a
+        <div className="flex flex-wrap items-center gap-3">
+          <m.a
             href={personal.social.github}
             target="_blank"
             rel="noreferrer"
-            className="glass-control inline-flex h-10 w-10 text-[var(--text-secondary)]"
+            className="glass-control inline-flex h-10 w-10 text-[var(--text-secondary)] hover:text-[var(--accent)]"
             aria-label="GitHub"
+            whileHover={{ y: -2, scale: 1.06 }}
+            whileTap={{ scale: 0.94 }}
+            transition={{ type: "spring", stiffness: 400, damping: 24 }}
           >
             <Github className="h-5 w-5" />
-          </a>
-          <a
+          </m.a>
+          <m.a
             href={personal.social.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="glass-control inline-flex h-10 w-10 text-[var(--text-secondary)]"
+            className="glass-control inline-flex h-10 w-10 text-[var(--text-secondary)] hover:text-[var(--accent)]"
             aria-label="LinkedIn"
+            whileHover={{ y: -2, scale: 1.06 }}
+            whileTap={{ scale: 0.94 }}
+            transition={{ type: "spring", stiffness: 400, damping: 24 }}
           >
             <Linkedin className="h-5 w-5" />
-          </a>
-          <a
+          </m.a>
+          <m.a
             href={personal.social.email}
-            className="glass-control inline-flex h-10 w-10 text-[var(--text-secondary)]"
+            className="glass-control inline-flex h-10 w-10 text-[var(--text-secondary)] hover:text-[var(--accent)]"
             aria-label="Email"
+            whileHover={{ y: -2, scale: 1.06 }}
+            whileTap={{ scale: 0.94 }}
+            transition={{ type: "spring", stiffness: 400, damping: 24 }}
           >
             <Mail className="h-5 w-5" />
-          </a>
-          <Link
+          </m.a>
+          <MotionLink
             href="/contact"
-            className="rounded-xl bg-gradient-cta px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[var(--accent)]/25 transition hover:opacity-90"
+            className="group/foot inline-flex items-center gap-2 rounded-xl bg-gradient-cta px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[var(--accent)]/25 transition-shadow hover:shadow-lg"
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
+            <MessageCircle className="h-4 w-4 shrink-0 opacity-95 transition duration-300 group-hover/foot:scale-110 motion-reduce:transition-none" aria-hidden />
             {tNav("contact")}
-          </Link>
+            <ArrowUpRight className="h-3.5 w-3.5 shrink-0 opacity-90 transition duration-300 group-hover/foot:-translate-y-0.5 group-hover/foot:translate-x-0.5 rtl:-scale-x-100 motion-reduce:transition-none" aria-hidden />
+          </MotionLink>
         </div>
       </div>
     </m.footer>

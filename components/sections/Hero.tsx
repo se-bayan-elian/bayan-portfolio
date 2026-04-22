@@ -3,6 +3,7 @@
 import { m, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
+  BadgeCheck,
   Briefcase,
   Clock,
   Code2,
@@ -48,6 +49,11 @@ export function Hero() {
   );
 
   const letters = locale === "ar" ? null : name.split("");
+  const MotionLink = m(Link);
+  const badgeHover = reducedMotion ? undefined : { y: -4 };
+  const badgeTap = reducedMotion ? undefined : { scale: 0.97 };
+  const ctaHover = reducedMotion ? undefined : { y: -2, scale: 1.02 };
+  const ctaTap = reducedMotion ? undefined : { scale: 0.98 };
 
   return (
     <section className="relative overflow-hidden px-4 pb-16 pt-10 md:px-6 md:pb-24 md:pt-16">
@@ -64,34 +70,60 @@ export function Hero() {
             transition={{ duration: 0.45 }}
             className="flex flex-wrap items-center gap-2"
           >
-            <span className="glass-control inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium text-[var(--text-secondary)]">
-              <Sparkles className="h-3.5 w-3.5 shrink-0 text-[var(--accent)]" aria-hidden />
+            <m.span
+              className="group/badge glass-control inline-flex cursor-default items-center gap-2 rounded-full px-3 py-1 text-xs font-medium text-[var(--text-secondary)]"
+              whileHover={badgeHover}
+              whileTap={badgeTap}
+              transition={{ type: "spring", stiffness: 420, damping: 26 }}
+            >
+              <Sparkles className="h-3.5 w-3.5 shrink-0 text-[var(--accent)] transition duration-300 ease-out group-hover/badge:rotate-12 group-hover/badge:scale-110 motion-reduce:transition-none" aria-hidden />
               {t("greeting")}
-            </span>
+            </m.span>
 
-            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)]/18 to-[var(--accent-2)]/12 px-3 py-1 text-xs font-semibold text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20">
-              <Clock className="h-3.5 w-3.5 shrink-0 text-[var(--accent)]" aria-hidden />
+            <m.span
+              className="group/badge inline-flex cursor-default items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)]/18 to-[var(--accent-2)]/12 px-3 py-1 text-xs font-semibold text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20"
+              whileHover={badgeHover}
+              whileTap={badgeTap}
+              transition={{ type: "spring", stiffness: 420, damping: 26 }}
+            >
+              <Clock className="h-3.5 w-3.5 shrink-0 text-[var(--accent)] transition duration-300 group-hover/badge:-rotate-12 group-hover/badge:scale-110 motion-reduce:transition-none" aria-hidden />
               {t("badge_years", { years })}
-            </span>
+            </m.span>
 
-            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)]/80 bg-[var(--glass-track)]/80 px-3 py-1 text-xs font-medium text-[var(--text-secondary)] backdrop-blur-sm">
-              <Code2 className="h-3.5 w-3.5 shrink-0 text-[var(--accent)]" aria-hidden />
+            <m.span
+              className="group/badge inline-flex cursor-default items-center gap-2 rounded-full border border-[var(--border)]/80 bg-[var(--glass-track)]/80 px-3 py-1 text-xs font-medium text-[var(--text-secondary)] backdrop-blur-sm"
+              whileHover={badgeHover}
+              whileTap={badgeTap}
+              transition={{ type: "spring", stiffness: 420, damping: 26 }}
+            >
+              <Code2 className="h-3.5 w-3.5 shrink-0 text-[var(--accent)] transition duration-300 group-hover/badge:rotate-6 group-hover/badge:scale-110 motion-reduce:transition-none" aria-hidden />
               {t("badge_stack")}
-            </span>
+            </m.span>
 
-            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)]/80 bg-[var(--glass-track)]/80 px-3 py-1 text-xs font-medium text-[var(--text-secondary)] backdrop-blur-sm">
-              <Globe className="h-3.5 w-3.5 shrink-0 text-[var(--accent)]" aria-hidden />
+            <m.span
+              className="group/badge inline-flex cursor-default items-center gap-2 rounded-full border border-[var(--border)]/80 bg-[var(--glass-track)]/80 px-3 py-1 text-xs font-medium text-[var(--text-secondary)] backdrop-blur-sm"
+              whileHover={badgeHover}
+              whileTap={badgeTap}
+              transition={{ type: "spring", stiffness: 420, damping: 26 }}
+            >
+              <Globe className="h-3.5 w-3.5 shrink-0 text-[var(--accent)] transition duration-300 group-hover/badge:-rotate-6 group-hover/badge:scale-110 motion-reduce:transition-none" aria-hidden />
               {t("badge_langs")}
-            </span>
+            </m.span>
 
             {personal.available ? (
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              <m.span
+                className="group/badge inline-flex cursor-default items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300"
+                whileHover={badgeHover}
+                whileTap={badgeTap}
+                transition={{ type: "spring", stiffness: 420, damping: 26 }}
+              >
+                <span className="relative flex h-2.5 w-2.5 shrink-0">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70 opacity-60 motion-reduce:animate-none" />
+                  <span className="relative m-auto inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
+                <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-emerald-600 transition duration-300 group-hover/badge:rotate-12 group-hover/badge:scale-110 dark:text-emerald-400 motion-reduce:transition-none" aria-hidden />
                 {t("available")}
-              </span>
+              </m.span>
             ) : null}
           </m.div>
 
@@ -162,23 +194,27 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.4 }}
           >
-            <Link
+            <MotionLink
               href="/projects"
-              className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition hover:opacity-[0.92] hover:shadow-glow active:scale-[0.98]"
+              className="group/cta inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-shadow duration-300 hover:shadow-glow"
+              whileHover={ctaHover}
+              whileTap={ctaTap}
             >
-              <Briefcase className="h-4 w-4 shrink-0 opacity-95" aria-hidden />
+              <Briefcase className="h-4 w-4 shrink-0 opacity-95 transition duration-300 group-hover/cta:-rotate-6 group-hover/cta:scale-110 motion-reduce:transition-none" aria-hidden />
               <span className="sm:hidden">{t("cta_work_short")}</span>
               <span className="hidden sm:inline">{t("cta_work")}</span>
-              <ArrowRight className="h-4 w-4 shrink-0 opacity-90 transition group-hover:translate-x-0.5" aria-hidden />
-            </Link>
-            <Link
+              <ArrowRight className="h-4 w-4 shrink-0 opacity-90 transition duration-300 group-hover/cta:translate-x-1 rtl:rotate-180 rtl:group-hover/cta:-translate-x-1 motion-reduce:transition-none motion-reduce:group-hover/cta:translate-x-0 rtl:motion-reduce:group-hover/cta:-translate-x-0" aria-hidden />
+            </MotionLink>
+            <MotionLink
               href="/contact"
-              className="glass-control inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition hover:text-[var(--accent)] active:scale-[0.98]"
+              className="group/cta glass-control inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-colors duration-300 hover:text-[var(--accent)]"
+              whileHover={ctaHover}
+              whileTap={ctaTap}
             >
-              <MessageCircle className="h-4 w-4 shrink-0" aria-hidden />
+              <MessageCircle className="h-4 w-4 shrink-0 transition duration-300 group-hover/cta:scale-110 motion-reduce:transition-none" aria-hidden />
               <span className="sm:hidden">{t("cta_contact_short")}</span>
               <span className="hidden sm:inline">{t("cta_contact")}</span>
-            </Link>
+            </MotionLink>
           </m.div>
 
           <m.div
@@ -187,31 +223,40 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.45, duration: 0.4 }}
           >
-            <a
+            <m.a
               href={personal.social.github}
               target="_blank"
               rel="noreferrer"
-              className="glass-control inline-flex h-11 w-11 text-[var(--text-secondary)] hover:shadow-glow"
+              className="glass-control inline-flex h-11 w-11 text-[var(--text-secondary)] hover:text-[var(--accent)] hover:shadow-glow"
               aria-label="GitHub"
+              whileHover={reducedMotion ? undefined : { y: -3, scale: 1.06 }}
+              whileTap={reducedMotion ? undefined : { scale: 0.94 }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
             >
               <Github className="h-5 w-5" />
-            </a>
-            <a
+            </m.a>
+            <m.a
               href={personal.social.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="glass-control inline-flex h-11 w-11 text-[var(--text-secondary)] hover:shadow-glow"
+              className="glass-control inline-flex h-11 w-11 text-[var(--text-secondary)] hover:text-[var(--accent)] hover:shadow-glow"
               aria-label="LinkedIn"
+              whileHover={reducedMotion ? undefined : { y: -3, scale: 1.06 }}
+              whileTap={reducedMotion ? undefined : { scale: 0.94 }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
             >
               <Linkedin className="h-5 w-5" />
-            </a>
-            <a
+            </m.a>
+            <m.a
               href={personal.social.email}
-              className="glass-control inline-flex h-11 w-11 text-[var(--text-secondary)] hover:shadow-glow"
+              className="glass-control inline-flex h-11 w-11 text-[var(--text-secondary)] hover:text-[var(--accent)] hover:shadow-glow"
               aria-label="Email"
+              whileHover={reducedMotion ? undefined : { y: -3, scale: 1.06 }}
+              whileTap={reducedMotion ? undefined : { scale: 0.94 }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
             >
               <Mail className="h-5 w-5" />
-            </a>
+            </m.a>
           </m.div>
         </div>
 

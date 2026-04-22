@@ -1,11 +1,13 @@
 "use client";
 
 import { m } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Braces, ExternalLink, Github, Layers, Trophy } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import type { Project } from "@/data/projects";
 import { Link } from "@/navigation";
+
+const MotionLink = m(Link);
 
 type Props = {
   project: Project;
@@ -30,30 +32,35 @@ export function ProjectDetailView({
   return (
     <article className="mx-auto max-w-6xl px-4 py-12 md:px-6">
       <m.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-        <Link
+        <MotionLink
           href="/projects"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition hover:text-[var(--accent-hover)]"
+          className="group/back inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent-hover)]"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
-          <ArrowLeft className="h-4 w-4" aria-hidden />
+          <ArrowLeft className="h-4 w-4 transition duration-300 group-hover/back:-translate-x-1 rtl:rotate-180 rtl:group-hover/back:translate-x-1 motion-reduce:transition-none" aria-hidden />
           {tCommon("back")}
-        </Link>
+        </MotionLink>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
           <div>
             <div className="flex flex-wrap items-center gap-2">
               {project.award && awardLabel ? (
                 <m.span
-                  className="rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-3 py-1 text-xs font-semibold text-amber-950"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-3 py-1 text-xs font-semibold text-amber-950"
                   animate={{ scale: [1, 1.02, 1] }}
                   transition={{ duration: 2.2, repeat: Infinity }}
+                  whileHover={{ scale: 1.05 }}
                 >
+                  <Trophy className="h-3 w-3 shrink-0" aria-hidden />
                   {awardLabel}
                 </m.span>
               ) : null}
-              <span className="rounded-full border border-[var(--border)] px-2.5 py-0.5 text-xs text-[var(--text-muted)]">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[var(--border)] px-2.5 py-0.5 text-xs text-[var(--text-muted)]">
+                <Layers className="h-3 w-3 shrink-0 opacity-70" aria-hidden />
                 {project.category}
               </span>
-              <span className="rounded-full bg-[var(--accent-subtle)] px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)]">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[var(--accent-subtle)] px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)]">
                 {t(project.status)}
               </span>
             </div>
@@ -67,8 +74,9 @@ export function ProjectDetailView({
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full bg-[var(--bg-secondary)] px-3 py-1 text-xs text-[var(--text-secondary)]"
+                  className="group/tech inline-flex items-center gap-1 rounded-full bg-[var(--bg-secondary)] px-3 py-1 text-xs text-[var(--text-secondary)] transition duration-300 hover:bg-[var(--accent-subtle)] hover:text-[var(--text-primary)] motion-reduce:transition-none"
                 >
+                  <Braces className="h-3 w-3 shrink-0 opacity-50 transition group-hover/tech:opacity-100 motion-reduce:transition-none" aria-hidden />
                   {tech}
                 </span>
               ))}
@@ -105,24 +113,30 @@ export function ProjectDetailView({
             </p>
             <div className="mt-4 space-y-2">
               {project.liveUrl ? (
-                <a
+                <m.a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="block rounded-xl bg-[var(--accent)] px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-[var(--accent-hover)]"
+                  className="group/live flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-4 py-3 text-center text-sm font-semibold text-white shadow-md shadow-[color-mix(in_srgb,var(--accent)_25%,transparent)] transition-[box-shadow,background-color] hover:bg-[var(--accent-hover)] hover:shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
+                  <ExternalLink className="h-4 w-4 shrink-0 transition duration-300 group-hover/live:-translate-y-0.5 group-hover/live:translate-x-0.5 rtl:-scale-x-100 motion-reduce:transition-none" aria-hidden />
                   {t("live")}
-                </a>
+                </m.a>
               ) : null}
               {project.githubUrl ? (
-                <a
+                <m.a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="block rounded-xl border border-[var(--border)] px-4 py-3 text-center text-sm font-semibold text-[var(--text-primary)] transition hover:border-[var(--accent)]/40"
+                  className="group/gh flex items-center justify-center gap-2 rounded-xl border border-[var(--border)] px-4 py-3 text-center text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--accent)]/40 hover:bg-[var(--accent-subtle)]"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
+                  <Github className="h-4 w-4 shrink-0 transition duration-300 group-hover/gh:rotate-12 motion-reduce:transition-none" aria-hidden />
                   GitHub
-                </a>
+                </m.a>
               ) : null}
             </div>
           </aside>

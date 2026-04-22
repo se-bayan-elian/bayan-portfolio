@@ -1,7 +1,16 @@
 "use client";
 
 import { AnimatePresence, LayoutGroup, m } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  Code2,
+  Home,
+  Layers,
+  Mail,
+  Menu,
+  UserRound,
+  X,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { navLinks } from "@/data/navigation";
@@ -10,6 +19,15 @@ import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import { Link, usePathname } from "@/navigation";
 import { cn } from "@/lib/utils";
+
+const navIcon = {
+  "/": Home,
+  "/about": UserRound,
+  "/projects": Layers,
+  "/skills": Code2,
+  "/experience": BriefcaseBusiness,
+  "/contact": Mail,
+} as const;
 
 export function Navbar() {
   const t = useTranslations();
@@ -49,12 +67,13 @@ export function Navbar() {
                       item.href === "/"
                         ? pathname === "/"
                         : pathname === item.href || pathname.startsWith(`${item.href}/`);
+                    const Icon = navIcon[item.href as keyof typeof navIcon];
                     return (
                       <Link
                         key={item.href}
                         href={item.href}
                         className={cn(
-                          "relative z-0 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200",
+                          "group/nav relative z-0 inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200",
                           active
                             ? "text-[var(--text-primary)]"
                             : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]",
@@ -68,6 +87,15 @@ export function Navbar() {
                             aria-hidden
                           />
                         ) : null}
+                        <Icon
+                          className={cn(
+                            "relative z-10 h-4 w-4 shrink-0 transition duration-300 motion-reduce:transition-none",
+                            active
+                              ? "text-[var(--accent)]"
+                              : "opacity-75 group-hover/nav:opacity-100 group-hover/nav:scale-110",
+                          )}
+                          aria-hidden
+                        />
                         <span className="relative z-10">{t(item.labelKey as "nav.home")}</span>
                       </Link>
                     );
@@ -79,16 +107,19 @@ export function Navbar() {
             <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
               <LanguageSwitcher />
               <ThemeSwitcher />
-              <button
+              <m.button
                 type="button"
                 className="glass-control inline-flex h-10 w-10 md:hidden"
                 aria-expanded={open}
                 aria-controls="mobile-nav"
                 onClick={() => setOpen((v) => !v)}
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.94 }}
+                transition={{ type: "spring", stiffness: 460, damping: 28 }}
               >
                 {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                 <span className="sr-only">Menu</span>
-              </button>
+              </m.button>
             </div>
           </div>
         </div>
@@ -112,18 +143,26 @@ export function Navbar() {
                     item.href === "/"
                       ? pathname === "/"
                       : pathname === item.href || pathname.startsWith(`${item.href}/`);
+                  const Icon = navIcon[item.href as keyof typeof navIcon];
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setOpen(false)}
                       className={cn(
-                        "rounded-xl px-3 py-2.5 text-sm font-medium transition",
+                        "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition active:scale-[0.99]",
                         active
                           ? "bg-[var(--glass-track)] text-[var(--text-primary)] ring-1 ring-inset ring-[var(--glass-border)]"
                           : "text-[var(--text-secondary)] hover:bg-[var(--glass-track)] hover:text-[var(--text-primary)]",
                       )}
                     >
+                      <Icon
+                        className={cn(
+                          "h-4 w-4 shrink-0 transition duration-300 motion-reduce:transition-none",
+                          active ? "text-[var(--accent)]" : "opacity-75",
+                        )}
+                        aria-hidden
+                      />
                       {t(item.labelKey as "nav.home")}
                     </Link>
                   );

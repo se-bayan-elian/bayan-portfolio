@@ -1,7 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
-import { Award, Download } from "lucide-react";
+import { Award, Download, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { education } from "@/data/education";
@@ -10,6 +10,8 @@ import { specialties } from "@/data/specialties";
 import { pickStr } from "@/lib/locale-text";
 import { Link } from "@/navigation";
 import type { Locale } from "@/i18n/routing";
+
+const MotionLink = m(Link);
 
 type Props = { locale: Locale };
 
@@ -48,13 +50,15 @@ export function AboutView({ locale }: Props) {
             <Image src={personal.avatar} alt={name} fill className="object-cover" sizes="280px" priority />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/70 to-transparent" />
           </div>
-          <Link
+          <MotionLink
             href={personal.resume}
-            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[var(--accent-hover)]"
+            className="group/dl mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-4 py-3 text-sm font-semibold text-white shadow-md shadow-[color-mix(in_srgb,var(--accent)_30%,transparent)] transition-[box-shadow,background-color] hover:bg-[var(--accent-hover)] hover:shadow-lg"
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <Download className="h-4 w-4" aria-hidden />
+            <Download className="h-4 w-4 transition duration-300 group-hover/dl:-translate-y-0.5 group-hover/dl:translate-x-0.5 rtl:-scale-x-100 motion-reduce:transition-none" aria-hidden />
             {t("download_cv")}
-          </Link>
+          </MotionLink>
         </div>
 
         <div>
@@ -108,12 +112,16 @@ export function AboutView({ locale }: Props) {
             </h2>
             <ul className="mt-4 flex flex-wrap gap-2">
               {specs.map((s) => (
-                <li
+                <m.li
                   key={s}
-                  className="rounded-full bg-[var(--accent-subtle)] px-3 py-1 text-sm font-medium text-[var(--text-primary)]"
+                  className="inline-flex cursor-default items-center gap-1.5 rounded-full bg-[var(--accent-subtle)] px-3 py-1 text-sm font-medium text-[var(--text-primary)]"
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 26 }}
                 >
+                  <Sparkles className="h-3.5 w-3.5 shrink-0 text-[var(--accent)]" aria-hidden />
                   {s}
-                </li>
+                </m.li>
               ))}
             </ul>
           </section>

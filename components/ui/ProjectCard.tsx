@@ -1,12 +1,15 @@
 "use client";
 
 import { m, useMotionTemplate, useMotionValue } from "framer-motion";
+import { ArrowRight, Braces, Star, Tag, Trophy } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import type { Project } from "@/data/projects";
 import { glassCardHover, glassCardTap } from "@/lib/motion-variants";
 import { Link } from "@/navigation";
 import { cn } from "@/lib/utils";
+
+const MotionLink = m(Link);
 
 type Props = {
   project: Project;
@@ -62,10 +65,12 @@ export function ProjectCard({
       >
         {project.award && awardLabel && (
           <m.div
-            className="absolute end-4 top-4 z-10 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-3 py-1 text-xs font-semibold text-amber-950 shadow-lg"
+            className="group/award absolute end-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-3 py-1 text-xs font-semibold text-amber-950 shadow-lg"
             animate={{ scale: [1, 1.03, 1] }}
             transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
+            whileHover={{ scale: 1.06 }}
           >
+            <Trophy className="h-3 w-3 shrink-0 opacity-95 transition duration-300 group-hover/award:rotate-12 motion-reduce:transition-none motion-reduce:group-hover/award:rotate-0" aria-hidden />
             {awardLabel}
           </m.div>
         )}
@@ -84,11 +89,13 @@ export function ProjectCard({
         <div className="flex flex-1 flex-col p-6">
           <div className="flex flex-wrap items-center gap-2">
             {project.featured && (
-              <span className="rounded-full bg-gradient-to-r from-[var(--accent)]/20 to-[var(--accent-2)]/20 px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20">
+              <span className="group/feat inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[var(--accent)]/20 to-[var(--accent-2)]/20 px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20 transition duration-300 hover:-translate-y-0.5 hover:shadow-sm motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+                <Star className="h-3 w-3 shrink-0 text-[var(--accent)] transition duration-300 group-hover/feat:fill-[var(--accent)] group-hover/feat:rotate-12 motion-reduce:transition-none" aria-hidden />
                 {t("featured")}
               </span>
             )}
-            <span className="rounded-full border border-[var(--border)] px-2.5 py-0.5 text-xs text-[var(--text-muted)]">
+            <span className="group/cat inline-flex items-center gap-1 rounded-full border border-[var(--border)] px-2.5 py-0.5 text-xs text-[var(--text-muted)] transition duration-300 hover:border-[var(--accent)]/35 hover:text-[var(--accent)] motion-reduce:transition-none">
+              <Tag className="h-3 w-3 shrink-0 opacity-80 transition duration-300 group-hover/cat:-rotate-6 motion-reduce:transition-none" aria-hidden />
               {project.category}
             </span>
           </div>
@@ -113,19 +120,23 @@ export function ProjectCard({
             {project.techStack.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="rounded-md border border-[var(--border)]/60 bg-gradient-to-r from-[var(--bg-secondary)] to-[var(--bg-card)] px-2 py-0.5 text-xs text-[var(--text-secondary)]"
+                className="group/tech inline-flex items-center gap-1 rounded-md border border-[var(--border)]/60 bg-gradient-to-r from-[var(--bg-secondary)] to-[var(--bg-card)] px-2 py-0.5 text-xs text-[var(--text-secondary)] transition duration-300 hover:border-[var(--accent)]/30 hover:text-[var(--accent)] motion-reduce:transition-none"
               >
+                <Braces className="h-3 w-3 shrink-0 opacity-60 transition duration-300 group-hover/tech:opacity-100 group-hover/tech:rotate-6 motion-reduce:transition-none" aria-hidden />
                 {tech}
               </span>
             ))}
           </div>
 
-          <Link
+          <MotionLink
             href={`/projects/${project.slug}`}
-            className="mt-5 inline-flex w-fit items-center gap-2 rounded-xl bg-gradient-cta px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/25 transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+            className="group/view mt-5 inline-flex w-fit items-center gap-2 rounded-xl bg-gradient-cta px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/25 transition-shadow duration-300 hover:shadow-xl hover:shadow-[var(--accent)]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] motion-reduce:transition-none"
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             {t("view_details")}
-          </Link>
+            <ArrowRight className="h-4 w-4 shrink-0 transition duration-300 group-hover/view:translate-x-1 rtl:rotate-180 rtl:group-hover/view:-translate-x-1 motion-reduce:transition-none" aria-hidden />
+          </MotionLink>
         </div>
       </m.div>
     </m.div>

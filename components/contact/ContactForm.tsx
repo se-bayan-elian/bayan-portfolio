@@ -1,6 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
+import { Loader2, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -116,13 +117,25 @@ export function ContactForm() {
         </div>
       </div>
 
-      <button
+      <m.button
         type="submit"
         disabled={status === "sending"}
-        className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--accent-hover)] disabled:cursor-not-allowed disabled:opacity-60"
+        className="group/submit mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-md shadow-[color-mix(in_srgb,var(--accent)_35%,transparent)] transition-[box-shadow,background-color] duration-300 hover:bg-[var(--accent-hover)] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none"
+        whileHover={status === "sending" ? undefined : { scale: 1.01 }}
+        whileTap={status === "sending" ? undefined : { scale: 0.985 }}
       >
-        {status === "sending" ? t("form_sending") : t("form_submit")}
-      </button>
+        {status === "sending" ? (
+          <>
+            <Loader2 className="h-4 w-4 shrink-0 animate-spin" aria-hidden />
+            <span>{t("form_sending")}</span>
+          </>
+        ) : (
+          <>
+            <Send className="h-4 w-4 shrink-0 transition duration-300 group-hover/submit:-translate-y-0.5 group-hover/submit:translate-x-0.5 rtl:-scale-x-100 rtl:group-hover/submit:-translate-x-0.5 motion-reduce:transition-none" aria-hidden />
+            <span>{t("form_submit")}</span>
+          </>
+        )}
+      </m.button>
 
       {status === "success" ? (
         <p className="mt-4 text-sm text-emerald-600 dark:text-emerald-400" role="status">

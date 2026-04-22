@@ -1,12 +1,14 @@
 "use client";
 
 import { m } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { personal } from "@/data/personal";
 import { glassCardHoverTight, glassCardTapTight } from "@/lib/motion-variants";
 import { useLiquidGlassPointer } from "@/lib/use-liquid-glass";
 import { Link } from "@/navigation";
+
+const MotionLink = m(Link);
 
 export function Contact() {
   const t = useTranslations("contact");
@@ -40,21 +42,27 @@ export function Contact() {
                 {t("title")}
               </h2>
               <p className="mt-2 max-w-xl text-[var(--text-secondary)]">{t("subtitle")}</p>
-              <a
+              <m.a
                 href={personal.social.email}
-                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition hover:text-[var(--accent-2)]"
+                className="group/mail mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent-2)]"
+                whileHover={{ x: 0, y: -1 }}
+                whileTap={{ scale: 0.99 }}
+                transition={{ type: "spring", stiffness: 380, damping: 28 }}
               >
-                <Mail className="h-4 w-4" aria-hidden />
+                <Mail className="h-4 w-4 transition duration-300 group-hover/mail:-rotate-12 group-hover/mail:scale-110 motion-reduce:transition-none" aria-hidden />
                 {personal.email}
-              </a>
+              </m.a>
             </div>
-            <Link
+            <MotionLink
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition hover:opacity-90"
+              className="group/cta inline-flex items-center gap-2 rounded-2xl bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-shadow hover:shadow-xl"
+              whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
+              <Send className="h-4 w-4 shrink-0 opacity-95 transition duration-300 group-hover/cta:-rotate-12 group-hover/cta:scale-110 motion-reduce:transition-none" aria-hidden />
               {tHero("cta_contact")}
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
+              <ArrowRight className="h-4 w-4 transition duration-300 group-hover/cta:translate-x-1 rtl:rotate-180 rtl:group-hover/cta:-translate-x-1 motion-reduce:transition-none" aria-hidden />
+            </MotionLink>
           </div>
       </m.div>
     </section>

@@ -1,12 +1,15 @@
 "use client";
 
 import { m } from "framer-motion";
+import { ArrowRight, Clock } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { experiences } from "@/data/experience";
 import { experienceLocalized } from "@/lib/experience-localize";
 import { TimelineItem } from "@/components/ui/TimelineItem";
 import { Link } from "@/navigation";
 import type { Locale } from "@/i18n/routing";
+
+const MotionLink = m(Link);
 
 type ExperienceProps = { showViewAll?: boolean };
 
@@ -30,12 +33,16 @@ export function Experience({ showViewAll = true }: ExperienceProps) {
           <p className="mt-2 max-w-2xl text-[var(--text-secondary)]">{t("subtitle")}</p>
         </div>
         {showViewAll ? (
-          <Link
+          <MotionLink
             href="/experience"
-            className="inline-flex w-fit items-center rounded-2xl border border-[var(--border)] bg-[var(--bg-card)]/95 px-4 py-2 text-sm font-semibold text-[var(--text-primary)] shadow-sm transition hover:border-[var(--accent-2)]/40 hover:text-[var(--accent)] hover:shadow-glow"
+            className="group/exp inline-flex w-fit items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)]/95 px-4 py-2 text-sm font-semibold text-[var(--text-primary)] shadow-sm transition-colors hover:border-[var(--accent-2)]/40 hover:text-[var(--accent)] hover:shadow-glow"
+            whileHover={{ y: -3, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
+            <Clock className="h-4 w-4 shrink-0 text-[var(--accent)] transition duration-300 group-hover/exp:rotate-12 motion-reduce:transition-none" aria-hidden />
             {t("view_timeline")}
-          </Link>
+            <ArrowRight className="h-4 w-4 shrink-0 transition duration-300 group-hover/exp:translate-x-1 rtl:rotate-180 rtl:group-hover/exp:-translate-x-1 motion-reduce:transition-none" aria-hidden />
+          </MotionLink>
         ) : null}
       </m.div>
 

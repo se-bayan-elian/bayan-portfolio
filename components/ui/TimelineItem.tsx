@@ -1,6 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
+import { Braces, Home, Radio } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import type { Experience } from "@/data/experience";
@@ -69,12 +70,14 @@ export function TimelineItem({
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {item.current && (
-                  <span className="inline-flex items-center rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:text-emerald-300">
+                  <span className="group/cur inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-700 transition duration-300 hover:scale-105 dark:text-emerald-300 motion-reduce:transition-none motion-reduce:hover:scale-100">
+                    <Radio className="h-3 w-3 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden />
                     {t("current")}
                   </span>
                 )}
                 {item.remote && (
-                  <span className="inline-flex items-center rounded-full bg-[var(--accent-subtle)] px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)]">
+                  <span className="group/rem inline-flex items-center gap-1 rounded-full bg-[var(--accent-subtle)] px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)] transition duration-300 hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-100">
+                    <Home className="h-3 w-3 shrink-0 opacity-80 transition group-hover/rem:rotate-12 motion-reduce:transition-none" aria-hidden />
                     {t("remote")}
                   </span>
                 )}
@@ -119,8 +122,9 @@ export function TimelineItem({
             {item.techUsed.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full bg-[var(--accent-subtle)] px-2.5 py-0.5 text-xs text-[var(--text-primary)]"
+                className="group/t inline-flex items-center gap-1 rounded-full bg-[var(--accent-subtle)] px-2.5 py-0.5 text-xs text-[var(--text-primary)] transition duration-300 hover:bg-[color-mix(in_srgb,var(--accent)_22%,transparent)] hover:shadow-sm motion-reduce:transition-none"
               >
+                <Braces className="h-3 w-3 shrink-0 opacity-60 transition group-hover/t:opacity-100 motion-reduce:transition-none" aria-hidden />
                 {tech}
               </span>
             ))}

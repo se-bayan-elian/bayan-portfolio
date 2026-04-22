@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Noto_Sans_Arabic } from "next/font/google";
+import { Geist, Geist_Mono, Tajawal } from "next/font/google";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
@@ -21,9 +21,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const notoArabic = Noto_Sans_Arabic({
-  variable: "--font-noto-arabic",
+const tajawal = Tajawal({
+  variable: "--font-tajawal",
   subsets: ["arabic"],
+  weight: ["400", "500", "700"],
 });
 
 export function generateStaticParams() {
@@ -49,7 +50,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoArabic.variable} min-h-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${tajawal.variable} min-h-screen antialiased`}
       >
         <AppProviders messages={messages}>
           <LiquidAmbient />

@@ -1,6 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
+import { ArrowRight, Layers } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { skills } from "@/data/skills";
 import { SkillBar } from "@/components/ui/SkillBar";
@@ -8,6 +9,8 @@ import { glassCardHover, glassCardTap } from "@/lib/motion-variants";
 import { useLiquidGlassPointer } from "@/lib/use-liquid-glass";
 import { Link } from "@/navigation";
 import type { Skill } from "@/data/skills";
+
+const MotionLink = m(Link);
 
 const order: Skill["category"][] = [
   "frontend",
@@ -73,12 +76,16 @@ export function Skills({ featuredOnly = false }: SkillsProps) {
 
       {featuredOnly ? (
         <div className="mt-8 flex justify-center">
-          <Link
+          <MotionLink
             href="/skills"
-            className="inline-flex rounded-2xl border border-[var(--border)] bg-[var(--bg-card)]/95 px-5 py-2.5 text-sm font-semibold text-[var(--text-primary)] shadow-sm transition hover:border-[var(--accent-2)]/40 hover:text-[var(--accent)] hover:shadow-glow"
+            className="group/skills inline-flex items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)]/95 px-5 py-2.5 text-sm font-semibold text-[var(--text-primary)] shadow-sm transition-colors hover:border-[var(--accent-2)]/40 hover:text-[var(--accent)] hover:shadow-glow"
+            whileHover={{ y: -3, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
+            <Layers className="h-4 w-4 shrink-0 text-[var(--accent)] transition duration-300 group-hover/skills:rotate-12 motion-reduce:transition-none" aria-hidden />
             {t("explore_all")}
-          </Link>
+            <ArrowRight className="h-4 w-4 shrink-0 transition duration-300 group-hover/skills:translate-x-1 rtl:rotate-180 rtl:group-hover/skills:-translate-x-1 motion-reduce:transition-none" aria-hidden />
+          </MotionLink>
         </div>
       ) : null}
 

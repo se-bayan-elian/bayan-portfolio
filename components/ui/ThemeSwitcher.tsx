@@ -39,18 +39,21 @@ export function ThemeSwitcher() {
 
   return (
     <div className="relative" ref={rootRef}>
-      <button
+      <m.button
         type="button"
-        className="glass-control inline-flex h-10 w-10 items-center justify-center text-[var(--text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+        className="group/theme glass-control inline-flex h-10 w-10 items-center justify-center text-[var(--text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
         aria-expanded={open}
         aria-controls={panelId}
         aria-haspopup="dialog"
         onClick={() => setOpen((v) => !v)}
         title={t("label")}
+        whileHover={{ scale: 1.06 }}
+        whileTap={{ scale: 0.93 }}
+        transition={{ type: "spring", stiffness: 440, damping: 26 }}
       >
-        <Palette className="h-5 w-5" aria-hidden />
+        <Palette className="h-5 w-5 transition duration-300 group-hover/theme:rotate-12 motion-reduce:transition-none motion-reduce:group-hover/theme:rotate-0" aria-hidden />
         <span className="sr-only">{t("label")}</span>
-      </button>
+      </m.button>
 
       <AnimatePresence>
         {open && (
@@ -69,7 +72,7 @@ export function ThemeSwitcher() {
             </p>
             <div className="grid grid-cols-5 gap-2">
               {swatches.map((s) => (
-                <button
+                <m.button
                   key={s.id}
                   type="button"
                   title={t(s.id)}
@@ -78,15 +81,18 @@ export function ThemeSwitcher() {
                     setOpen(false);
                   }}
                   className={cn(
-                    "relative h-9 w-9 rounded-full border-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]",
+                    "relative h-9 w-9 rounded-full border-2 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]",
                     theme === s.id
                       ? "border-[var(--text-primary)] shadow-lg"
                       : "border-transparent hover:border-[var(--border)]",
                   )}
                   style={{ background: s.color }}
+                  whileHover={{ scale: 1.12 }}
+                  whileTap={{ scale: 0.94 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 22 }}
                 >
                   <span className="sr-only">{t(s.id)}</span>
-                </button>
+                </m.button>
               ))}
             </div>
           </m.div>

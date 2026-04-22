@@ -382,6 +382,102 @@
   opacity: 0.45;
 }
 
+/* Hero: local line grid (sits in section stack so it is always visible) */
+.hero-bg-grid {
+  background-image: linear-gradient(
+      color-mix(in srgb, var(--text-primary) 12%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--text-primary) 12%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 100% 80% at 50% 15%, #000 0%, #000 35%, rgba(0, 0, 0, 0.45) 58%, transparent 78%);
+  opacity: 0.42;
+}
+
+[data-theme="light"] .hero-bg-grid {
+  background-image: linear-gradient(
+      color-mix(in srgb, var(--text-primary) 8%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--text-primary) 8%, transparent) 1px,
+      transparent 1px
+    );
+  opacity: 0.58;
+}
+
+/* Softer animated mesh on light so the grid stays readable */
+[data-theme="light"] .hero-mesh-layer {
+  opacity: 0.52 !important;
+}
+
+/* Light theme: editorial badges & CTA (avoid heavy teal / emerald fills) */
+[data-theme="light"] .hero-badge-years {
+  background: var(--bg-card);
+  background-image: none;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  box-shadow: var(--shadow);
+}
+
+.hero-badge-available .hero-available-ping {
+  background: rgba(52, 211, 153, 0.55);
+}
+
+.hero-badge-available .hero-available-dot {
+  background: rgb(16, 185, 129);
+}
+
+.hero-badge-available .hero-available-icon {
+  color: rgb(5, 150, 105);
+}
+
+[data-theme="dark"] .hero-badge-available .hero-available-icon {
+  color: rgb(110, 231, 183);
+}
+
+[data-theme="light"] .hero-badge-available .hero-available-ping {
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+[data-theme="light"] .hero-badge-available .hero-available-dot {
+  background: var(--accent);
+}
+
+[data-theme="light"] .hero-badge-available .hero-available-icon {
+  color: var(--accent-hover);
+}
+
+[data-theme="light"] .hero-role-line {
+  background: none !important;
+  background-image: none !important;
+  -webkit-text-fill-color: currentColor;
+  color: var(--accent-hover);
+}
+
+[data-theme="light"] .hero-badge-available {
+  background: color-mix(in srgb, var(--accent-subtle) 55%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+  color: var(--accent-hover);
+}
+
+[data-theme="light"] .hero-cta-primary {
+  background: var(--accent);
+  background-image: none;
+  box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .hero-cta-primary:hover {
+  box-shadow: var(--shadow-glow);
+}
+
 .text-gradient-hero {
   background: var(--gradient-text);
   -webkit-background-clip: text;

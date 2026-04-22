@@ -2,7 +2,7 @@
 
 import { m, useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
-import { Brain, Globe, LayoutGrid, ShoppingBag, Smartphone } from "lucide-react";
+import { Brain, File, Globe, LayoutGrid, ShoppingBag, Smartphone } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { projects } from "@/data/projects";
@@ -28,6 +28,7 @@ const filterIcon: Record<FilterKey, LucideIcon> = {
   ai: Brain,
   web: Globe,
   mobile: Smartphone,
+  other: File,
 };
 
 export function ProjectsDirectory() {

@@ -56,13 +56,18 @@ export function Hero() {
   const ctaTap = reducedMotion ? undefined : { scale: 0.98 };
 
   return (
-    <section className="relative overflow-hidden px-4 pb-16 pt-10 md:px-6 md:pb-24 md:pt-16">
-      <div className="pointer-events-none absolute inset-0 -z-10 mesh-bg opacity-95 motion-reduce:animate-none" />
-      <div className="pointer-events-none absolute -start-24 top-10 h-80 w-80 rounded-full bg-[var(--accent)]/25 blur-3xl" />
-      <div className="pointer-events-none absolute -end-20 bottom-0 h-80 w-80 rounded-full bg-[var(--accent-2)]/20 blur-3xl" />
-      <div className="pointer-events-none absolute start-1/2 top-1/3 h-64 w-64 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl dark:bg-cyan-400/5" />
+    <section className="relative isolate overflow-hidden px-4 pb-16 pt-10 md:px-6 md:pb-24 md:pt-16">
+      {/* Stack: grid lines → mesh → glows (all pointer-events-none, above page backdrop) */}
+      <div className="hero-bg-grid pointer-events-none absolute inset-0 z-0" aria-hidden />
+      <div className="hero-mesh-layer pointer-events-none absolute inset-0 z-[1] mesh-bg opacity-85 motion-reduce:animate-none" aria-hidden />
+      <div className="pointer-events-none absolute -start-24 top-10 z-[2] h-80 w-80 rounded-full bg-[var(--accent)]/25 blur-3xl dark:bg-[var(--accent)]/22" aria-hidden />
+      <div className="pointer-events-none absolute -end-20 bottom-0 z-[2] h-80 w-80 rounded-full bg-[var(--accent-2)]/20 blur-3xl dark:bg-[var(--accent-2)]/18" aria-hidden />
+      <div
+        className="pointer-events-none absolute start-1/2 top-1/3 z-[2] h-64 w-64 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl dark:bg-cyan-400/5"
+        aria-hidden
+      />
 
-      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.72fr)] lg:gap-14">
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.72fr)] lg:gap-14">
         <div>
           <m.div
             initial={{ opacity: 0, y: 12 }}
@@ -81,7 +86,7 @@ export function Hero() {
             </m.span>
 
             <m.span
-              className="group/badge inline-flex cursor-default items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)]/18 to-[var(--accent-2)]/12 px-3 py-1 text-xs font-semibold text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20"
+              className="hero-badge-years group/badge inline-flex cursor-default items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)]/18 to-[var(--accent-2)]/12 px-3 py-1 text-xs font-semibold text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20"
               whileHover={badgeHover}
               whileTap={badgeTap}
               transition={{ type: "spring", stiffness: 420, damping: 26 }}
@@ -112,16 +117,16 @@ export function Hero() {
 
             {personal.available ? (
               <m.span
-                className="group/badge inline-flex cursor-default items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300"
+                className="hero-badge-available group/badge inline-flex cursor-default items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-900 dark:bg-emerald-500/15 dark:text-emerald-300"
                 whileHover={badgeHover}
                 whileTap={badgeTap}
                 transition={{ type: "spring", stiffness: 420, damping: 26 }}
               >
                 <span className="relative flex h-2.5 w-2.5 shrink-0">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70 opacity-60 motion-reduce:animate-none" />
-                  <span className="relative m-auto inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                  <span className="hero-available-ping absolute inline-flex h-full w-full animate-ping rounded-full opacity-60 motion-reduce:animate-none" />
+                  <span className="hero-available-dot relative m-auto inline-flex h-2 w-2 rounded-full" />
                 </span>
-                <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-emerald-600 transition duration-300 group-hover/badge:rotate-12 group-hover/badge:scale-110 dark:text-emerald-400 motion-reduce:transition-none" aria-hidden />
+                <BadgeCheck className="hero-available-icon h-3.5 w-3.5 shrink-0 text-emerald-700 transition duration-300 group-hover/badge:rotate-12 group-hover/badge:scale-110 dark:text-emerald-400 motion-reduce:transition-none" aria-hidden />
                 {t("available")}
               </m.span>
             ) : null}
@@ -162,7 +167,7 @@ export function Hero() {
           </m.h1>
 
           <m.p
-            className="mt-4 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] bg-clip-text text-lg font-semibold text-transparent sm:text-xl"
+            className="hero-role-line mt-4 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] bg-clip-text text-lg font-semibold text-transparent sm:text-xl"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.4 }}
@@ -196,7 +201,7 @@ export function Hero() {
           >
             <MotionLink
               href="/projects"
-              className="group/cta inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-shadow duration-300 hover:shadow-glow"
+              className="hero-cta-primary group/cta inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-[box-shadow] duration-300 hover:shadow-glow"
               whileHover={ctaHover}
               whileTap={ctaTap}
             >

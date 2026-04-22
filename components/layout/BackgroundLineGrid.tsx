@@ -11,7 +11,7 @@ export function BackgroundLineGrid() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-[2] opacity-[0.38] dark:opacity-[0.28] sm:opacity-[0.42]"
+      className="pointer-events-none fixed inset-0 z-[2] opacity-[0.48] dark:opacity-[0.26] sm:opacity-[0.52]"
       style={{
         maskImage:
           "radial-gradient(ellipse 95% 75% at 50% 10%, #000 0%, #000 42%, rgba(0,0,0,0.55) 62%, transparent 82%)",
@@ -40,7 +40,7 @@ export function BackgroundLineGrid() {
               fill="none"
               stroke="var(--border)"
               strokeWidth={1}
-              strokeOpacity={0.55}
+              strokeOpacity={0.62}
               vectorEffect="nonScalingStroke"
             />
           </pattern>

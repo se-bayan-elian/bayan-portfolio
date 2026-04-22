@@ -7,6 +7,9 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   body {
@@ -16,7 +19,11 @@
     --font-logo-display: var(--font-outfit), var(--font-geist-sans), system-ui, sans-serif;
 
     position: relative;
+    width: 100%;
+    max-width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: clip;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: var(--font-sans);
@@ -49,9 +56,17 @@
   }
 }
 
+/* Full-bleed backdrop: explicit edges + width for RTL / mobile WebKit (inset:0 alone can leave gaps) */
 .liquid-ambient {
   position: fixed;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
@@ -294,10 +309,12 @@
   transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.45s ease, transform 0.5s ease;
 }
 
-.glass-nav-shell:hover {
-  box-shadow: var(--shadow), 0 28px 72px -18px color-mix(in srgb, var(--accent) 22%, transparent),
-    var(--glass-highlight), var(--glass-lowlight);
-  transform: translateY(-1px) translateZ(0);
+@media (hover: hover) and (pointer: fine) {
+  .glass-nav-shell:hover {
+    box-shadow: var(--shadow), 0 28px 72px -18px color-mix(in srgb, var(--accent) 22%, transparent),
+      var(--glass-highlight), var(--glass-lowlight);
+    transform: translateY(-1px) translateZ(0);
+  }
 }
 
 .glass-nav-track {

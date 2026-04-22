@@ -11,7 +11,7 @@ export function BackgroundLineGrid() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-[2] opacity-[0.48] dark:opacity-[0.26] sm:opacity-[0.52]"
+      className="pointer-events-none fixed inset-0 z-[2] h-full min-h-[100dvh] w-full max-w-full min-w-0 opacity-[0.48] dark:opacity-[0.26] sm:opacity-[0.52]"
       style={{
         maskImage:
           "radial-gradient(ellipse 95% 75% at 50% 10%, #000 0%, #000 42%, rgba(0,0,0,0.55) 62%, transparent 82%)",

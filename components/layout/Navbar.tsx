@@ -36,17 +36,17 @@ export function Navbar() {
 
   return (
     <m.header
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="pointer-events-none fixed inset-x-0 top-0 z-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className="pointer-events-none fixed inset-x-0 top-0 z-50 w-full min-w-0"
     >
-      <div className="pointer-events-auto mx-auto w-full max-w-6xl px-3 pt-3 md:px-4 md:pt-4">
-        <div className="glass-nav-shell">
-          <div className="flex min-h-12 items-center justify-between gap-2 px-2.5 py-1.5 sm:min-h-14 sm:px-3 sm:py-2">
+      <div className="pointer-events-auto mx-auto w-full min-w-0 max-w-full pt-3 sm:px-4 md:px-4 md:pt-4 lg:max-w-6xl">
+        <div className="glass-nav-shell w-full min-w-0">
+          <div className="flex w-full min-w-0 min-h-12 items-center justify-between gap-2 px-2.5 py-1.5 sm:min-h-14 sm:px-3 sm:py-2">
             <Link
               href="/"
-              className="flex min-w-0 items-center gap-2 font-semibold tracking-tight text-[var(--text-primary)]"
+              className="flex min-w-0 flex-1 items-center gap-2 overflow-hidden font-semibold tracking-tight text-[var(--text-primary)]"
               onClick={() => setOpen(false)}
             >
               <span className="flex sm:hidden">
@@ -57,7 +57,7 @@ export function Navbar() {
               </span>
             </Link>
 
-            <div className="hidden min-w-0 flex-1 justify-center md:flex">
+            <div className="hidden min-w-0 flex-1 justify-center lg:flex">
               <LayoutGroup id="main-nav-pill">
                 <nav className="glass-nav-track inline-flex max-w-full items-center gap-0.5 p-1 [direction:inherit]">
                   {navLinks.map((item) => {
@@ -107,7 +107,7 @@ export function Navbar() {
               <ThemeSwitcher />
               <m.button
                 type="button"
-                className="glass-control inline-flex h-10 w-10 md:hidden"
+                className="glass-control inline-flex h-10 w-10 lg:hidden"
                 aria-expanded={open}
                 aria-controls="mobile-nav"
                 onClick={() => setOpen((v) => !v)}
@@ -132,7 +132,7 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            className="pointer-events-auto mx-auto w-full max-w-6xl overflow-hidden px-3 md:hidden"
+            className="pointer-events-auto mx-auto w-full min-w-0 max-w-full overflow-hidden px-3 sm:px-4 md:hidden lg:max-w-6xl"
           >
             <div className="glass-menu-panel mt-2 p-2">
               <div className="flex flex-col gap-0.5">

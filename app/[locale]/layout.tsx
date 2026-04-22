@@ -68,7 +68,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Navbar />
           <main
             id="main-content"
-            className="relative z-10 min-h-[60vh] bg-transparent pt-[5.25rem] sm:pt-[5.5rem]"
+            className="relative z-10 w-full min-w-0 max-w-full min-h-[60vh] bg-transparent pt-[5.25rem] sm:pt-[5.5rem]"
           >
             {children}
           </main>

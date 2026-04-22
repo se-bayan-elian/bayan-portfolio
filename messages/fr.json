@@ -120,5 +120,21 @@
     "title": "Témoignages",
     "subtitle": "Retours de collaborateurs.",
     "empty": "D'autres témoignages arrivent bientôt."
+  },
+  "errors": {
+    "not_found": {
+      "code": "404",
+      "headline": "Cette page est en pause café",
+      "body": "L’URL est partie sans son clavier. Soit elle n’a jamais existé, soit elle squatte /dev/null. Remettons-nous sur une route avec du vrai HTML dedans.",
+      "cta_home": "Téléporte-moi à l’accueil",
+      "cta_projects": "Montre-moi du concret"
+    },
+    "runtime": {
+      "headline": "Bon… c’était un peu théâtral",
+      "subhead": "Quelque chose a fait une crise",
+      "body": "Probablement pas ta faute—à moins que tu sois un point-virgule rebelle. Réessaie, ou fuis vers l’accueil avant que les logs racontent ta vie.",
+      "retry": "Réessayer",
+      "cta_home": "Retour au port d’attache"
+    }
   }
 }

@@ -120,5 +120,21 @@
     "title": "Testimonials",
     "subtitle": "Kind words from collaborators.",
     "empty": "More testimonials coming soon."
+  },
+  "errors": {
+    "not_found": {
+      "code": "404",
+      "headline": "This page is on a coffee break",
+      "body": "That URL wandered off without its keyboard. Either it never existed, or it's living rent-free in /dev/null. Let’s teleport you somewhere with real components.",
+      "cta_home": "Beam me home",
+      "cta_projects": "Show me real pages"
+    },
+    "runtime": {
+      "headline": "Well… that was dramatic",
+      "subhead": "Something threw a tantrum",
+      "body": "Probably not your fault—unless you’re a rogue semicolon. Hit retry, or bail to the homepage before the logs start gossiping.",
+      "retry": "Try again",
+      "cta_home": "Escape to home"
+    }
   }
 }

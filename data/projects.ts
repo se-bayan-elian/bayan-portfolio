@@ -28,12 +28,12 @@ export const projects: Project[] = [
     id: "1",
     slug: "jmaa-store",
     title: "Jmaa Store",
-    titleAr: "متجر جماع",
+    titleAr: "متجر جمعة",
     titleFr: "Jmaa Store",
     description:
       "Saudi group-buying e-commerce platform — buy together, save more.",
     descriptionAr:
-      "منصة تجارة إلكترونية سعودية للشراء الجماعي — اشترِ معاً، وفّر أكثر.",
+      "منصة تجارة إلكترونية سعودية للشراء جمعه — اشترِ معاً، وفّر أكثر.",
     descriptionFr:
       "Plateforme saoudienne d'e-commerce groupé — achetez ensemble, économisez plus.",
     longDescription:

@@ -36,6 +36,10 @@
   --glass-border-soft: rgba(15, 23, 42, 0.06);
   --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
   --glass-lowlight: inset 0 -1px 0 0 rgba(15, 23, 42, 0.05);
+  --logo-gradient-start: #06b6d4;
+  --logo-gradient-end: #65a30d;
+  --logo-frame-fill: color-mix(in srgb, var(--bg-card) 88%, transparent);
+  --logo-frame-stroke: color-mix(in srgb, var(--border) 70%, transparent);
 }
 
 [data-theme="dark"] {
@@ -76,6 +80,10 @@
   --glass-border-soft: rgba(0, 0, 0, 0.35);
   --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.14);
   --glass-lowlight: inset 0 -1px 0 0 rgba(0, 0, 0, 0.35);
+  --logo-gradient-start: #22d3ee;
+  --logo-gradient-end: #bef264;
+  --logo-frame-fill: color-mix(in srgb, var(--bg-card) 55%, transparent);
+  --logo-frame-stroke: color-mix(in srgb, var(--border) 80%, transparent);
 }
 
 [data-theme="dracula"] {
@@ -110,6 +118,10 @@
   --glass-border-soft: rgba(0, 0, 0, 0.28);
   --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
   --glass-lowlight: inset 0 -1px 0 0 rgba(0, 0, 0, 0.25);
+  --logo-gradient-start: #8be9fd;
+  --logo-gradient-end: #50fa7b;
+  --logo-frame-fill: color-mix(in srgb, var(--bg-card) 50%, transparent);
+  --logo-frame-stroke: color-mix(in srgb, var(--border) 75%, transparent);
 }
 
 [data-theme="nord"] {
@@ -144,6 +156,10 @@
   --glass-border-soft: rgba(0, 0, 0, 0.22);
   --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
   --glass-lowlight: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+  --logo-gradient-start: #88c0d0;
+  --logo-gradient-end: #a3be8c;
+  --logo-frame-fill: color-mix(in srgb, var(--bg-card) 58%, transparent);
+  --logo-frame-stroke: color-mix(in srgb, var(--border) 70%, transparent);
 }
 
 [data-theme="solarized"] {
@@ -178,4 +194,8 @@
   --glass-border-soft: rgba(7, 54, 66, 0.08);
   --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
   --glass-lowlight: inset 0 -1px 0 0 rgba(7, 54, 66, 0.06);
+  --logo-gradient-start: #268bd2;
+  --logo-gradient-end: #859900;
+  --logo-frame-fill: color-mix(in srgb, var(--bg-card) 85%, transparent);
+  --logo-frame-stroke: color-mix(in srgb, var(--border) 65%, transparent);
 }

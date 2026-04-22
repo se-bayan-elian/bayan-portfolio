@@ -14,7 +14,7 @@ import {
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { navLinks } from "@/data/navigation";
-import { personal } from "@/data/personal";
+import { BayanLogo } from "@/components/brand/BayanLogo";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import { Link, usePathname } from "@/navigation";
@@ -46,17 +46,15 @@ export function Navbar() {
           <div className="flex min-h-12 items-center justify-between gap-2 px-2.5 py-1.5 sm:min-h-14 sm:px-3 sm:py-2">
             <Link
               href="/"
-              className="flex min-w-0 items-center gap-2.5 font-semibold tracking-tight text-[var(--text-primary)]"
+              className="flex min-w-0 items-center gap-2 font-semibold tracking-tight text-[var(--text-primary)]"
               onClick={() => setOpen(false)}
             >
-              <span
-                className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-[var(--accent)]/30 to-[var(--accent-2)]/20 text-xs font-bold text-[var(--accent)] shadow-sm ring-1 ring-inset ring-white/30 dark:border-white/10 dark:ring-white/5"
-                aria-hidden
-              >
-                <span className="absolute inset-0 bg-gradient-to-t from-white/0 via-white/25 to-white/10 opacity-60" />
-                <span className="relative">BE</span>
+              <span className="flex sm:hidden">
+                <BayanLogo variant="mark" />
               </span>
-              <span className="hidden min-w-0 truncate sm:inline">{personal.name.split(" ")[0]}</span>
+              <span className="hidden min-w-0 sm:flex">
+                <BayanLogo variant="horizontal" />
+              </span>
             </Link>
 
             <div className="hidden min-w-0 flex-1 justify-center md:flex">

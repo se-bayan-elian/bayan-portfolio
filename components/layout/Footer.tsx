@@ -3,6 +3,7 @@
 import { m } from "framer-motion";
 import { ArrowUpRight, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { BayanLogo } from "@/components/brand/BayanLogo";
 import { personal } from "@/data/personal";
 import { Link } from "@/navigation";
 
@@ -23,6 +24,9 @@ export function Footer() {
     >
       <div className="glass-panel mx-auto flex max-w-6xl flex-col gap-6 rounded-3xl px-5 py-9 md:flex-row md:items-center md:justify-between md:px-8">
         <div>
+          <Link href="/" className="mb-5 inline-flex opacity-95 transition hover:opacity-100">
+            <BayanLogo variant="horizontal" size="sm" />
+          </Link>
           <p className="text-sm font-semibold text-[var(--text-primary)]">{personal.name}</p>
           <p className="mt-1 text-sm text-[var(--text-muted)]">
             © {year} {personal.name}. {t("rights")}

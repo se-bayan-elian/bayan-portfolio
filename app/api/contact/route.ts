@@ -27,7 +27,10 @@ export async function POST(req: Request) {
   const to = process.env.CONTACT_TO ?? personal.email;
 
   if (!apiKey || !from) {
-    return NextResponse.json({ error: "Email service not configured" }, { status: 503 });
+    return NextResponse.json(
+      { error: "Email service not configured (RESEND_API_KEY + CONTACT_FROM)" },
+      { status: 503 },
+    );
   }
 
   const resend = new Resend(apiKey);

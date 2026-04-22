@@ -2,23 +2,19 @@
 
 import { m } from "framer-motion";
 import {
-  ArrowUpRight,
   Github,
   Heart,
   Linkedin,
   Mail,
-  MessageCircle,
 } from "lucide-react";
+import { FaTelegramPlane } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { BayanLogo } from "@/components/brand/BayanLogo";
 import { personal } from "@/data/personal";
 import { Link } from "@/navigation";
 
-const MotionLink = m(Link);
-
 export function Footer() {
   const t = useTranslations("footer");
-  const tNav = useTranslations("nav");
   const year = new Date().getFullYear();
 
   return (
@@ -72,6 +68,20 @@ export function Footer() {
             >
               <Mail className="h-5 w-5" />
             </m.a>
+            {personal.social.telegram?.trim() ? (
+              <m.a
+                href={personal.social.telegram.trim()}
+                target="_blank"
+                rel="noreferrer"
+                className="glass-control inline-flex h-10 w-10 text-[#229ED9] hover:text-[#1f8fc7]"
+                aria-label="Telegram"
+                whileHover={{ y: -2, scale: 1.06 }}
+                whileTap={{ scale: 0.94 }}
+                transition={{ type: "spring", stiffness: 400, damping: 24 }}
+              >
+                <FaTelegramPlane className="h-5 w-5" />
+              </m.a>
+            ) : null}
           </div>
         </div>
 

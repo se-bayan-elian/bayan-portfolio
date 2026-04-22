@@ -24,7 +24,6 @@ const localeKeywords: Record<Locale, string[]> = {
     "TypeScript",
     "Portfolio",
     "Palestine",
-    "Ramallah",
     "Web Developer",
     "Software Engineer",
   ],
@@ -37,7 +36,6 @@ const localeKeywords: Record<Locale, string[]> = {
     "تايب سكربت",
     "محفظة أعمال",
     "فلسطين",
-    "رام الله",
     "مهندس برمجيات",
   ],
   fr: [
@@ -49,7 +47,6 @@ const localeKeywords: Record<Locale, string[]> = {
     "TypeScript",
     "Portfolio",
     "Palestine",
-    "Ramallah",
     "Ingénieur logiciel",
   ],
 };

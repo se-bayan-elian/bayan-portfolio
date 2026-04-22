@@ -58,6 +58,9 @@
     "featured": "مميز",
     "view_all": "كل المشاريع",
     "overview": "نظرة عامة",
+    "highlights_heading": "أبرز النقاط",
+    "repo_heading": "المستودع",
+    "date_present": "حتى الآن",
     "view_details": "التفاصيل",
     "live": "زيارة",
     "gallery_title": "لقطات",
@@ -92,7 +95,7 @@
     "title": "تواصل",
     "subtitle": "أخبرني عن منتجك أو فريقك أو فكرتك.",
     "email": "البريد",
-    "location": "الموقع",
+    "telegram": "تلغرام",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "status": "الحالة",
@@ -103,7 +106,10 @@
     "form_submit": "إرسال",
     "form_sending": "جاري الإرسال…",
     "form_success": "شكراً — تم إرسال رسالتك.",
-    "form_error": "حدث خطأ. حاول مرة أخرى أو راسلني بالبريد."
+    "form_error": "حدث خطأ. حاول مرة أخرى أو راسلني بالبريد.",
+    "validation_name_min": "الاسم يجب أن يكون حرفين على الأقل.",
+    "validation_email": "أدخل بريداً إلكترونياً صالحاً.",
+    "validation_message_min": "الرسالة يجب أن تكون 10 أحرف على الأقل."
   },
   "footer": {
     "rights": "جميع الحقوق محفوظة.",

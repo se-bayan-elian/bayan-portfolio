@@ -700,3 +700,61 @@
   }
 }
 
+/* Floating Telegram: outward waves + gentle bounce */
+.telegram-fab {
+  transform: translateZ(0);
+}
+
+.telegram-fab__pulse {
+  position: absolute;
+  inset: -6px;
+  z-index: 0;
+  border-radius: 9999px;
+  border: 2px solid rgba(147, 214, 255, 0.55);
+  animation: telegram-wave 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.telegram-fab__pulse--delay {
+  animation-delay: 0.85s;
+}
+
+.telegram-fab__pulse--delay2 {
+  animation-delay: 1.7s;
+}
+
+@keyframes telegram-wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.95);
+    opacity: 0;
+  }
+}
+
+.telegram-fab-bounce {
+  animation: telegram-bounce 2.25s ease-in-out infinite;
+}
+
+@keyframes telegram-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-11px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .telegram-fab-bounce {
+    animation: none;
+  }
+
+  .telegram-fab__pulse {
+    animation: none;
+    display: none;
+  }
+}
+

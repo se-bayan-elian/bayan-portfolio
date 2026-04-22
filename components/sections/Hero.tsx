@@ -15,6 +15,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Image from "next/image";
+import { FaTelegramPlane } from "react-icons/fa";
 import { useLocale, useTranslations } from "next-intl";
 import { personal } from "@/data/personal";
 import { pickStringList } from "@/lib/i18n-data";
@@ -252,6 +253,20 @@ export function Hero() {
             >
               <Mail className="h-5 w-5" />
             </m.a>
+            {personal.social.telegram?.trim() ? (
+              <m.a
+                href={personal.social.telegram.trim()}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-fx-glass-icon glass-control relative inline-flex h-11 w-11 overflow-hidden text-[#229ED9] hover:text-[#1f8fc7] hover:shadow-glow"
+                aria-label="Telegram"
+                whileHover={reducedMotion ? undefined : { y: -3, scale: 1.06 }}
+                whileTap={reducedMotion ? undefined : { scale: 0.94 }}
+                transition={{ type: "spring", stiffness: 400, damping: 22 }}
+              >
+                <FaTelegramPlane className="h-5 w-5" />
+              </m.a>
+            ) : null}
           </m.div>
         </div>
 

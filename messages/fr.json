@@ -56,6 +56,9 @@
     "featured": "À la une",
     "view_all": "Tous les projets",
     "overview": "Aperçu",
+    "highlights_heading": "Points clés",
+    "repo_heading": "Dépôt",
+    "date_present": "En cours",
     "view_details": "Voir le détail",
     "live": "En ligne",
     "gallery_title": "Captures",
@@ -90,7 +93,7 @@
     "title": "Contact",
     "subtitle": "Parlez-moi de votre produit, équipe ou idée.",
     "email": "Email",
-    "location": "Localisation",
+    "telegram": "Telegram",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "status": "Statut",
@@ -101,7 +104,10 @@
     "form_submit": "Envoyer",
     "form_sending": "Envoi…",
     "form_success": "Merci — message envoyé.",
-    "form_error": "Une erreur s'est produite. Réessayez ou écrivez-moi directement."
+    "form_error": "Une erreur s'est produite. Réessayez ou écrivez-moi directement.",
+    "validation_name_min": "Le nom doit contenir au moins 2 caractères.",
+    "validation_email": "Saisissez une adresse e-mail valide.",
+    "validation_message_min": "Le message doit contenir au moins 10 caractères."
   },
   "footer": {
     "rights": "Tous droits réservés.",

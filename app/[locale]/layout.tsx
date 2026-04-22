@@ -9,6 +9,7 @@ import { LiquidAmbient } from "@/components/layout/LiquidAmbient";
 import { Navbar } from "@/components/layout/Navbar";
 import { Cursor } from "@/components/ui/Cursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { TelegramFloatButton } from "@/components/ui/TelegramFloatButton";
 import { routing } from "@/i18n/routing";
 import '../globals.css'
 
@@ -72,6 +73,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             {children}
           </main>
           <Footer />
+          <TelegramFloatButton />
         </AppProviders>
       </body>
     </html>

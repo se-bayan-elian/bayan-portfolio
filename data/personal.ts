@@ -30,9 +30,6 @@ export const personal = {
   yearsExperience: 4,
 
   email: "bezo2024@gmail.com",
-  location: "Ramallah, Palestine",
-  locationAr: "رام الله، فلسطين",
-  locationFr: "Ramallah, Palestine",
 
   available: true,
 
@@ -50,6 +47,8 @@ export const personal = {
     github: "https://github.com/se-bayan-elian",
     linkedin: "https://www.linkedin.com/in/bayan-reqib-20b160248",
     email: "mailto:bezo2024@gmail.com",
+    /** @example https://t.me/yourusername */
+    telegram: "https://t.me/bezo2003",
     twitter: "",
     youtube: "",
     devto: "",

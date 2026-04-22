@@ -5,13 +5,14 @@
   --text-primary: #0f172a;
   --text-secondary: #3f4f63;
   --text-muted: #64748b;
-  --accent: #0f766e;
-  --accent-2: #b45309;
-  --accent-hover: #115e59;
-  --accent-subtle: rgba(15, 118, 110, 0.14);
+  /* Teal primary: clearer contrast on buttons than flat forest green */
+  --accent: #0d9488;
+  --accent-2: #c2410c;
+  --accent-hover: #0f766e;
+  --accent-subtle: rgba(13, 148, 136, 0.16);
   --border: #e2e8e8;
   --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 20px 40px -12px rgba(15, 23, 42, 0.08);
-  --shadow-glow: 0 0 0 1px rgba(15, 118, 110, 0.06), 0 20px 50px -15px rgba(15, 118, 110, 0.16);
+  --shadow-glow: 0 0 0 1px rgba(13, 148, 136, 0.08), 0 20px 50px -15px rgba(13, 148, 136, 0.22);
   --gradient-hero: radial-gradient(
       at 15% 20%,
       rgba(15, 118, 110, 0.12),
@@ -22,13 +23,13 @@
     linear-gradient(165deg, #ffffff 0%, #f4faf8 48%, #f0f9fc 100%);
   --gradient-text: linear-gradient(
     120deg,
-    #115e59 0%,
-    #0f766e 38%,
-    #0d9488 72%,
-    #a16207 100%
+    #0f766e 0%,
+    #0d9488 36%,
+    #14b8a6 68%,
+    #b45309 100%
   );
-  --gradient-cta: linear-gradient(125deg, #0f766e 0%, #0d9488 48%, #0891b2 100%);
-  --gradient-line: linear-gradient(90deg, #0f766e, #ca8a04);
+  --gradient-cta: linear-gradient(125deg, #0f766e 0%, #0d9488 38%, #14b8a6 72%, #0891b2 100%);
+  --gradient-line: linear-gradient(90deg, #0d9488, #ea580c);
   --glass-bg: rgba(255, 255, 255, 0.36);
   --glass-bg-strong: rgba(255, 255, 255, 0.6);
   --glass-track: rgba(255, 255, 255, 0.38);
@@ -109,7 +110,8 @@
     radial-gradient(at 50% 85%, rgba(255, 184, 108, 0.06), transparent 45%),
     linear-gradient(180deg, #282a36 0%, #1a1b24 100%);
   --gradient-text: linear-gradient(120deg, #ffb86c 0%, #50fa7b 42%, #8be9fd 100%);
-  --gradient-cta: linear-gradient(125deg, #50fa7b 0%, #8be9fd 52%, #ffb86c 100%);
+  /* Darker stops so white `text-white` on CTAs stays readable (neon lime alone fails WCAG) */
+  --gradient-cta: linear-gradient(125deg, #3d6b51 0%, #2d9f72 42%, #1e7a6c 88%);
   --gradient-line: linear-gradient(90deg, #50fa7b, #8be9fd);
   --glass-bg: rgba(48, 50, 68, 0.42);
   --glass-bg-strong: rgba(58, 60, 82, 0.58);

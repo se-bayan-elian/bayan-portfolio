@@ -56,6 +56,9 @@
     "featured": "Featured",
     "view_all": "View all projects",
     "overview": "Overview",
+    "highlights_heading": "Highlights",
+    "repo_heading": "Repository",
+    "date_present": "Present",
     "view_details": "View details",
     "live": "visit",
     "gallery_title": "Screenshots",
@@ -90,7 +93,7 @@
     "title": "Contact",
     "subtitle": "Tell me about your product, team, or idea.",
     "email": "Email",
-    "location": "Location",
+    "telegram": "Telegram",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "status": "Status",
@@ -101,7 +104,10 @@
     "form_submit": "Send message",
     "form_sending": "Sending…",
     "form_success": "Thanks — your message was sent.",
-    "form_error": "Something went wrong. Try again or email directly."
+    "form_error": "Something went wrong. Try again or email directly.",
+    "validation_name_min": "Name must be at least 2 characters.",
+    "validation_email": "Enter a valid email address.",
+    "validation_message_min": "Message must be at least 10 characters."
   },
   "footer": {
     "rights": "All rights reserved.",

@@ -1,12 +1,11 @@
 "use client";
 
 import { m } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { FaTelegramPlane } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 import { personal } from "@/data/personal";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { pickStr } from "@/lib/locale-text";
-import type { Locale } from "@/i18n/routing";
 
 function profileHandle(url: string) {
   try {
@@ -20,13 +19,7 @@ function profileHandle(url: string) {
 
 export function ContactPageView() {
   const t = useTranslations("contact");
-  const locale = useLocale() as Locale;
-  const location = pickStr(
-    locale,
-    personal.location,
-    personal.locationAr,
-    personal.locationFr,
-  );
+  const telegramUrl = personal.social.telegram?.trim();
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
@@ -64,13 +57,24 @@ export function ContactPageView() {
               </dd>
             </div>
 
-            <div>
-              <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">
-                <MapPin className="h-4 w-4 text-[var(--accent)]" aria-hidden />
-                {t("location")}
-              </dt>
-              <dd className="mt-2 text-sm font-semibold text-[var(--text-primary)]">{location}</dd>
-            </div>
+            {telegramUrl ? (
+              <div>
+                <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                  <FaTelegramPlane className="h-4 w-4 text-[#229ED9]" aria-hidden />
+                  {t("telegram")}
+                </dt>
+                <dd className="mt-2">
+                  <a
+                    href={telegramUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-semibold text-[var(--text-primary)] hover:text-[#229ED9]"
+                  >
+                    {profileHandle(telegramUrl)}
+                  </a>
+                </dd>
+              </div>
+            ) : null}
 
             <div>
               <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">

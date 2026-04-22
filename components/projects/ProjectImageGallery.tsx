@@ -5,15 +5,19 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 type Props = {
   images: string[];
   altBase: string;
+  /** Larger polaroid-style frames in the masonry grid */
+  variant?: "default" | "polaroid";
 };
 
-export function ProjectImageGallery({ images, altBase }: Props) {
+export function ProjectImageGallery({ images, altBase, variant = "default" }: Props) {
   const t = useTranslations("projects");
   const [open, setOpen] = useState<number | null>(null);
+  const isPolaroid = variant === "polaroid";
 
   const close = useCallback(() => setOpen(null), []);
   const next = useCallback(() => {
@@ -49,22 +53,54 @@ export function ProjectImageGallery({ images, altBase }: Props) {
 
   return (
     <>
-      <div className="mt-8 columns-1 gap-x-4 sm:columns-2 lg:columns-3">
+      <div
+        className={cn(
+          "mt-8",
+          isPolaroid
+            ? "columns-1 gap-x-8 gap-y-10 md:columns-2"
+            : "columns-1 gap-x-4 sm:columns-2 lg:columns-3",
+        )}
+      >
         {images.map((src, i) => (
           <button
             key={`${src}-${i}`}
             type="button"
             onClick={() => setOpen(i)}
-            className="group/img mb-4 w-full break-inside-avoid overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] text-start transition hover:border-[var(--accent)]/35 hover:shadow-lg hover:shadow-[color-mix(in_srgb,var(--accent)_12%,transparent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] motion-reduce:transition-none"
+            className={cn(
+              "group/img w-full break-inside-avoid text-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] motion-reduce:transition-none",
+              isPolaroid ? "mb-10 md:mb-12" : "mb-4",
+            )}
           >
-            <Image
-              src={src}
-              alt={`${altBase} — ${i + 1}`}
-              width={960}
-              height={720}
-              className="w-full object-cover transition duration-300 group-hover/img:scale-[1.03] motion-reduce:group-hover/img:scale-100"
-              sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-            />
+            {isPolaroid ? (
+              <div
+                className={cn(
+                  "project-polaroid-frame -rotate-[0.45deg] shadow-xl transition duration-500 ease-out will-change-transform",
+                  "group-hover/img:rotate-0 group-hover/img:-translate-y-2 group-hover/img:shadow-[0_36px_80px_-28px_rgba(0,0,0,0.42)]",
+                  "motion-reduce:rotate-0 motion-reduce:transition-none motion-reduce:group-hover/img:translate-y-0",
+                )}
+              >
+                <div className="relative aspect-[5/4] min-h-[240px] w-full overflow-hidden rounded-[2px] bg-[var(--bg-secondary)] shadow-[inset_0_1px_3px_rgba(0,0,0,0.14)] sm:min-h-[300px] md:min-h-[320px]">
+                  <Image
+                    src={src}
+                    alt={`${altBase} — ${i + 1}`}
+                    fill
+                    className="object-cover transition duration-500 ease-out group-hover/img:scale-[1.04] motion-reduce:group-hover/img:scale-100"
+                    sizes="(max-width:768px) 100vw, (max-width:1280px) 50vw, 560px"
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] transition hover:border-[var(--accent)]/35 hover:shadow-lg hover:shadow-[color-mix(in_srgb,var(--accent)_12%,transparent)]">
+                <Image
+                  src={src}
+                  alt={`${altBase} — ${i + 1}`}
+                  width={960}
+                  height={720}
+                  className="w-full object-cover transition duration-300 group-hover/img:scale-[1.03] motion-reduce:group-hover/img:scale-100"
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                />
+              </div>
+            )}
           </button>
         ))}
       </div>

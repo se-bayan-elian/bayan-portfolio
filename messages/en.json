@@ -42,6 +42,8 @@
     "specialties_heading": "What I specialize in",
     "education_heading": "Education",
     "download_cv": "Download CV",
+    "transcript" :"Academic transcript",
+    "certificate" : "Certificate",
     "hackathon_title": "Hackathon achievement",
     "hackathon_body": "1st Place — National AI Hackathon at Techno Park for an AI-powered survey platform."
   },

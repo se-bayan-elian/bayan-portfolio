@@ -45,7 +45,7 @@ export const projects: Project[] = [
       "منصة قادر (qader.vip) تقدّم نفسها كرفيق للاختبارات والتعلّم: منظومة تعليمية يتفاعل فيها الطلاب مع محتوى منظم واختبارات ورؤى أداء. عملت كمطوّر واجهات Next.js على المنصة الإنتاجية الرئيسية: تثبيت أجزاء واسعة من الواجهة القديمة، إصلاح أعطال حرجة في الإنتاج، وإعادة هيكلة لسهولة الصيانة. ساهمت في دردشة جماعية فورية لمجتمعات دراسية وتداول، وبناء وتحسين مسارات التقييم، ودعم دمج تحليل الدرجات بمساعدة الذكاء الاصطناعي ليتلقى المعلّمون ملاحظات أسرع أوضح. ركّز العمل على الأداء والاستقرار وجودة تجربة المستخدم على واجهة SaaS مزدحمة.",
     longDescriptionFr:
       "Qader (qader.vip) se présente comme un compagnon pour les évaluations et l'apprentissage : un écosystème où les étudiants accèdent à du contenu structuré, des tests et des indicateurs de performance. J'ai travaillé en Next.js sur la plateforme de production : stabilisation de larges zones héritées, correction de bugs critiques et refactorisation pour la maintenabilité. J'ai contribué au chat de groupe temps réel (communautés d'étude et de trading), aux modules d'évaluation et à l'intégration d'analyses de scores assistées par l'IA pour des retours plus rapides aux enseignants. Priorité à la performance, la résilience et l'UX sur une SaaS à fort trafic.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861190/%D9%82%D8%A7%D8%AF%D8%B1-Qader-%D8%B1%D9%81%D9%8A%D9%82-%D8%AF%D8%B1%D8%A8%D9%83-%D9%84%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA-04-22-2026_03_24_PM_w7yj7q.png",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776940079/kb6rh61hrwfhre6jajnv_spal9r.webp",
     images: ["https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861190/%D9%82%D8%A7%D8%AF%D8%B1-Qader-%D8%B1%D9%81%D9%8A%D9%82-%D8%AF%D8%B1%D8%A8%D9%83-%D9%84%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA-04-22-2026_03_24_PM_w7yj7q.png",
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861179/%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF-%D9%85%D8%B3%D8%AA%D9%88%D8%A7%D9%83-04-22-2026_03_31_PM_hq4kkw.png",
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861191/%D9%81%D9%8A%D8%AF%D9%8A%D9%88-%D8%AC%D8%AF%D9%8A%D8%AF-%D8%AC%D8%AF%D9%8A%D8%AF-04-22-2026_03_30_PM_dcupv3.png",
@@ -111,7 +111,7 @@ export const projects: Project[] = [
       "جمعة (jmaa.sa) سوق سعودي للشراء الجماعي: يتجمّع المشترون على نفس المنتج ليحصل الجميع على سعر أقل عند اكتمال المجموعة — بشعار «اشترِ معاً ووفّر أكثر». المتجر يعرض إلكترونيات وغيرها مع مقارنة واضحة بين السعر العادي وسعر جمعة ورسائل تقسيط تمارا. على الصعيد التقني ساهمت عبر خدمات NestJS وواجهة Next.js: تكاملات دفع (منها NowLater وPaymob وAmwal Tech)، إعادة هيكلة، وإصلاح أعطال حرجة للحفاظ على موثوقية الدفع ومسارات المجموعة على نطاق واسع.",
     longDescriptionFr:
       "Jmaa (jmaa.sa) est une place de marché d'achat groupé : les acheteurs se regroupent sur un même produit pour obtenir un prix de groupe une fois le quota atteint — « Achetez ensemble. Économisez plus. » Le site met en avant l'électronique avec prix normal vs prix groupe et mentions Tamara. Côté technique : contributions NestJS et Next.js, intégrations paiement (NowLater, Paymob, Amwal Tech), refactorisations et corrections pour fiabiliser checkout et flux de groupe.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871111/Jmaa-Group-Shopping-Save-More-Together-04-22-2026_06_17_PM_lenneb.png",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776941962/Gemini_Generated_Image_r22x9er22x9er22x_cbiuuc.webp",
     images: [],
     techStack: ["Next.js", "NestJS", "TypeScript", "Paymob", "NowLater", "Amwal Tech"],
     category: "ecommerce",
@@ -161,7 +161,7 @@ export const projects: Project[] = [
       "SurveyGenius (surveygenius.app) يقدّم منشئ استطلاعات بسيطاً مع تحليل أذكى: تحليلات مدعومة بالذكاء الاصطناعي، قوالب قابلة للتخصيص، ولوحات معلومات للفرق التي تحتاج إشارة سريعة من المستجيبين. بُني لصالح هاكاثون الذكاء الاصطناعي الوطني (المركز الأول): واجهة Next.js مع محرر استطلاع يشبه الـ no-code، معاينات حية، وتحليلات غنية (رسومية ونصية ورقمية). القصة التسويقية تؤكد الأمان والتخصيص وتحويل الردود الخام إلى توصيات لا مجرد رسوم بيانية.",
     longDescriptionFr:
       "SurveyGenius (surveygenius.app) propose un éditeur de sondages simple avec analyse plus intelligente : analytics IA, personnalisation et tableaux de bord pour les équipes pressées. Conçu pour le hackathon IA national (1er prix) : frontend Next.js avec éditeur type no-code, prévisualisations et analytics riches (graphiques, texte, chiffres). L'accent est mis sur sécurité, personnalisation et transformation des réponses brutes en recommandations.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871114/SurveyGenius-%D8%A5%D9%86%D8%B4%D8%A7%D8%A1-%D8%A7%D8%B3%D8%AA%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A8%D8%A8%D8%B3%D8%A7%D8%B7%D8%A9_-%D8%AA%D8%AD%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D8%A8%D8%B0%D9%83%D8%A7%D8%A1-04-22-2026_06_17_PM_mbiuny.png",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776941492/Gemini_Generated_Image_g7qnrvg7qnrvg7qn_zh8isr.webp",
     images: [],
     techStack: ["Next.js", "TypeScript", "AI/ML", "Drag & Drop", "Analytics Dashboard"],
     category: "ai",
@@ -262,7 +262,7 @@ export const projects: Project[] = [
       "وايتر (waiter.sa) يستهدف المطاعم والمقاهي والسوبرماركت التي تريد صندوقاً يقدّم الجوال أولاً: تكامل أجهزة نقاط البيع، تجربة ثنائية اللغة، ووعد بإطلاق سريع—غالباً خلال نحو 48 ساعة دون مطوّر داخل المنظمة. التقنية تمر عبر Next.js مع Styled Components وMUI وRTK وnext-i18n لتجربة عربي/إنجليزي متسقة مع إدارة العمليات والإحصاءات من لوحة واحدة.",
     longDescriptionFr:
       "Waiter (waiter.sa) cible restaurants, cafés et supermarchés avec une caisse mobile-first : intégration TPE, UX bilingue et mise en ligne rapide — souvent sous ~48 h sans développeur interne. Stack Next.js, Styled Components, MUI, RTK et next-i18n pour parcours AR/EN homogènes et pilotage opérationnel centralisé.",
-    thumbnail: "/images/projects/waiter.jpg",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776941992/Gemini_Generated_Image_temq93temq93temq_a8j94s.webp",
     images: [],
     techStack: ["Next.js", "Styled Components", "MUI", "Next i18n", "RTK", "TypeScript"],
     category: "web",

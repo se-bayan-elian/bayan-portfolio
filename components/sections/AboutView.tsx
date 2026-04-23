@@ -143,8 +143,29 @@ export function AboutView({ locale }: Props) {
                 <dt className="text-xs font-medium text-[var(--text-muted)]">
                   {t("available_label")}
                 </dt>
-                <dd className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
-                  {personal.available ? t("available_yes") : t("available_no")}
+                <dd className="mt-2">
+                  <span
+                    className={
+                      personal.available
+                        ? "inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--accent)_28%,var(--border))] bg-[var(--accent-subtle)] px-3 py-1 text-sm font-semibold text-[var(--text-primary)] ring-1 ring-[var(--accent)]/12"
+                        : "inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-secondary)] px-3 py-1 text-sm font-semibold text-[var(--text-secondary)]"
+                    }
+                  >
+                    {personal.available ? (
+                      <>
+                        <span className="relative flex h-2.5 w-2.5 shrink-0">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)]/40 opacity-70 motion-reduce:hidden" aria-hidden />
+                          <span className="relative m-auto h-2 w-2 rounded-full bg-[var(--accent)]" aria-hidden />
+                        </span>
+                        {t("available_yes")}
+                      </>
+                    ) : (
+                      <>
+                        <span className="h-2 w-2 shrink-0 rounded-full bg-[var(--text-muted)]" aria-hidden />
+                        {t("available_no")}
+                      </>
+                    )}
+                  </span>
                 </dd>
               </div>
             </dl>
@@ -174,14 +195,14 @@ export function AboutView({ locale }: Props) {
           </section>
 
           <m.div
-            className="mt-10 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/15 to-transparent p-6"
+            className="mt-10 rounded-3xl border border-[color-mix(in_srgb,var(--accent-2)_35%,var(--border))] bg-[color-mix(in_srgb,var(--accent-subtle)_55%,var(--bg-card))] p-6 shadow-[var(--shadow)]"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.45 }}
           >
             <div className="flex items-start gap-3">
               <Award
-                className="mt-0.5 h-6 w-6 text-amber-600 dark:text-amber-300"
+                className="mt-0.5 h-6 w-6 shrink-0 text-[var(--accent-2)]"
                 aria-hidden
               />
               <div>

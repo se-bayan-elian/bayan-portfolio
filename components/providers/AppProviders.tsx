@@ -1,10 +1,12 @@
 "use client";
 
-import { NextIntlClientProvider, useLocale } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import type { AbstractIntlMessages, Locale } from "next-intl";
 import type { ReactNode } from "react";
+import { GoogleTags } from "@/components/analytics/GoogleTags";
 import { MotionProvider } from "./MotionProvider";
 import { ThemeProvider } from "./ThemeProvider";
+import { ToasterHost } from "./ToasterHost";
 import { useParams } from "next/navigation";
 
 type Props = {
@@ -18,6 +20,8 @@ export function AppProviders({ children, messages }: Props) {
     <NextIntlClientProvider messages={messages} locale={locale as Locale}>
       <ThemeProvider>
         <MotionProvider>{children}</MotionProvider>
+        <ToasterHost />
+        <GoogleTags />
       </ThemeProvider>
     </NextIntlClientProvider>
   );

@@ -41,7 +41,7 @@ export function Navbar() {
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       className="pointer-events-none fixed inset-x-0 top-0 z-50 w-full min-w-0"
     >
-      <div className="pointer-events-auto mx-auto w-full min-w-0 max-w-full pt-3 sm:px-4 md:px-4 md:pt-4 lg:max-w-6xl">
+      <div className="pointer-events-auto mx-auto w-full min-w-0 max-w-full px-4 pt-3 md:px-6 md:pt-4 lg:max-w-6xl">
         <div className="glass-nav-shell w-full min-w-0">
           <div className="flex w-full min-w-0 min-h-12 items-center justify-between gap-2 px-2.5 py-1.5 sm:min-h-14 sm:px-3 sm:py-2">
             <Link
@@ -132,7 +132,7 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            className="pointer-events-auto mx-auto w-full min-w-0 max-w-full overflow-hidden px-3 sm:px-4 md:hidden lg:max-w-6xl"
+            className="pointer-events-auto mx-auto w-full min-w-0 max-w-full overflow-hidden px-4 md:hidden lg:max-w-6xl"
           >
             <div className="glass-menu-panel mt-2 p-2">
               <div className="flex flex-col gap-0.5">

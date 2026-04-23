@@ -6,6 +6,7 @@ import { Loader2, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 function buildContactSchema(t: (key: string) => string) {
@@ -20,7 +21,7 @@ type ContactFormValues = z.infer<ReturnType<typeof buildContactSchema>>;
 
 export function ContactForm() {
   const t = useTranslations("contact");
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [sending, setSending] = useState(false);
 
   const schema = useMemo(() => buildContactSchema(t), [t]);
 
@@ -36,7 +37,7 @@ export function ContactForm() {
   });
 
   const onSubmit = async (values: ContactFormValues) => {
-    setStatus("sending");
+    setSending(true);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -44,10 +45,18 @@ export function ContactForm() {
         body: JSON.stringify(values),
       });
       if (!res.ok) throw new Error("bad");
-      setStatus("success");
+      toast.success(t("form_success"), {
+        className:
+          "!border-[color-mix(in_srgb,var(--accent)_42%,var(--glass-border))] !bg-[color-mix(in_srgb,var(--accent)_12%,var(--glass-bg-strong))]",
+      });
       reset();
     } catch {
-      setStatus("error");
+      toast.error(t("form_error"), {
+        className:
+          "!border-[color-mix(in_srgb,#f87171_48%,var(--glass-border))] !bg-[color-mix(in_srgb,#ef4444_10%,var(--glass-bg-strong))]",
+      });
+    } finally {
+      setSending(false);
     }
   };
 
@@ -68,7 +77,8 @@ export function ContactForm() {
           <input
             id="name"
             autoComplete="name"
-            className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] px-4 py-3 text-sm text-[var(--text-primary)] transition focus:border-[var(--accent)] aria-invalid:border-red-500/80"
+            placeholder={t("form_name_placeholder")}
+            className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] px-4 py-3 text-sm text-[var(--text-primary)] transition placeholder:text-[var(--text-muted)] focus:border-[var(--accent)] aria-invalid:border-red-500/80"
             aria-invalid={errors.name ? true : undefined}
             aria-describedby={errors.name ? "name-error" : undefined}
             {...register("name")}
@@ -88,7 +98,8 @@ export function ContactForm() {
             id="email"
             type="email"
             autoComplete="email"
-            className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] px-4 py-3 text-sm text-[var(--text-primary)] transition focus:border-[var(--accent)] aria-invalid:border-red-500/80"
+            placeholder={t("form_email_placeholder")}
+            className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] px-4 py-3 text-sm text-[var(--text-primary)] transition placeholder:text-[var(--text-muted)] focus:border-[var(--accent)] aria-invalid:border-red-500/80"
             aria-invalid={errors.email ? true : undefined}
             aria-describedby={errors.email ? "email-error" : undefined}
             {...register("email")}
@@ -107,7 +118,8 @@ export function ContactForm() {
           <textarea
             id="message"
             rows={5}
-            className="mt-2 w-full resize-y rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] px-4 py-3 text-sm text-[var(--text-primary)] transition focus:border-[var(--accent)] aria-invalid:border-red-500/80"
+            placeholder={t("form_message_placeholder")}
+            className="mt-2 w-full resize-y rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] px-4 py-3 text-sm text-[var(--text-primary)] transition placeholder:text-[var(--text-muted)] focus:border-[var(--accent)] aria-invalid:border-red-500/80"
             aria-invalid={errors.message ? true : undefined}
             aria-describedby={errors.message ? "message-error" : undefined}
             {...register("message")}
@@ -122,12 +134,12 @@ export function ContactForm() {
 
       <m.button
         type="submit"
-        disabled={status === "sending"}
+        disabled={sending}
         className="group/submit mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-md shadow-[color-mix(in_srgb,var(--accent)_35%,transparent)] transition-[box-shadow,background-color] duration-300 hover:bg-[var(--accent-hover)] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none"
-        whileHover={status === "sending" ? undefined : { scale: 1.01 }}
-        whileTap={status === "sending" ? undefined : { scale: 0.985 }}
+        whileHover={sending ? undefined : { scale: 1.01 }}
+        whileTap={sending ? undefined : { scale: 0.985 }}
       >
-        {status === "sending" ? (
+        {sending ? (
           <>
             <Loader2 className="h-4 w-4 shrink-0 animate-spin" aria-hidden />
             <span>{t("form_sending")}</span>
@@ -139,17 +151,6 @@ export function ContactForm() {
           </>
         )}
       </m.button>
-
-      {status === "success" ? (
-        <p className="mt-4 text-sm text-emerald-600 dark:text-emerald-400" role="status">
-          {t("form_success")}
-        </p>
-      ) : null}
-      {status === "error" ? (
-        <p className="mt-4 text-sm text-red-500" role="alert">
-          {t("form_error")}
-        </p>
-      ) : null}
     </m.form>
   );
 }

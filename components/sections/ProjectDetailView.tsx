@@ -142,8 +142,9 @@ export function ProjectDetailView({
                   src={project.thumbnail}
                   alt=""
                   fill
+                  quality={92}
                   className="object-cover"
-                  sizes="(max-width:1024px) 100vw, min(448px, 45vw)"
+                  sizes="(max-width: 1024px) 92vw, min(448px, 40vw)"
                   priority
                 />
               </div>

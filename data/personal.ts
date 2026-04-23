@@ -40,8 +40,8 @@ export const personal = {
   bioFr: "Ingénieur logiciel innovant spécialisé dans Next.js, Nest.js et les écosystèmes JavaScript modernes, avec un solide historique dans la création de systèmes web et backend évolutifs et performants.",
 
   avatar: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776844571/Gemini_Generated_Image_epd9ffepd9ffepd9_hn1guw.png",
-  resume: "/cv.pdf",
-  siteUrl: "https://bayan-elian.dev",
+  resume: "https://drive.google.com/uc?export=download&id=19_KFfqggVgbvqrzneDzWFOOHLUHHJ0f7",
+  siteUrl: "https://bayan-reqeb.tech",
 
   social: {
     github: "https://github.com/se-bayan-elian",

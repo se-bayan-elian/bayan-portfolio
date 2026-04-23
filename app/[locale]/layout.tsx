@@ -11,6 +11,7 @@ import { Cursor } from "@/components/ui/Cursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { TelegramFloatButton } from "@/components/ui/TelegramFloatButton";
 import { routing } from "@/i18n/routing";
+import { Analytics } from "@vercel/analytics/next";
 import '../globals.css'
 
 const geistSans = Geist({
@@ -75,6 +76,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Footer />
           <TelegramFloatButton />
         </AppProviders>
+        <Analytics />
       </body>
     </html>
   );

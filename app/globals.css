@@ -775,3 +775,20 @@
   }
 }
 
+/* Sonner — inherit body font so RTL uses Tajawal (--font-arabic); beat Sonner’s ui-sans stack */
+[data-sonner-toaster].site-sonner-toaster {
+  font-family: inherit !important;
+}
+
+[data-sonner-toaster].site-sonner-toaster [data-sonner-toast] {
+  font-family: inherit !important;
+}
+
+[data-sonner-toaster].site-sonner-toaster [data-sonner-toast][data-styled="true"] [data-description] {
+  color: var(--text-secondary) !important;
+}
+
+[data-sonner-toaster].site-sonner-toaster[data-sonner-theme="dark"] [data-description] {
+  color: var(--text-secondary) !important;
+}
+

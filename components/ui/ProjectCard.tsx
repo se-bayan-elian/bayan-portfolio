@@ -74,21 +74,6 @@ export function ProjectCard({
         whileHover={glassCardHover}
         whileTap={glassCardTap}
       >
-        {project.award && awardLabel && (
-          <m.div
-            className="group/award absolute end-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-3 py-1 text-xs font-semibold text-amber-950 shadow-lg"
-            animate={{ scale: [1, 1.03, 1] }}
-            transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
-            whileHover={{ scale: 1.06 }}
-          >
-            <Trophy
-              className="h-3 w-3 shrink-0 opacity-95 transition duration-300 group-hover/award:rotate-12 motion-reduce:transition-none motion-reduce:group-hover/award:rotate-0"
-              aria-hidden
-            />
-            {awardLabel}
-          </m.div>
-        )}
-
         <Link
           href={`/projects/${project.slug}`}
           className="group/img w-full  relative mx-auto block  outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
@@ -99,8 +84,9 @@ export function ProjectCard({
               src={project.thumbnail}
               alt=""
               fill
+              quality={96}
               className="object-cover transition duration-500 ease-out group-hover/img:scale-[1.06] motion-reduce:group-hover/img:scale-100"
-              sizes="(max-width:768px) 92vw, (max-width:1280px) 45vw, 460px"
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, (max-width: 1536px) 34vw, min(720px, 38vw)"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/82 via-[var(--bg-primary)]/12 to-[var(--accent-2)]/5" />
           </div>
@@ -108,6 +94,15 @@ export function ProjectCard({
 
         <div className="flex flex-1 flex-col p-6">
           <div className="flex flex-wrap items-center gap-2">
+            {project.award && awardLabel ? (
+              <span className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-[color-mix(in_srgb,var(--accent-2)_42%,var(--border))] bg-[color-mix(in_srgb,var(--accent-subtle)_70%,var(--bg-secondary))] px-2.5 py-0.5 text-xs font-semibold text-[var(--text-primary)] ring-1 ring-[color-mix(in_srgb,var(--accent-2)_25%,transparent)]">
+                <Trophy
+                  className="h-3 w-3 shrink-0 text-[var(--accent-2)]"
+                  aria-hidden
+                />
+                <span className="min-w-0 truncate">{awardLabel}</span>
+              </span>
+            ) : null}
             {project.featured && (
               <span className="group/feat inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[var(--accent)]/20 to-[var(--accent-2)]/20 px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20 transition duration-300 hover:-translate-y-0.5 hover:shadow-sm motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                 <Star

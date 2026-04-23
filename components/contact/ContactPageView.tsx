@@ -114,8 +114,11 @@ export function ContactPageView() {
               <dt className="text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">
                 {t("status")}
               </dt>
-              <dd className="mt-2 inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-sm font-semibold text-emerald-700 dark:text-emerald-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              <dd className="mt-2 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--accent)_28%,var(--border))] bg-[var(--accent-subtle)] px-3 py-1 text-sm font-semibold text-[var(--text-primary)] ring-1 ring-[var(--accent)]/12">
+                <span className="relative flex h-2.5 w-2.5 shrink-0">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)]/40 opacity-70 motion-reduce:hidden" aria-hidden />
+                  <span className="relative m-auto h-2 w-2 rounded-full bg-[var(--accent)]" aria-hidden />
+                </span>
                 {t("status_open")}
               </dd>
             </div>

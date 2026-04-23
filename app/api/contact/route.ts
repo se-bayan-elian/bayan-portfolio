@@ -34,7 +34,7 @@ export async function POST(req: Request) {
   }
 
   const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
+  const result = await resend.emails.send({
     from,
     to,
     replyTo: parsed.data.email,
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     text: `${parsed.data.name} <${parsed.data.email}>\n\n${parsed.data.message}`,
   });
 
-  if (error) {
+  if (result.error) {
     return NextResponse.json({ error: "Failed to send" }, { status: 502 });
   }
 

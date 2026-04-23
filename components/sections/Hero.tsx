@@ -57,7 +57,7 @@ export function Hero() {
   const ctaTap = reducedMotion ? undefined : { scale: 0.98 };
 
   return (
-    <section className="relative isolate overflow-hidden px-4 pb-16 pt-10 md:px-6 md:pb-24 md:pt-16">
+    <section className="relative isolate overflow-hidden pb-16 pt-10 md:pb-24 md:pt-16">
       {/* Stack: grid lines → mesh → glows (all pointer-events-none, above page backdrop) */}
       <div className="hero-bg-grid pointer-events-none absolute inset-0 z-0" aria-hidden />
       <div className="hero-mesh-layer pointer-events-none absolute inset-0 z-[1] mesh-bg opacity-85 motion-reduce:animate-none" aria-hidden />
@@ -68,8 +68,9 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.72fr)] lg:gap-14">
-        <div>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.72fr)] lg:gap-14">
+          <div>
           <m.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -268,9 +269,9 @@ export function Hero() {
               </m.a>
             ) : null}
           </m.div>
-        </div>
+          </div>
 
-        <m.div
+          <m.div
           className="relative mx-auto flex w-full max-w-[22rem] justify-center lg:mx-0 lg:max-w-none lg:justify-end"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -326,7 +327,8 @@ export function Hero() {
               </m.div>
             </m.div>
           </div>
-        </m.div>
+          </m.div>
+        </div>
       </div>
     </section>
   );

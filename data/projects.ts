@@ -212,7 +212,7 @@ export const projects: Project[] = [
       "rab-t.com يعرض رابط الخيال كواجهة متجر إبداعية: منتجات مميزة، أرقام للشركة (مشاريع منجزة، رضا، عملاء، خبرة)، وطبقة خدمات تُسوَّق كآمنة وسريعة ومدعومة. تقنياً الربط بين Next.js متجاوب وواجهات NestJS — يشمل محرر تصميم يشبه الوقت الفعلي ليعدّل العملاء النص والصور والألوان دون أدوات تصميم، مع إدارة طلبات ومخزون ودفع وتتبع سير عمل الطباعة من البداية للنهاية.",
     longDescriptionFr:
       "rab-t.com présente Rabt Alkhayal comme vitrine créative : produits vedettes, chiffres clés (projets, satisfaction, clients, ancienneté) et services sécurité/perf/support. Côté stack : Next.js responsive et APIs NestJS — éditeur temps réel pour texte/images/couleurs sans logiciel de design, plus commandes, stock, paiement et suivi du flux d'impression.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871679/%D9%85%D9%86-%D9%86%D8%AD%D9%86-%D8%B1%D8%A8%D8%B7-%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D9%84-04-22-2026_06_24_PM_qoff5t.png",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776944084/Gemini_Generated_Image_d3wdz0d3wdz0d3wd_asl6ni.webp",
     images: [],
     techStack: ["Next.js", "NestJS", "TypeScript", "Real-time Editor", "Payment Integration"],
     category: "ecommerce",
@@ -312,7 +312,7 @@ export const projects: Project[] = [
       "البيان الخيرية (albayancharity.org) تعرض رسالة مؤسسة البيان: مساعدات إنسانية للعائلات (منها نداءات تركز على غزة)، قصص شفافية، عدادات للمستفيدين، حضور المتطوعين، وأسئلة شائعة حول استخدام التبرعات. تقنياً تربط لوحة Next.js وShadCN وTailwind مع خلفية NestJS وMongoDB، وتدفقات OAuth2، وRBAC لأدوار الطاقم، وCI/CD عبر GitHub Actions، وNginx كوسيط عكسي، ونشر على عدة نطاقات فرعية على بنية VPS.",
     longDescriptionFr:
       "Albayan Charity (albayancharity.org) présente la fondation : aide humanitaire (appels dont Gaza), transparence, chiffres clés bénéficiaires/bénévoles, FAQ sur l'usage des dons. Ingénierie : Next.js + ShadCN + Tailwind, backend NestJS + MongoDB, OAuth2, RBAC, CI/CD GitHub Actions, Nginx et sous-domaines sur VPS.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871935/%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9-%D8%A7%D9%84%D8%AD%D8%A7%D9%84%D9%8A-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86-04-22-2026_06_31_PM_pc5mqk.png",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776944078/Gemini_Generated_Image_n6lbbwn6lbbwn6lb_krzgni.webp",
     images: [],
     techStack: [
       "Next.js",
@@ -373,7 +373,7 @@ export const projects: Project[] = [
       "هواك (m-hawaak.com) يبرز البضائع السودانية في السعودية: تخفيضات موسمية (لافتات تذكر نسبة ولمدة محدودة)، أقسام رئيسية للمؤن الغذائية وللكريمات والعطور السودانية، إشارات لدفع بنكك، وشهادات عملاء في الصفحة الرئيسية. التسليم full-stack يجمع واجهة Next.js وShadCN وTailwind مع خدمات NestJS REST — كتالوج، مسارات دفع، ملفات مستخدمين، ونمذجة دقيقة للمنتجات والطلبات.",
     longDescriptionFr:
       "Hawaak (m-hawaak.com) met en avant les produits soudanais en Arabie : promotions saisonnières, rayons alimentaires et cosmétiques/parfums, paiement Bankak, témoignages clients. Full-stack Next.js + ShadCN + Tailwind et APIs NestJS — catalogue, checkout, profils, schémas produits/commandes.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776871678/%D9%85%D8%AA%D8%AC%D8%B1-%D9%87%D9%88%D8%A7%D9%83-%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-04-22-2026_06_26_PM_nrhcmt.png",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776944082/Gemini_Generated_Image_j6vhuhj6vhuhj6vh_dzlrmh.webp",
     images: [],
     techStack: ["Next.js", "NestJS", "ShadCN", "Tailwind CSS", "TypeScript", "REST APIs"],
     category: "ecommerce",

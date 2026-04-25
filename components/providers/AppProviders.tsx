@@ -17,8 +17,8 @@ type Props = {
 export function AppProviders({ children, messages }: Props) {
   const locale = useParams().locale;
   return (
-    <ClarityProvider/>
     <NextIntlClientProvider messages={messages} locale={locale as Locale}>
+      <ClarityProvider/>
       <ThemeProvider>
         <MotionProvider>{children}</MotionProvider>
         <ToasterHost />

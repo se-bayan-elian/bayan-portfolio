@@ -17,7 +17,7 @@ type Props = {
 export function AppProviders({ children, messages }: Props) {
   const locale = useParams().locale;
   return (
-    <ClarityProvider>
+    <ClarityProvider/>
     <NextIntlClientProvider messages={messages} locale={locale as Locale}>
       <ThemeProvider>
         <MotionProvider>{children}</MotionProvider>
@@ -25,6 +25,5 @@ export function AppProviders({ children, messages }: Props) {
         <GoogleTags />
       </ThemeProvider>
     </NextIntlClientProvider>
-    </ClarityProvider>
   );
 }

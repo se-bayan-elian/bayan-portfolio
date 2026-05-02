@@ -10,6 +10,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Cursor } from "@/components/ui/Cursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { TelegramFloatButton } from "@/components/ui/TelegramFloatButton";
+import { BezoChat } from "@/components/ui/BezoChat";
 import { routing } from "@/i18n/routing";
 import { Analytics } from "@vercel/analytics/next";
 import '../globals.css'
@@ -75,6 +76,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           </main>
           <Footer />
           <TelegramFloatButton />
+          <BezoChat />
         </AppProviders>
         <Analytics />
       </body>

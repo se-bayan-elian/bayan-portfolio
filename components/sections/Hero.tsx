@@ -7,6 +7,7 @@ import {
   Briefcase,
   Clock,
   Code2,
+  Coffee,
   Github,
   Globe,
   Linkedin,
@@ -37,6 +38,7 @@ function displayTitle(locale: Locale) {
 
 export function Hero() {
   const t = useTranslations("hero");
+  const tCoffee = useTranslations("coffee_chat");
   const locale = useLocale() as Locale;
   const reducedMotion = useReducedMotion();
   const name = displayName(locale);
@@ -211,6 +213,16 @@ export function Hero() {
               <MessageCircle className="h-4 w-4 shrink-0 transition duration-300 group-hover/cta:scale-110 motion-reduce:transition-none" aria-hidden />
               <span className="sm:hidden">{t("cta_contact_short")}</span>
               <span className="hidden sm:inline">{t("cta_contact")}</span>
+            </MotionLink>
+            <MotionLink
+              href="/contact?tab=coffee"
+              className="group/cta relative inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl border border-[color-mix(in_srgb,var(--color-coffee)_35%,var(--border))] bg-[color-mix(in_srgb,var(--color-coffee)_10%,var(--bg-primary))] px-6 py-3 text-sm font-semibold text-[var(--color-coffee)] transition hover:bg-[var(--color-coffee)] hover:text-white"
+              whileHover={ctaHover}
+              whileTap={ctaTap}
+            >
+              <Coffee className="h-4 w-4 shrink-0 transition duration-300 group-hover/cta:rotate-12 group-hover/cta:scale-110 motion-reduce:transition-none" aria-hidden />
+              <span className="sm:hidden">{tCoffee("cta_short")}</span>
+              <span className="hidden sm:inline">{tCoffee("cta_hero")}</span>
             </MotionLink>
           </m.div>
 

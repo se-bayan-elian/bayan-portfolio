@@ -41,6 +41,9 @@
   --logo-gradient-end: #65a30d;
   --logo-frame-fill: color-mix(in srgb, var(--bg-card) 88%, transparent);
   --logo-frame-stroke: color-mix(in srgb, var(--border) 70%, transparent);
+  --color-coffee: #d97706;
+  --color-coffee-hover: #b45309;
+  --color-coffee-glow: rgba(217, 119, 6, 0.55);
 }
 
 [data-theme="dark"] {
@@ -85,6 +88,9 @@
   --logo-gradient-end: #bef264;
   --logo-frame-fill: color-mix(in srgb, var(--bg-card) 55%, transparent);
   --logo-frame-stroke: color-mix(in srgb, var(--border) 80%, transparent);
+  --color-coffee: #f59e0b;
+  --color-coffee-hover: #fbbf24;
+  --color-coffee-glow: rgba(245, 158, 11, 0.55);
 }
 
 [data-theme="dracula"] {
@@ -124,6 +130,9 @@
   --logo-gradient-end: #50fa7b;
   --logo-frame-fill: color-mix(in srgb, var(--bg-card) 50%, transparent);
   --logo-frame-stroke: color-mix(in srgb, var(--border) 75%, transparent);
+  --color-coffee: #ffb86c;
+  --color-coffee-hover: #ff9f45;
+  --color-coffee-glow: rgba(255, 184, 108, 0.55);
 }
 
 [data-theme="nord"] {
@@ -162,6 +171,9 @@
   --logo-gradient-end: #a3be8c;
   --logo-frame-fill: color-mix(in srgb, var(--bg-card) 58%, transparent);
   --logo-frame-stroke: color-mix(in srgb, var(--border) 70%, transparent);
+  --color-coffee: #ebcb8b;
+  --color-coffee-hover: #d08770;
+  --color-coffee-glow: rgba(235, 203, 139, 0.55);
 }
 
 [data-theme="solarized"] {
@@ -200,4 +212,7 @@
   --logo-gradient-end: #859900;
   --logo-frame-fill: color-mix(in srgb, var(--bg-card) 85%, transparent);
   --logo-frame-stroke: color-mix(in srgb, var(--border) 65%, transparent);
+  --color-coffee: #cb4b16;
+  --color-coffee-hover: #dc5523;
+  --color-coffee-glow: rgba(203, 75, 22, 0.55);
 }

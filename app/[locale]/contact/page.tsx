@@ -4,7 +4,10 @@ import { ContactPageView } from "@/components/contact/ContactPageView";
 import { buildMetadata } from "@/lib/metadata";
 import type { Locale } from "@/i18n/routing";
 
-type Props = { params: Promise<{ locale: string }> };
+type Props = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ tab?: string }>;
+};
 
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
@@ -15,13 +18,14 @@ export async function generateMetadata({ params }: Props) {
   });
 }
 
-export default async function ContactPage({ params }: Props) {
+export default async function ContactPage({ params, searchParams }: Props) {
   const { locale } = await params;
+  const { tab } = await searchParams;
   setRequestLocale(locale);
 
   return (
     <PageMotion>
-      <ContactPageView />
+      <ContactPageView defaultTab={tab === "coffee" ? "coffee" : "work"} />
     </PageMotion>
   );
 }

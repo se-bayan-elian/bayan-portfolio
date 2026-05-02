@@ -18,7 +18,7 @@ export function TelegramFloatButton() {
       rel="noopener noreferrer"
       aria-label="Telegram"
       className={cn(
-        "telegram-fab relative overflow-visible fixed bottom-6 end-4 z-[55] flex h-[3.65rem] w-[3.65rem] items-center justify-center rounded-full bg-[#229ED9] text-white shadow-[0_12px_40px_-8px_rgba(34,158,217,0.65)] outline-none ring-2 ring-white/30 transition-colors hover:bg-[#1f8fc7] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:bottom-8 md:end-8",
+        "telegram-fab relative overflow-visible fixed bottom-6 start-4 z-[55] flex h-[3.65rem] w-[3.65rem] items-center justify-center rounded-full bg-[#229ED9] text-white shadow-[0_12px_40px_-8px_rgba(34,158,217,0.65)] outline-none ring-2 ring-white/30 transition-colors hover:bg-[#1f8fc7] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:bottom-8 md:end-8",
         !reducedMotion && "telegram-fab-bounce",
       )}
       whileHover={reducedMotion ? undefined : { scale: 1.06 }}

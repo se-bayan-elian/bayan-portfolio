@@ -141,7 +141,10 @@ export function BezoChat() {
       >
         {!open && !reducedMotion ? (
           <>
-            <span className="telegram-fab__pulse pointer-events-none" aria-hidden />
+            <span
+              className="telegram-fab__pulse pointer-events-none"
+              aria-hidden
+            />
             <span
               className="telegram-fab__pulse telegram-fab__pulse--delay pointer-events-none"
               aria-hidden
@@ -275,7 +278,7 @@ export function BezoChat() {
               ))}
 
               {loading && (
-                <div className="flex items-center gap-2">
+                <div className="flex flex-row-reverse items-center gap-2">
                   <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]">
                     <img
                       src={BRAND_LOGO_SRC}
@@ -321,14 +324,10 @@ export function BezoChat() {
                   {loading ? (
                     <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden />
                   ) : (
-                    <Send
-                      className="h-3.5 w-3.5 rtl:scale-x-100"
-                      aria-hidden
-                    />
+                    <Send className="h-3.5 w-3.5 rtl:scale-x-100" aria-hidden />
                   )}
                 </button>
               </div>
-              
             </div>
           </m.div>
         )}

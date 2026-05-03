@@ -10,6 +10,76 @@ import { specialties } from "@/data/specialties";
 import { stats } from "@/data/stats";
 import { testimonials } from "@/data/testimonials";
 
+const DAILY_IP_LIMIT = 10;
+type SupportedLocale = "ar" | "en" | "fr";
+
+type DailyUsageStore = Map<string, number>;
+
+function getUsageStore() {
+  const globalWithStore = globalThis as typeof globalThis & {
+    __bezoDailyUsageStore?: DailyUsageStore;
+  };
+  if (!globalWithStore.__bezoDailyUsageStore) {
+    globalWithStore.__bezoDailyUsageStore = new Map<string, number>();
+  }
+  return globalWithStore.__bezoDailyUsageStore;
+}
+
+function getDayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function getClientIp(req: Request) {
+  const forwardedFor = req.headers.get("x-forwarded-for");
+  if (forwardedFor) {
+    return forwardedFor.split(",")[0]?.trim() || "unknown";
+  }
+  return req.headers.get("x-real-ip")?.trim() || "unknown";
+}
+
+function normalizeLocale(value?: string): SupportedLocale {
+  if (!value) return "en";
+  if (value.startsWith("ar")) return "ar";
+  if (value.startsWith("fr")) return "fr";
+  return "en";
+}
+
+function getLimitMessage(locale: SupportedLocale, remainingHours: number) {
+  if (locale === "ar") {
+    if (remainingHours <= 1) {
+      return "يا أهلا! وصلت الحد اليومي (10 رسايل). ارجع بعد حوالي ساعة وبكمّل معك.";
+    }
+    return `يا أهلا! وصلت الحد اليومي (10 رسايل). ارجع بعد حوالي ${remainingHours} ساعات وبكمّل معك.`;
+  }
+
+  if (locale === "fr") {
+    if (remainingHours <= 1) {
+      return "Merci pour votre message ! Vous avez atteint la limite du jour (10 messages). Revenez dans environ 1 heure.";
+    }
+    return `Merci pour votre message ! Vous avez atteint la limite du jour (10 messages). Revenez dans environ ${remainingHours} heures.`;
+  }
+
+  if (remainingHours <= 1) {
+    return "Thanks for your message! You've reached today's limit (10 messages). Please come back in about an hour.";
+  }
+  return `Thanks for your message! You've reached today's limit (10 messages). Please come back in about ${remainingHours} hours.`;
+}
+
+function getHoursUntilUtcMidnight() {
+  const now = new Date();
+  const tomorrowUtc = Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate() + 1,
+    0,
+    0,
+    0,
+    0,
+  );
+  const msLeft = Math.max(0, tomorrowUtc - now.getTime());
+  return Math.max(1, Math.ceil(msLeft / (1000 * 60 * 60)));
+}
+
 const PORTFOLIO_DATA_CONTEXT = JSON.stringify(
   {
     personal,
@@ -186,10 +256,32 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const { messages } = body as { messages?: Array<{ role: string; content: string }> };
+  const { messages, locale } = body as {
+    messages?: Array<{ role: string; content: string }>;
+    locale?: string;
+  };
   if (!Array.isArray(messages) || messages.length === 0) {
     return NextResponse.json({ error: "Invalid messages" }, { status: 400 });
   }
+
+  const usageStore = getUsageStore();
+  const clientIp = getClientIp(req);
+  const dayKey = getDayKey();
+  const usageKey = `${clientIp}:${dayKey}`;
+  const usedToday = usageStore.get(usageKey) ?? 0;
+  const safeLocale = normalizeLocale(locale);
+
+  if (usedToday >= DAILY_IP_LIMIT) {
+    return NextResponse.json(
+      {
+        error: "daily_limit",
+        message: getLimitMessage(safeLocale, getHoursUntilUtcMidnight()),
+      },
+      { status: 429 },
+    );
+  }
+
+  usageStore.set(usageKey, usedToday + 1);
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey);

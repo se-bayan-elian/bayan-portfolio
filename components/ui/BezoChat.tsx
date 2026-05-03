@@ -2,7 +2,7 @@
 
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { Bot, ChevronDown, Loader2, Send, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -23,10 +23,12 @@ function parseMarkdown(text: string) {
 
 export function BezoChat() {
   const t = useTranslations("bezo");
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [dailyLimitReached, setDailyLimitReached] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const nextId = useRef(1);
@@ -63,7 +65,7 @@ export function BezoChat() {
 
   const send = async () => {
     const text = input.trim();
-    if (!text || loading) return;
+    if (!text || loading || dailyLimitReached) return;
 
     const userMsg: Message = {
       id: nextId.current++,
@@ -88,12 +90,21 @@ export function BezoChat() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history }),
+        body: JSON.stringify({ messages: history, locale }),
       });
 
       const data = await res.json();
       let reply: string;
-      if (res.status === 429 || data.error === "quota") {
+      if (res.status === 429 && data.error === "daily_limit") {
+        setDailyLimitReached(true);
+        reply =
+          data.message ??
+          (locale === "ar"
+            ? "يا أهلا! وصلت الحد اليومي (10 رسايل). ارجع بكرا وبكمّل معك."
+            : locale === "fr"
+              ? "Vous avez atteint la limite du jour (10 messages). Revenez demain."
+              : "You've reached today's limit (10 messages). Please come back tomorrow.");
+      } else if (res.status === 429 || data.error === "quota") {
         reply = t("error_quota");
       } else if (!res.ok) {
         reply = t("error_generic");
@@ -120,6 +131,7 @@ export function BezoChat() {
   };
 
   const handleKey = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (dailyLimitReached) return;
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       send();
@@ -309,15 +321,23 @@ export function BezoChat() {
                     resizeInput();
                   }}
                   onKeyDown={handleKey}
-                  placeholder={t("placeholder")}
+                  placeholder={
+                    dailyLimitReached
+                      ? locale === "ar"
+                        ? "وصلت الحد اليومي (10 رسايل) - جرّب بكرا."
+                        : locale === "fr"
+                          ? "Limite quotidienne atteinte (10 messages) - réessayez demain."
+                          : "Daily limit reached (10 messages) - try again tomorrow."
+                      : t("placeholder")
+                  }
                   rows={1}
-                  disabled={loading}
+                  disabled={loading || dailyLimitReached}
                   className="flex-1 resize-y bg-transparent text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none disabled:opacity-50"
                   style={{ minHeight: 24, maxHeight: 160 }}
                 />
                 <button
                   onClick={send}
-                  disabled={!input.trim() || loading}
+                  disabled={!input.trim() || loading || dailyLimitReached}
                   aria-label="Send"
                   className="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-[var(--accent)] text-white transition hover:bg-[var(--accent-hover)] disabled:cursor-not-allowed disabled:opacity-40"
                 >

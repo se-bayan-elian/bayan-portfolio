@@ -19,6 +19,7 @@ const themeList: ThemeName[] = [
   "dracula",
   "nord",
   "solarized",
+  "payload",
 ];
 
 function systemTheme(): ThemeName {

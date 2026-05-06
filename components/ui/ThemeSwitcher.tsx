@@ -11,9 +11,8 @@ import { cn } from "@/lib/utils";
 const swatches: { id: ThemeName; color: string }[] = [
   { id: "light", color: "#0f766e" },
   { id: "dark", color: "#2dd4bf" },
-  { id: "dracula", color: "#50fa7b" },
-  { id: "nord", color: "#88c0d0" },
   { id: "solarized", color: "#268bd2" },
+  { id: "payload", color: "#3b82f6" },
 ];
 
 export function ThemeSwitcher() {
@@ -70,7 +69,7 @@ export function ThemeSwitcher() {
             <p className="mb-2 px-1 text-xs font-medium text-[var(--text-muted)]">
               {t("label")}
             </p>
-            <div className="grid grid-cols-5 gap-2">
+            <div className="grid grid-cols-4 gap-2">
               {swatches.map((s) => (
                 <m.button
                   key={s.id}

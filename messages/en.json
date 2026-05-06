@@ -132,7 +132,8 @@
     "dark": "Dark",
     "dracula": "Dracula",
     "nord": "Nord",
-    "solarized": "Solarized"
+    "solarized": "Solarized",
+    "payload": "Payload"
   },
   "stats": {
     "hackathon_suffix": "st place"

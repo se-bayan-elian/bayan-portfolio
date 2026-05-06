@@ -132,7 +132,8 @@
     "dark": "داكن",
     "dracula": "دراكولا",
     "nord": "نورد",
-    "solarized": "سولارايزد"
+    "solarized": "سولارايزد",
+    "payload": "بيلود"
   },
   "stats": {
     "hackathon_suffix": "مركز"

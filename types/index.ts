@@ -7,6 +7,6 @@ export type { Testimonial } from "@/data/testimonials";
 
 import type { Project } from "@/data/projects";
 
-export type ThemeName = "light" | "dark" | "dracula" | "nord" | "solarized";
+export type ThemeName = "light" | "dark" | "dracula" | "nord" | "solarized" | "payload";
 
 export type ProjectCategory = Project["category"];

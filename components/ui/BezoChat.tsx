@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
-import { Bot, ChevronDown, Loader2, Send, X } from "lucide-react";
+import { Loader2, Send, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -167,34 +167,12 @@ export function BezoChat() {
             />
           </>
         ) : null}
-        <AnimatePresence mode="wait" initial={false}>
-          {open ? (
-            <m.span
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.18 }}
-            >
-              <X className="h-6 w-6" aria-hidden />
-            </m.span>
-          ) : (
-            <m.span
-              key="bot"
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.18 }}
-            >
-              <img
-                src={BRAND_LOGO_SRC}
-                alt=""
-                aria-hidden
-                className="h-8 w-8 rounded-full object-cover"
-              />
-            </m.span>
-          )}
-        </AnimatePresence>
+        <img
+          src={BRAND_LOGO_SRC}
+          alt=""
+          aria-hidden
+          className="h-8 w-8 rounded-full object-cover"
+        />
       </m.button>
 
       {/* Chat panel */}
@@ -207,11 +185,11 @@ export function BezoChat() {
             exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ type: "spring", stiffness: 360, damping: 32 }}
             className={cn(
-              "fixed z-[53] flex flex-col overflow-hidden",
+              "fixed z-[56] flex flex-col overflow-hidden",
               "rounded-3xl border border-[var(--border)] bg-[var(--glass-bg-strong)] shadow-2xl backdrop-blur-2xl",
-              // Mobile: near-full width, anchored bottom
-              "bottom-[2.5rem] end-2 start-2",
-              "h-[min(520px,calc(100dvh-7rem))]",
+              // Mobile: full-width, anchored above the FAB (bottom-4 + 3.65rem height ≈ 5rem)
+              "bottom-[5.5rem] end-2 start-2",
+              "h-[min(520px,calc(100dvh-8rem))]",
               // Tablet+: fixed width, anchored to end
               "sm:start-auto sm:w-[380px] sm:end-4",
               "md:bottom-[6rem] md:end-8",
@@ -251,7 +229,7 @@ export function BezoChat() {
                 aria-label={t("close")}
                 className="rounded-lg p-1 text-[var(--text-muted)] transition hover:bg-[var(--border)] hover:text-[var(--text-primary)]"
               >
-                <ChevronDown className="h-4 w-4" aria-hidden />
+                <X className="h-4 w-4" aria-hidden />
               </button>
             </div>
 

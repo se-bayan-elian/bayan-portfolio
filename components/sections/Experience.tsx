@@ -46,22 +46,28 @@ export function Experience({ showViewAll = true }: ExperienceProps) {
         ) : null}
       </m.div>
 
-      <div className="mt-12 space-y-12">
-        {experiences.map((item, index) => {
-          const loc = experienceLocalized(item, locale);
-          return (
-            <TimelineItem
-              key={item.id}
-              item={item}
-              index={index}
-              locale={locale}
-              company={loc.company}
-              role={loc.role}
-              description={loc.description}
-              responsibilities={loc.responsibilities}
-            />
-          );
-        })}
+      <div className="relative mt-12">
+        <div
+          className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-[var(--border)] md:block"
+          aria-hidden
+        />
+        <div className="space-y-12">
+          {experiences.map((item, index) => {
+            const loc = experienceLocalized(item, locale);
+            return (
+              <TimelineItem
+                key={item.id}
+                item={item}
+                index={index}
+                locale={locale}
+                company={loc.company}
+                role={loc.role}
+                description={loc.description}
+                responsibilities={loc.responsibilities}
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );

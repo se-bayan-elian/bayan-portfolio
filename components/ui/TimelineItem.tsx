@@ -1,7 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
-import { Braces, Home, Radio } from "lucide-react";
+import { Braces, Building2, Home, Radio } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import type { Experience } from "@/data/experience";
@@ -53,14 +53,18 @@ export function TimelineItem({
       >
         <div className="inline-block w-full max-w-xl rounded-2xl card-surface p-6 text-start transition hover:border-[var(--accent)]/35">
           <div className="flex items-start gap-3">
-            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-[var(--bg-secondary)]">
-              <Image
-                src={item.companyLogo}
-                alt=""
-                fill
-                className="object-cover"
-                sizes="48px"
-              />
+            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[var(--bg-secondary)]">
+              {item.companyLogo?.trim() ? (
+                <Image
+                  src={item.companyLogo}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="48px"
+                />
+              ) : (
+                <Building2 className="h-5 w-5 text-[var(--accent)]" aria-hidden />
+              )}
             </div>
             <div className="min-w-0">
               <h3 className="text-lg font-semibold text-[var(--text-primary)]">{role}</h3>
@@ -87,9 +91,8 @@ export function TimelineItem({
         </div>
       </m.div>
 
-      <div className="relative hidden md:col-start-2 md:row-start-1 md:flex md:flex-col md:items-center md:px-2">
-        <div className="absolute inset-y-0 w-px bg-[var(--border)]" aria-hidden />
-        <div className="relative z-[1] mt-8 h-3.5 w-3.5 shrink-0 rounded-full border-2 border-[var(--accent)] bg-[var(--bg-primary)] shadow-[0_0_0_6px_var(--accent-subtle)]" />
+      <div className="relative z-[1] hidden md:col-start-2 md:row-start-1 md:flex md:flex-col md:items-center md:px-2">
+        <div className="mt-8 h-3.5 w-3.5 shrink-0 rounded-full border-2 border-[var(--accent)] bg-[var(--bg-primary)] shadow-[0_0_0_6px_var(--accent-subtle)]" />
       </div>
 
       <m.div

@@ -28,6 +28,67 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "8",
+    slug: "msooqak",
+    title: "Msooqak — Smart Marketer",
+    titleAr: "مسوّقك الذكي",
+    titleFr: "Msooqak — Marketeur intelligent",
+    description:
+      "AI marketing dashboard for Saudi merchants — connects to Salla & Zid stores, generates videos and posts, then launches and optimizes ad campaigns on Meta, Snapchat, TikTok, and Google.",
+    descriptionAr:
+      "لوحة تسويق بالذكاء الاصطناعي للتجار — تتصل بمتاجر سلة وزد لجلب المنتجات، تولّد فيديوهات ومنشورات، ثم تطلق الحملات والإعلانات وتحسّنها.",
+    descriptionFr:
+      "Tableau marketing IA pour commerçants — connexion Salla & Zid pour importer les produits, génération de vidéos et posts, puis lancement et optimisation des campagnes sur Meta, Snapchat, TikTok et Google.",
+    longDescription:
+      "Msooqak (ilanakdhaki.com) is an AI marketing agency built for Saudi merchants: a production dashboard that connects to Salla and Zid store apps to pull product catalogs, then uses smart agents to turn that inventory into sellable creative.\n\nFrom synced products, the platform generates videos, social posts, and ad-ready assets — then launches campaigns across Meta, Snapchat, TikTok, and Google and keeps optimizing performance on a continuous loop (tuning every 15 minutes). The product story centers on 60 AI agents working 24/7 so store owners can scale marketing without hiring a full in-house team.\n\nI built the merchant-facing experience end to end: Arabic-first UX, Salla/Zid integrations, PWA-ready shell, and a polished interface around the full flow from product sync → content generation → campaign launch → optimization.",
+    longDescriptionAr:
+      "مسوّقك الذكي (ilanakdhaki.com) وكالة تسويق بالذكاء الاصطناعي للتجار السعوديين: لوحة إنتاجية تتصل بتطبيقات متاجر سلة وزد لجلب كتالوج المنتجات، ثم تستخدم إيجنتات ذكية لتحويل المخزون إلى محتوى قابل للبيع.\n\nمن المنتجات المزامنة، تولّد المنصة فيديوهات ومنشورات ومواد جاهزة للإعلان — ثم تطلق الحملات على Meta وSnapchat وTikTok وGoogle وتستمر في تحسين الأداء بشكل مستمر (ضبط كل 15 دقيقة). القصة تتمحور حول 60 إيجنت ذكي يعملون 24/7 ليتمكن أصحاب المتاجر من توسيع التسويق دون فريق داخلي كامل.\n\nبنيت تجربة التاجر من البداية للنهاية: واجهة عربية أولاً، تكامل سلة وزد، هيكل جاهز كـ PWA، ومسار مصقول من مزامنة المنتجات → توليد المحتوى → إطلاق الحملات → التحسين.",
+    longDescriptionFr:
+      "Msooqak (ilanakdhaki.com) est une agence marketing IA pour commerçants saoudiens : un tableau de bord connecté aux apps Salla et Zid pour importer le catalogue produits, puis des agents intelligents transforment l'inventaire en créations vendables.\n\nÀ partir des produits synchronisés, la plateforme génère vidéos, posts et assets publicitaires — lance les campagnes sur Meta, Snapchat, TikTok et Google et optimise en continu (toutes les 15 minutes). Positionnement : 60 agents IA 24/7 pour scaler le marketing sans équipe interne.\n\nJ'ai livré l'expérience marchande de bout en bout : UX arabe d'abord, intégrations Salla/Zid, coque PWA et parcours soigné sync produits → génération de contenu → lancement campagnes → optimisation.",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329476/ChatGPT_Image_6_%D9%8A%D9%88%D9%84%D9%8A%D9%88_2026_12_17_32_%D9%85_rbyk4m.png",
+    images: [
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329447/1_s40l68.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329450/2_b1ljer.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329450/2_b1ljer.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329449/07e060f0-8efc-4b78-baf8-5cab9ba08343_rq1fml.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329444/bf964c60-e7a7-4096-8034-8f90abea684f_ovlndl.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329443/1a5755d6-b08f-4777-967b-216a4b024545_jcabtd.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329438/30b17d51-23cd-4ec6-8026-c0457a8c8530_jmssv9.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329440/b7ac179a-1b73-4191-a19a-aab6b493558f_baajll.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329435/62293f05-7964-48a0-aac2-babbc051c0dc_df1qcm.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329436/23d1ef39-827c-4ef0-a1a2-9b65a092d6ac_oraany.png"
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Salla API", "Zid API", "AI Integration", "PWA"],
+    category: "ai",
+    featured: true,
+    liveUrl: "https://ilanakdhaki.com",
+    githubUrl: "",
+    status: "live",
+    startDate: "2026-05",
+    endDate: "2026-07",
+    highlights: [
+      "Salla & Zid store app integrations to sync merchant product catalogs",
+      "AI-generated videos, social posts, and ad-ready creative from synced products",
+      "Automated campaign and ad launch across Meta, Snapchat, TikTok, and Google",
+      "Continuous performance optimization — tuning every 15 minutes, 24/7",
+      "Arabic-first merchant dashboard with PWA-ready mobile experience",
+    ],
+    highlightsAr: [
+      "تكامل تطبيقات متاجر سلة وزد لمزامنة كتالوج منتجات التاجر",
+      "توليد فيديوهات ومنشورات ومواد إعلانية بالذكاء الاصطناعي من المنتجات",
+      "إطلاق حملات وإعلانات تلقائي على Meta وSnapchat وTikTok وGoogle",
+      "تحسين أداء مستمر — ضبط كل 15 دقيقة على مدار الساعة",
+      "لوحة تاجر عربية أولاً مع تجربة PWA للجوال",
+    ],
+    highlightsFr: [
+      "Intégrations apps Salla & Zid pour synchroniser le catalogue produits",
+      "Génération IA de vidéos, posts et créations pub à partir des produits",
+      "Lancement automatique de campagnes et annonces sur Meta, Snapchat, TikTok et Google",
+      "Optimisation continue des performances — toutes les 15 minutes, 24/7",
+      "Tableau de bord marchand arabe d'abord, expérience PWA mobile",
+    ],
+  },
+  {
     id: "7",
     slug: "empleo-match",
     title: "Empleo Match",
@@ -40,11 +101,11 @@ export const projects: Project[] = [
     descriptionFr:
       "Plateforme de recrutement bilingue pour le sud de la Floride — offres, filtres et accompagnement employeurs dans les métiers terrain.",
     longDescription:
-      "Empleo Match (empleo-match.com) is a bilingual recruiting and hiring platform serving South Florida—positioned around Miami and surrounding cities. The public jobs directory lets candidates filter by category (janitorial, event support, warehouse & logistics, security, hospitality, administrative), employment type (full-time, part-time, temporary, contract), and city to find roles with clear pay ranges and location context. The marketing surface highlights active placements across multiple cities, employer services, and an apply flow designed for Spanish/English audiences. I delivered the production web experience end to end: responsive listings UX, localized routing, and a polished funnel from discovery through job detail and application.",
+      "Empleo Match (empleo-match.com) is a bilingual recruiting and hiring platform serving South Florida—positioned around Miami and surrounding cities. The public jobs directory lets candidates filter by category (janitorial, event support, warehouse & logistics, security, hospitality, administrative), employment type (full-time, part-time, temporary, contract), and city to find roles with clear pay ranges and location context.\n\nThe marketing surface highlights active placements across multiple cities, employer services, and an apply flow designed for Spanish/English audiences.\n\nI delivered the production web experience end to end: responsive listings UX, localized routing, and a polished funnel from discovery through job detail and application.",
     longDescriptionAr:
-      "إمبليو ماتش (empleo-match.com) منصة توظيف وتوظيف ثنائية اللغة تخدم جنوب فلوريدا — بتركيز على ميامي والمدن المحيطة. دليل الوظائف العام يتيح للمرشحين التصفية حسب الفئة (نظافة، دعم فعاليات، مستودعات ولوجستيات، أمن، ضيافة، إداري)، نوع التوظيف (دوام كامل، جزئي، مؤقت، عقد)، والمدينة مع نطاقات رواتب ومواقع واضحة. السطح التسويقي يبرز التوظيف النشط عبر عدة مدن وخدمات أصحاب العمل ومسار تقديم مصمم لجمهور إسباني/إنجليزي. سلّمت تجربة الويب الإنتاجية من البداية للنهاية: واجهة قوائم متجاوبة، مسارات محلية، ومسار مصقول من الاكتشاف إلى تفاصيل الوظيفة والتقديم.",
+      "إمبليو ماتش (empleo-match.com) منصة توظيف وتوظيف ثنائية اللغة تخدم جنوب فلوريدا — بتركيز على ميامي والمدن المحيطة. دليل الوظائف العام يتيح للمرشحين التصفية حسب الفئة (نظافة، دعم فعاليات، مستودعات ولوجستيات، أمن، ضيافة، إداري)، نوع التوظيف (دوام كامل، جزئي، مؤقت، عقد)، والمدينة مع نطاقات رواتب ومواقع واضحة.\n\nالسطح التسويقي يبرز التوظيف النشط عبر عدة مدن وخدمات أصحاب العمل ومسار تقديم مصمم لجمهور إسباني/إنجليزي.\n\nسلّمت تجربة الويب الإنتاجية من البداية للنهاية: واجهة قوائم متجاوبة، مسارات محلية، ومسار مصقول من الاكتشاف إلى تفاصيل الوظيفة والتقديم.",
     longDescriptionFr:
-      "Empleo Match (empleo-match.com) est une plateforme de recrutement bilingue pour le sud de la Floride — autour de Miami et des villes voisines. L'annuaire public permet de filtrer par catégorie (propreté, événementiel, entrepôt & logistique, sécurité, hôtellerie, administratif), type de contrat et ville, avec fourchettes salariales et localisation. Le site met en avant les placements actifs, les services employeurs et un parcours de candidature pensé pour un public anglophone et hispanophone. J'ai livré l'expérience web de production : listes responsives, routage localisé et tunnel soigné de la découverte au détail d'offre et à la candidature.",
+      "Empleo Match (empleo-match.com) est une plateforme de recrutement bilingue pour le sud de la Floride — autour de Miami et des villes voisines. L'annuaire public permet de filtrer par catégorie (propreté, événementiel, entrepôt & logistique, sécurité, hôtellerie, administratif), type de contrat et ville, avec fourchettes salariales et localisation.\n\nLe site met en avant les placements actifs, les services employeurs et un parcours de candidature pensé pour un public anglophone et hispanophone.\n\nJ'ai livré l'expérience web de production : listes responsives, routage localisé et tunnel soigné de la découverte au détail d'offre et à la candidature.",
     thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327981/ChatGPT_Image_6_%D9%8A%D9%88%D9%84%D9%8A%D9%88_2026_11_52_39_%D8%B5_lnxu3g.png",
     images: [
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327577/366bb306-808b-4aec-8bae-98996ff0cdd8_j7btpi.png",
@@ -97,11 +158,11 @@ export const projects: Project[] = [
     descriptionFr:
       "Plateforme SaaS éducative centrée sur l'apprentissage, les évaluations et l'interaction en temps réel.",
     longDescription:
-      "Qader (qader.vip) positions itself as a companion for assessments and learning—an educational ecosystem where students engage with structured content, tests, and performance insights. I worked as a Next.js frontend developer on the main production platform: stabilizing large legacy areas of the UI, fixing critical production bugs, and refactoring for maintainability. I contributed to real-time group chat used by study and trading communities, built and improved assessment flows, and helped integrate AI-assisted score analysis so educators get faster, clearer feedback. The work emphasized performance, resilience, and UX quality across a high-traffic SaaS surface.",
+      "Qader (qader.vip) positions itself as a companion for assessments and learning—an educational ecosystem where students engage with structured content, tests, and performance insights.\n\nI worked as a Next.js frontend developer on the main production platform: stabilizing large legacy areas of the UI, fixing critical production bugs, and refactoring for maintainability. I contributed to real-time group chat used by study and trading communities, built and improved assessment flows, and helped integrate AI-assisted score analysis so educators get faster, clearer feedback.\n\nThe work emphasized performance, resilience, and UX quality across a high-traffic SaaS surface.",
     longDescriptionAr:
-      "منصة قادر (qader.vip) تقدّم نفسها كرفيق للاختبارات والتعلّم: منظومة تعليمية يتفاعل فيها الطلاب مع محتوى منظم واختبارات ورؤى أداء. عملت كمطوّر واجهات Next.js على المنصة الإنتاجية الرئيسية: تثبيت أجزاء واسعة من الواجهة القديمة، إصلاح أعطال حرجة في الإنتاج، وإعادة هيكلة لسهولة الصيانة. ساهمت في دردشة جماعية فورية لمجتمعات دراسية وتداول، وبناء وتحسين مسارات التقييم، ودعم دمج تحليل الدرجات بمساعدة الذكاء الاصطناعي ليتلقى المعلّمون ملاحظات أسرع أوضح. ركّز العمل على الأداء والاستقرار وجودة تجربة المستخدم على واجهة SaaS مزدحمة.",
+      "منصة قادر (qader.vip) تقدّم نفسها كرفيق للاختبارات والتعلّم: منظومة تعليمية يتفاعل فيها الطلاب مع محتوى منظم واختبارات ورؤى أداء.\n\nعملت كمطوّر واجهات Next.js على المنصة الإنتاجية الرئيسية: تثبيت أجزاء واسعة من الواجهة القديمة، إصلاح أعطال حرجة في الإنتاج، وإعادة هيكلة لسهولة الصيانة. ساهمت في دردشة جماعية فورية لمجتمعات دراسية وتداول، وبناء وتحسين مسارات التقييم، ودعم دمج تحليل الدرجات بمساعدة الذكاء الاصطناعي ليتلقى المعلّمون ملاحظات أسرع أوضح.\n\nركّز العمل على الأداء والاستقرار وجودة تجربة المستخدم على واجهة SaaS مزدحمة.",
     longDescriptionFr:
-      "Qader (qader.vip) se présente comme un compagnon pour les évaluations et l'apprentissage : un écosystème où les étudiants accèdent à du contenu structuré, des tests et des indicateurs de performance. J'ai travaillé en Next.js sur la plateforme de production : stabilisation de larges zones héritées, correction de bugs critiques et refactorisation pour la maintenabilité. J'ai contribué au chat de groupe temps réel (communautés d'étude et de trading), aux modules d'évaluation et à l'intégration d'analyses de scores assistées par l'IA pour des retours plus rapides aux enseignants. Priorité à la performance, la résilience et l'UX sur une SaaS à fort trafic.",
+      "Qader (qader.vip) se présente comme un compagnon pour les évaluations et l'apprentissage : un écosystème où les étudiants accèdent à du contenu structuré, des tests et des indicateurs de performance.\n\nJ'ai travaillé en Next.js sur la plateforme de production : stabilisation de larges zones héritées, correction de bugs critiques et refactorisation pour la maintenabilité. J'ai contribué au chat de groupe temps réel (communautés d'étude et de trading), aux modules d'évaluation et à l'intégration d'analyses de scores assistées par l'IA pour des retours plus rapides aux enseignants.\n\nPriorité à la performance, la résilience et l'UX sur une SaaS à fort trafic.",
     thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776940079/kb6rh61hrwfhre6jajnv_spal9r.webp",
     images: ["https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861190/%D9%82%D8%A7%D8%AF%D8%B1-Qader-%D8%B1%D9%81%D9%8A%D9%82-%D8%AF%D8%B1%D8%A8%D9%83-%D9%84%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA-04-22-2026_03_24_PM_w7yj7q.png",
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861179/%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF-%D9%85%D8%B3%D8%AA%D9%88%D8%A7%D9%83-04-22-2026_03_31_PM_hq4kkw.png",
@@ -163,11 +224,11 @@ export const projects: Project[] = [
     descriptionFr:
       "E-commerce saoudien d'achat groupé — rejoignez ou créez un groupe pour payer moins, avec paiement fractionné (Tamara).",
     longDescription:
-      "Jmaa (jmaa.sa) is a Saudi group-buying marketplace: shoppers team up on the same SKU so everyone benefits from a lower group price once the pool fills—positioned as “Buy together. Save more.” The storefront showcases electronics and more, with clear regular vs Jmaa pricing and Tamara installment messaging. On the engineering side I contributed across NestJS services and Next.js UI: payment integrations (including NowLater, Paymob, Amwal Tech), refactors, and critical bug fixes to keep checkout and group flows reliable at scale.",
+      "Jmaa (jmaa.sa) is a Saudi group-buying marketplace: shoppers team up on the same SKU so everyone benefits from a lower group price once the pool fills—positioned as “Buy together. Save more.” The storefront showcases electronics and more, with clear regular vs Jmaa pricing and Tamara installment messaging.\n\nOn the engineering side I contributed across NestJS services and Next.js UI: payment integrations (including NowLater, Paymob, Amwal Tech), refactors, and critical bug fixes to keep checkout and group flows reliable at scale.",
     longDescriptionAr:
-      "جمعة (jmaa.sa) سوق سعودي للشراء الجماعي: يتجمّع المشترون على نفس المنتج ليحصل الجميع على سعر أقل عند اكتمال المجموعة — بشعار «اشترِ معاً ووفّر أكثر». المتجر يعرض إلكترونيات وغيرها مع مقارنة واضحة بين السعر العادي وسعر جمعة ورسائل تقسيط تمارا. على الصعيد التقني ساهمت عبر خدمات NestJS وواجهة Next.js: تكاملات دفع (منها NowLater وPaymob وAmwal Tech)، إعادة هيكلة، وإصلاح أعطال حرجة للحفاظ على موثوقية الدفع ومسارات المجموعة على نطاق واسع.",
+      "جمعة (jmaa.sa) سوق سعودي للشراء الجماعي: يتجمّع المشترون على نفس المنتج ليحصل الجميع على سعر أقل عند اكتمال المجموعة — بشعار «اشترِ معاً ووفّر أكثر». المتجر يعرض إلكترونيات وغيرها مع مقارنة واضحة بين السعر العادي وسعر جمعة ورسائل تقسيط تمارا.\n\nعلى الصعيد التقني ساهمت عبر خدمات NestJS وواجهة Next.js: تكاملات دفع (منها NowLater وPaymob وAmwal Tech)، إعادة هيكلة، وإصلاح أعطال حرجة للحفاظ على موثوقية الدفع ومسارات المجموعة على نطاق واسع.",
     longDescriptionFr:
-      "Jmaa (jmaa.sa) est une place de marché d'achat groupé : les acheteurs se regroupent sur un même produit pour obtenir un prix de groupe une fois le quota atteint — « Achetez ensemble. Économisez plus. » Le site met en avant l'électronique avec prix normal vs prix groupe et mentions Tamara. Côté technique : contributions NestJS et Next.js, intégrations paiement (NowLater, Paymob, Amwal Tech), refactorisations et corrections pour fiabiliser checkout et flux de groupe.",
+      "Jmaa (jmaa.sa) est une place de marché d'achat groupé : les acheteurs se regroupent sur un même produit pour obtenir un prix de groupe une fois le quota atteint — « Achetez ensemble. Économisez plus. » Le site met en avant l'électronique avec prix normal vs prix groupe et mentions Tamara.\n\nCôté technique : contributions NestJS et Next.js, intégrations paiement (NowLater, Paymob, Amwal Tech), refactorisations et corrections pour fiabiliser checkout et flux de groupe.",
     thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776941962/Gemini_Generated_Image_r22x9er22x9er22x_cbiuuc.webp",
     images: [],
     techStack: ["Next.js", "NestJS", "TypeScript", "Paymob", "NowLater", "Amwal Tech"],
@@ -213,11 +274,11 @@ export const projects: Project[] = [
     descriptionFr:
       "Création de sondages et analyses IA — créez, diffusez, transformez les réponses en décisions.",
     longDescription:
-      "SurveyGenius (surveygenius.app) markets a simple survey builder with smarter analysis: AI-assisted analytics, customizable themes, and dashboards aimed at teams who need fast, honest signal from respondents. Built for the National AI Hackathon (1st place): Next.js frontend with a no-code style survey editor, live previews, and rich analytics surfaces (graphical, textual, numerical). The product story emphasizes security, customization, and turning raw replies into recommendations—not just charts.",
+      "SurveyGenius (surveygenius.app) markets a simple survey builder with smarter analysis: AI-assisted analytics, customizable themes, and dashboards aimed at teams who need fast, honest signal from respondents.\n\nBuilt for the National AI Hackathon (1st place): Next.js frontend with a no-code style survey editor, live previews, and rich analytics surfaces (graphical, textual, numerical).\n\nThe product story emphasizes security, customization, and turning raw replies into recommendations—not just charts.",
     longDescriptionAr:
-      "SurveyGenius (surveygenius.app) يقدّم منشئ استطلاعات بسيطاً مع تحليل أذكى: تحليلات مدعومة بالذكاء الاصطناعي، قوالب قابلة للتخصيص، ولوحات معلومات للفرق التي تحتاج إشارة سريعة من المستجيبين. بُني لصالح هاكاثون الذكاء الاصطناعي الوطني (المركز الأول): واجهة Next.js مع محرر استطلاع يشبه الـ no-code، معاينات حية، وتحليلات غنية (رسومية ونصية ورقمية). القصة التسويقية تؤكد الأمان والتخصيص وتحويل الردود الخام إلى توصيات لا مجرد رسوم بيانية.",
+      "SurveyGenius (surveygenius.app) يقدّم منشئ استطلاعات بسيطاً مع تحليل أذكى: تحليلات مدعومة بالذكاء الاصطناعي، قوالب قابلة للتخصيص، ولوحات معلومات للفرق التي تحتاج إشارة سريعة من المستجيبين.\n\nبُني لصالح هاكاثون الذكاء الاصطناعي الوطني (المركز الأول): واجهة Next.js مع محرر استطلاع يشبه الـ no-code، معاينات حية، وتحليلات غنية (رسومية ونصية ورقمية).\n\nالقصة التسويقية تؤكد الأمان والتخصيص وتحويل الردود الخام إلى توصيات لا مجرد رسوم بيانية.",
     longDescriptionFr:
-      "SurveyGenius (surveygenius.app) propose un éditeur de sondages simple avec analyse plus intelligente : analytics IA, personnalisation et tableaux de bord pour les équipes pressées. Conçu pour le hackathon IA national (1er prix) : frontend Next.js avec éditeur type no-code, prévisualisations et analytics riches (graphiques, texte, chiffres). L'accent est mis sur sécurité, personnalisation et transformation des réponses brutes en recommandations.",
+      "SurveyGenius (surveygenius.app) propose un éditeur de sondages simple avec analyse plus intelligente : analytics IA, personnalisation et tableaux de bord pour les équipes pressées.\n\nConçu pour le hackathon IA national (1er prix) : frontend Next.js avec éditeur type no-code, prévisualisations et analytics riches (graphiques, texte, chiffres).\n\nL'accent est mis sur sécurité, personnalisation et transformation des réponses brutes en recommandations.",
     thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776941492/Gemini_Generated_Image_g7qnrvg7qnrvg7qn_zh8isr.webp",
     images: [],
     techStack: ["Next.js", "TypeScript", "AI/ML", "Drag & Drop", "Analytics Dashboard"],
@@ -264,11 +325,11 @@ export const projects: Project[] = [
     descriptionFr:
       "Plateforme print & merch full-stack — éditeur, commandes et workflows pour Rabt Alkhayal.",
     longDescription:
-      "Rab-t.com presents Rabt Alkhayal as a creative shopfront: featured products, company stats (projects delivered, satisfaction, clients, tenure), and a services layer pitched as secure, fast, and supported. Technically the build pairs a responsive Next.js client with NestJS APIs—covering a real-time style design editor so customers tweak text, imagery, and colors without design tools, plus order management, inventory, payments, and print workflow tracking end to end.",
+      "Rab-t.com presents Rabt Alkhayal as a creative shopfront: featured products, company stats (projects delivered, satisfaction, clients, tenure), and a services layer pitched as secure, fast, and supported.\n\nTechnically the build pairs a responsive Next.js client with NestJS APIs—covering a real-time style design editor so customers tweak text, imagery, and colors without design tools, plus order management, inventory, payments, and print workflow tracking end to end.",
     longDescriptionAr:
-      "rab-t.com يعرض رابط الخيال كواجهة متجر إبداعية: منتجات مميزة، أرقام للشركة (مشاريع منجزة، رضا، عملاء، خبرة)، وطبقة خدمات تُسوَّق كآمنة وسريعة ومدعومة. تقنياً الربط بين Next.js متجاوب وواجهات NestJS — يشمل محرر تصميم يشبه الوقت الفعلي ليعدّل العملاء النص والصور والألوان دون أدوات تصميم، مع إدارة طلبات ومخزون ودفع وتتبع سير عمل الطباعة من البداية للنهاية.",
+      "rab-t.com يعرض رابط الخيال كواجهة متجر إبداعية: منتجات مميزة، أرقام للشركة (مشاريع منجزة، رضا، عملاء، خبرة)، وطبقة خدمات تُسوَّق كآمنة وسريعة ومدعومة.\n\nتقنياً الربط بين Next.js متجاوب وواجهات NestJS — يشمل محرر تصميم يشبه الوقت الفعلي ليعدّل العملاء النص والصور والألوان دون أدوات تصميم، مع إدارة طلبات ومخزون ودفع وتتبع سير عمل الطباعة من البداية للنهاية.",
     longDescriptionFr:
-      "rab-t.com présente Rabt Alkhayal comme vitrine créative : produits vedettes, chiffres clés (projets, satisfaction, clients, ancienneté) et services sécurité/perf/support. Côté stack : Next.js responsive et APIs NestJS — éditeur temps réel pour texte/images/couleurs sans logiciel de design, plus commandes, stock, paiement et suivi du flux d'impression.",
+      "rab-t.com présente Rabt Alkhayal comme vitrine créative : produits vedettes, chiffres clés (projets, satisfaction, clients, ancienneté) et services sécurité/perf/support.\n\nCôté stack : Next.js responsive et APIs NestJS — éditeur temps réel pour texte/images/couleurs sans logiciel de design, plus commandes, stock, paiement et suivi du flux d'impression.",
     thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776944084/Gemini_Generated_Image_d3wdz0d3wdz0d3wd_asl6ni.webp",
     images: [],
     techStack: ["Next.js", "NestJS", "TypeScript", "Real-time Editor", "Payment Integration"],
@@ -314,11 +375,11 @@ export const projects: Project[] = [
     descriptionFr:
       "Produit POS / caisse mobile en Arabie — lancez votre caisse en marque en quelques jours sans dev dédié.",
     longDescription:
-      "Waiter (waiter.sa) targets restaurants, cafés, and supermarkets that want a mobile-first cashier: POS hardware integration, bilingual UX, and a promise that businesses can go live quickly—often framed as launching within ~48 hours without needing an in-house developer. The stack centers on Next.js with Styled Components, MUI, RTK, and next-i18n so Arabic/English experiences stay consistent while teams manage operations and statistics from one hub.",
+      "Waiter (waiter.sa) targets restaurants, cafés, and supermarkets that want a mobile-first cashier: POS hardware integration, bilingual UX, and a promise that businesses can go live quickly—often framed as launching within ~48 hours without needing an in-house developer.\n\nThe stack centers on Next.js with Styled Components, MUI, RTK, and next-i18n so Arabic/English experiences stay consistent while teams manage operations and statistics from one hub.",
     longDescriptionAr:
-      "وايتر (waiter.sa) يستهدف المطاعم والمقاهي والسوبرماركت التي تريد صندوقاً يقدّم الجوال أولاً: تكامل أجهزة نقاط البيع، تجربة ثنائية اللغة، ووعد بإطلاق سريع—غالباً خلال نحو 48 ساعة دون مطوّر داخل المنظمة. التقنية تمر عبر Next.js مع Styled Components وMUI وRTK وnext-i18n لتجربة عربي/إنجليزي متسقة مع إدارة العمليات والإحصاءات من لوحة واحدة.",
+      "وايتر (waiter.sa) يستهدف المطاعم والمقاهي والسوبرماركت التي تريد صندوقاً يقدّم الجوال أولاً: تكامل أجهزة نقاط البيع، تجربة ثنائية اللغة، ووعد بإطلاق سريع—غالباً خلال نحو 48 ساعة دون مطوّر داخل المنظمة.\n\nالتقنية تمر عبر Next.js مع Styled Components وMUI وRTK وnext-i18n لتجربة عربي/إنجليزي متسقة مع إدارة العمليات والإحصاءات من لوحة واحدة.",
     longDescriptionFr:
-      "Waiter (waiter.sa) cible restaurants, cafés et supermarchés avec une caisse mobile-first : intégration TPE, UX bilingue et mise en ligne rapide — souvent sous ~48 h sans développeur interne. Stack Next.js, Styled Components, MUI, RTK et next-i18n pour parcours AR/EN homogènes et pilotage opérationnel centralisé.",
+      "Waiter (waiter.sa) cible restaurants, cafés et supermarchés avec une caisse mobile-first : intégration TPE, UX bilingue et mise en ligne rapide — souvent sous ~48 h sans développeur interne.\n\nStack Next.js, Styled Components, MUI, RTK et next-i18n pour parcours AR/EN homogènes et pilotage opérationnel centralisé.",
     thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776941992/Gemini_Generated_Image_temq93temq93temq_a8j94s.webp",
     images: [],
     techStack: ["Next.js", "Styled Components", "MUI", "Next i18n", "RTK", "TypeScript"],
@@ -364,11 +425,11 @@ export const projects: Project[] = [
     descriptionFr:
       "Portail caritatif — dons, projets, transparence et back-office sécurisé RBAC.",
     longDescription:
-      "Albayan Charity (albayancharity.org) showcases Al-Bayan Foundation’s mission: humanitarian aid for families (including Gaza-focused appeals), transparency narratives, beneficiary counters, volunteer footprint, and FAQs about how donations are used. Engineering-wise the dashboard pairs Next.js + ShadCN + Tailwind with a NestJS + MongoDB backend, OAuth2 flows, RBAC for staff roles, GitHub Actions CI/CD, Nginx reverse proxying, and multi-subdomain deployment on VPS infrastructure.",
+      "Albayan Charity (albayancharity.org) showcases Al-Bayan Foundation’s mission: humanitarian aid for families (including Gaza-focused appeals), transparency narratives, beneficiary counters, volunteer footprint, and FAQs about how donations are used.\n\nEngineering-wise the dashboard pairs Next.js + ShadCN + Tailwind with a NestJS + MongoDB backend, OAuth2 flows, RBAC for staff roles, GitHub Actions CI/CD, Nginx reverse proxying, and multi-subdomain deployment on VPS infrastructure.",
     longDescriptionAr:
-      "البيان الخيرية (albayancharity.org) تعرض رسالة مؤسسة البيان: مساعدات إنسانية للعائلات (منها نداءات تركز على غزة)، قصص شفافية، عدادات للمستفيدين، حضور المتطوعين، وأسئلة شائعة حول استخدام التبرعات. تقنياً تربط لوحة Next.js وShadCN وTailwind مع خلفية NestJS وMongoDB، وتدفقات OAuth2، وRBAC لأدوار الطاقم، وCI/CD عبر GitHub Actions، وNginx كوسيط عكسي، ونشر على عدة نطاقات فرعية على بنية VPS.",
+      "البيان الخيرية (albayancharity.org) تعرض رسالة مؤسسة البيان: مساعدات إنسانية للعائلات (منها نداءات تركز على غزة)، قصص شفافية، عدادات للمستفيدين، حضور المتطوعين، وأسئلة شائعة حول استخدام التبرعات.\n\nتقنياً تربط لوحة Next.js وShadCN وTailwind مع خلفية NestJS وMongoDB، وتدفقات OAuth2، وRBAC لأدوار الطاقم، وCI/CD عبر GitHub Actions، وNginx كوسيط عكسي، ونشر على عدة نطاقات فرعية على بنية VPS.",
     longDescriptionFr:
-      "Albayan Charity (albayancharity.org) présente la fondation : aide humanitaire (appels dont Gaza), transparence, chiffres clés bénéficiaires/bénévoles, FAQ sur l'usage des dons. Ingénierie : Next.js + ShadCN + Tailwind, backend NestJS + MongoDB, OAuth2, RBAC, CI/CD GitHub Actions, Nginx et sous-domaines sur VPS.",
+      "Albayan Charity (albayancharity.org) présente la fondation : aide humanitaire (appels dont Gaza), transparence, chiffres clés bénéficiaires/bénévoles, FAQ sur l'usage des dons.\n\nIngénierie : Next.js + ShadCN + Tailwind, backend NestJS + MongoDB, OAuth2, RBAC, CI/CD GitHub Actions, Nginx et sous-domaines sur VPS.",
     thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776944078/Gemini_Generated_Image_n6lbbwn6lbbwn6lb_krzgni.webp",
     images: [],
     techStack: [
@@ -425,11 +486,11 @@ export const projects: Project[] = [
     descriptionFr:
       "E-commerce du patrimoine soudanais en Arabie — promos saisonnières et catégories phares.",
     longDescription:
-      "Hawaak (m-hawaak.com) celebrates Sudanese goods in Saudi Arabia: seasonal discounts (site banners cite limited-time percentage savings), flagship sections for staple foods and Sudanese creams/perfumes, Bankak payment cues, and social proof/testimonials baked into the homepage narrative. Full-stack delivery combines a modern Next.js + ShadCN + Tailwind storefront with NestJS REST services—catalog, checkout flows, profiles, and carefully modeled schemas for products and orders.",
+      "Hawaak (m-hawaak.com) celebrates Sudanese goods in Saudi Arabia: seasonal discounts (site banners cite limited-time percentage savings), flagship sections for staple foods and Sudanese creams/perfumes, Bankak payment cues, and social proof/testimonials baked into the homepage narrative.\n\nFull-stack delivery combines a modern Next.js + ShadCN + Tailwind storefront with NestJS REST services—catalog, checkout flows, profiles, and carefully modeled schemas for products and orders.",
     longDescriptionAr:
-      "هواك (m-hawaak.com) يبرز البضائع السودانية في السعودية: تخفيضات موسمية (لافتات تذكر نسبة ولمدة محدودة)، أقسام رئيسية للمؤن الغذائية وللكريمات والعطور السودانية، إشارات لدفع بنكك، وشهادات عملاء في الصفحة الرئيسية. التسليم full-stack يجمع واجهة Next.js وShadCN وTailwind مع خدمات NestJS REST — كتالوج، مسارات دفع، ملفات مستخدمين، ونمذجة دقيقة للمنتجات والطلبات.",
+      "هواك (m-hawaak.com) يبرز البضائع السودانية في السعودية: تخفيضات موسمية (لافتات تذكر نسبة ولمدة محدودة)، أقسام رئيسية للمؤن الغذائية وللكريمات والعطور السودانية، إشارات لدفع بنكك، وشهادات عملاء في الصفحة الرئيسية.\n\nالتسليم full-stack يجمع واجهة Next.js وShadCN وTailwind مع خدمات NestJS REST — كتالوج، مسارات دفع، ملفات مستخدمين، ونمذجة دقيقة للمنتجات والطلبات.",
     longDescriptionFr:
-      "Hawaak (m-hawaak.com) met en avant les produits soudanais en Arabie : promotions saisonnières, rayons alimentaires et cosmétiques/parfums, paiement Bankak, témoignages clients. Full-stack Next.js + ShadCN + Tailwind et APIs NestJS — catalogue, checkout, profils, schémas produits/commandes.",
+      "Hawaak (m-hawaak.com) met en avant les produits soudanais en Arabie : promotions saisonnières, rayons alimentaires et cosmétiques/parfums, paiement Bankak, témoignages clients.\n\nFull-stack Next.js + ShadCN + Tailwind et APIs NestJS — catalogue, checkout, profils, schémas produits/commandes.",
     thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776944082/Gemini_Generated_Image_j6vhuhj6vhuhj6vh_dzlrmh.webp",
     images: [],
     techStack: ["Next.js", "NestJS", "ShadCN", "Tailwind CSS", "TypeScript", "REST APIs"],

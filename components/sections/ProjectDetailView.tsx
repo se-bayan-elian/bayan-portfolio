@@ -162,9 +162,20 @@ export function ProjectDetailView({
           <div className="min-w-0 space-y-10">
             <section className="rounded-[1.75rem] border border-[var(--border)]/80 bg-[color-mix(in_srgb,var(--bg-card)_92%,transparent)] p-6 shadow-[var(--shadow)] backdrop-blur-sm md:p-8">
               <h2 className="text-lg font-semibold tracking-tight text-[var(--text-primary)] md:text-xl">{t("overview")}</h2>
-              <p className="mt-4 whitespace-pre-line leading-relaxed text-[var(--text-secondary)] md:text-[1.05rem] md:leading-[1.75rem]">
-                {body}
-              </p>
+              <div className="mt-4 space-y-4">
+                {body
+                  .split(/\n{2,}/)
+                  .map((paragraph) => paragraph.trim())
+                  .filter(Boolean)
+                  .map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="leading-relaxed text-[var(--text-secondary)] md:text-[1.05rem] md:leading-[1.75rem]"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+              </div>
             </section>
 
             <section>

@@ -29,7 +29,7 @@ export const education: Education[] = [
     institution: "University of Palestine",
     institutionAr: "جامعة فلسطين",
     institutionFr: "Université de Palestine",
-    logo: "https://students.up.edu.ps/assets/images/logo_up.png",
+    logo: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783328419/images_vyqmop.jpg",
     degree: "Bachelor of Software Engineering",
     degreeAr: "بكالوريوس هندسة البرمجيات",
     degreeFr: "Licence en Génie Logiciel",

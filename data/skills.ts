@@ -17,6 +17,7 @@ export const skills: Skill[] = [
   { name: "React", level: 92, category: "frontend", yearsOfExperience: 4, featured: true },
   { name: "TypeScript", level: 90, category: "frontend", yearsOfExperience: 3, featured: true },
   { name: "Tailwind CSS", level: 92, category: "frontend", yearsOfExperience: 3, featured: true },
+  { name: "Payload CMS", level: 82, category: "backend", yearsOfExperience: 1, featured: false },
   { name: "React Query", level: 88, category: "frontend", yearsOfExperience: 2, featured: false },
   { name: "Redux / RTK", level: 82, category: "frontend", yearsOfExperience: 2, featured: false },
   { name: "Framer Motion", level: 78, category: "frontend", yearsOfExperience: 1, featured: false },
@@ -30,6 +31,7 @@ export const skills: Skill[] = [
   { name: "JWT & OAuth2", level: 85, category: "backend", yearsOfExperience: 2, featured: false },
   { name: "Stripe", level: 82, category: "backend", yearsOfExperience: 2, featured: false },
   { name: "Paymob", level: 85, category: "backend", yearsOfExperience: 2, featured: false },
+  { name: "Resend", level: 85, category: "backend", yearsOfExperience: 1, featured: false },
   { name: "React Native", level: 85, category: "mobile", yearsOfExperience: 2, featured: true },
   { name: "NativeWind", level: 80, category: "mobile", yearsOfExperience: 1, featured: false },
   { name: "Push Notifications", level: 80, category: "mobile", yearsOfExperience: 1, featured: false },
@@ -44,5 +46,6 @@ export const skills: Skill[] = [
   { name: "Vercel", level: 88, category: "devops", yearsOfExperience: 2, featured: false },
   { name: "Git", level: 100, category: "tools", yearsOfExperience: 4, featured: false },
   { name: "React Hook Form + Zod", level: 88, category: "tools", yearsOfExperience: 2, featured: false },
+  { name: "Cloudflare Turnstile", level: 82, category: "tools", yearsOfExperience: 1, featured: false },
   { name: "SSR / SSG / ISR", level: 90, category: "tools", yearsOfExperience: 3, featured: false },
 ];

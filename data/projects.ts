@@ -28,6 +28,63 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "7",
+    slug: "empleo-match",
+    title: "Empleo Match",
+    titleAr: "إمبليو ماتش",
+    titleFr: "Empleo Match",
+    description:
+      "Bilingual recruiting platform for South Florida — job listings, filters, and employer hiring support across blue-collar industries.",
+    descriptionAr:
+      "منصة توظيف ثنائية اللغة لجنوب فلوريدا — عروض عمل، فلاتر، ودعم توظيف لأصحاب العمل في القطاعات الميدانية.",
+    descriptionFr:
+      "Plateforme de recrutement bilingue pour le sud de la Floride — offres, filtres et accompagnement employeurs dans les métiers terrain.",
+    longDescription:
+      "Empleo Match (empleo-match.com) is a bilingual recruiting and hiring platform serving South Florida—positioned around Miami and surrounding cities. The public jobs directory lets candidates filter by category (janitorial, event support, warehouse & logistics, security, hospitality, administrative), employment type (full-time, part-time, temporary, contract), and city to find roles with clear pay ranges and location context. The marketing surface highlights active placements across multiple cities, employer services, and an apply flow designed for Spanish/English audiences. I delivered the production web experience end to end: responsive listings UX, localized routing, and a polished funnel from discovery through job detail and application.",
+    longDescriptionAr:
+      "إمبليو ماتش (empleo-match.com) منصة توظيف وتوظيف ثنائية اللغة تخدم جنوب فلوريدا — بتركيز على ميامي والمدن المحيطة. دليل الوظائف العام يتيح للمرشحين التصفية حسب الفئة (نظافة، دعم فعاليات، مستودعات ولوجستيات، أمن، ضيافة، إداري)، نوع التوظيف (دوام كامل، جزئي، مؤقت، عقد)، والمدينة مع نطاقات رواتب ومواقع واضحة. السطح التسويقي يبرز التوظيف النشط عبر عدة مدن وخدمات أصحاب العمل ومسار تقديم مصمم لجمهور إسباني/إنجليزي. سلّمت تجربة الويب الإنتاجية من البداية للنهاية: واجهة قوائم متجاوبة، مسارات محلية، ومسار مصقول من الاكتشاف إلى تفاصيل الوظيفة والتقديم.",
+    longDescriptionFr:
+      "Empleo Match (empleo-match.com) est une plateforme de recrutement bilingue pour le sud de la Floride — autour de Miami et des villes voisines. L'annuaire public permet de filtrer par catégorie (propreté, événementiel, entrepôt & logistique, sécurité, hôtellerie, administratif), type de contrat et ville, avec fourchettes salariales et localisation. Le site met en avant les placements actifs, les services employeurs et un parcours de candidature pensé pour un public anglophone et hispanophone. J'ai livré l'expérience web de production : listes responsives, routage localisé et tunnel soigné de la découverte au détail d'offre et à la candidature.",
+    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327981/ChatGPT_Image_6_%D9%8A%D9%88%D9%84%D9%8A%D9%88_2026_11_52_39_%D8%B5_lnxu3g.png",
+    images: [
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327577/366bb306-808b-4aec-8bae-98996ff0cdd8_j7btpi.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327820/e9e9d5fb-9451-4654-8246-35391bbff1d1_gg6f4z.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327839/a6c9092d-6671-4056-9a22-5ab2ac7be1b3_e9ninv.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327889/ce179bda-d6bf-4e5c-a758-a5a70ea19a0e_a6pgoh.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327964/20c5270e-204e-4516-bd57-b46220761909_s3wzji.png",
+      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327975/dfef87f4-b2a9-4592-9efb-10ba3d13f0f9_rmy2xs.png",
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "next-intl", "SEO"],
+    category: "web",
+    featured: true,
+    liveUrl: "https://empleo-match.com",
+    githubUrl: "",
+    status: "live",
+    startDate: "2026-04",
+    endDate: "2026-06",
+    highlights: [
+      "Bilingual EN/ES recruiting platform for South Florida job seekers and employers",
+      "Filterable jobs directory: category, employment type, and city",
+      "Blue-collar verticals — janitorial, warehouse, security, events, hospitality",
+      "Job cards with pay ranges, locations, and detail → apply funnel",
+      "Employer services and contact surfaces alongside public listings",
+    ],
+    highlightsAr: [
+      "منصة توظيف ثنائية اللغة إنجليزي/إسباني لجنوب فلوريدا",
+      "دليل وظائف قابل للتصفية: فئة، نوع توظيف، ومدينة",
+      "قطاعات ميدانية: نظافة، مستودعات، أمن، فعاليات، ضيافة",
+      "بطاقات وظائف بنطاق رواتب ومواقع ومسار تفاصيل → تقديم",
+      "خدمات أصحاب عمل وصفحات تواصل بجانب القوائم العامة",
+    ],
+    highlightsFr: [
+      "Plateforme bilingue EN/ES pour candidats et employeurs du sud de la Floride",
+      "Annuaire filtrable : catégorie, type de contrat et ville",
+      "Métiers terrain : propreté, entrepôt, sécurité, événementiel, hôtellerie",
+      "Fiches avec fourchette salariale, lieu et tunnel détail → candidature",
+      "Services employeurs et contact aux côtés des offres publiques",
+    ],
+  },
+  {
     id: "0",
     slug: "qader-platform",
     title: "Qader Platform",

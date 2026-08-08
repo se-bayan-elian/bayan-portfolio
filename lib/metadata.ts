@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { personal } from "@/data/personal";
 import { routing, type Locale } from "@/i18n/routing";
 
+/** "ca-pub-xxxxxxxxxxxxxxxx" from the AdSense dashboard — set once you have an account. */
+const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID?.trim();
+
 const localeTitles: Record<Locale, string> = {
   en: `${personal.name} — ${personal.title}`,
   ar: `${personal.nameAr} — ${personal.titleAr}`,
@@ -116,5 +119,8 @@ export function buildMetadata({
       images: [image],
     },
     robots: { index: true, follow: true },
+    ...(ADSENSE_CLIENT_ID
+      ? { other: { "google-adsense-account": ADSENSE_CLIENT_ID } }
+      : {}),
   };
 }

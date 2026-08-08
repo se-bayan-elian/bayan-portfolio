@@ -102,6 +102,15 @@ export function Footer() {
               aria-hidden
             />
           </p>
+          <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[var(--text-muted)]">
+            <Link href="/privacy" className="hover:text-[var(--accent)] hover:underline">
+              {t("privacy")}
+            </Link>
+            <span aria-hidden className="opacity-50">·</span>
+            <Link href="/terms" className="hover:text-[var(--accent)] hover:underline">
+              {t("terms")}
+            </Link>
+          </p>
         </div>
       </div>
     </m.footer>

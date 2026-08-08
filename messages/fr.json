@@ -119,7 +119,9 @@
   "footer": {
     "rights": "Tous droits réservés.",
     "built_with": "Construit avec Next.js & Tailwind",
-    "made_with": "Créé avec"
+    "made_with": "Créé avec",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation"
   },
   "common": {
     "read_more": "Lire la suite",
@@ -205,5 +207,100 @@
       "retry": "Réessayer",
       "cta_home": "Retour au port d’attache"
     }
+  },
+  "legal": {
+    "updated_label": "Dernière mise à jour",
+    "updated_date": "8 août 2026",
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "intro": "Ce site est mon portfolio personnel. Cette politique explique ce qui est collecté lors de votre visite, pourquoi, et quel contrôle vous avez dessus.",
+      "sections": [
+        {
+          "heading": "Informations que je collecte",
+          "body": "Quand vous utilisez le formulaire de contact, le planificateur de café, ou le chat Bezo, je collecte ce que vous saisissez — nom, e-mail, message, date ou sujet préféré — uniquement pour vous répondre. Je ne demande rien au-delà de ce que chaque champ demande."
+        },
+        {
+          "heading": "Cookies et technologies similaires",
+          "body": "Les cookies essentiels mémorisent votre thème et votre langue et sont toujours actifs — le site fonctionne mal sans eux. Le reste — cookies d'analyse d'usage, et cookies publicitaires une fois les publicités activées — ne s'active qu'après votre accord dans le bandeau cookies. Vous pouvez changer votre choix à tout moment via le lien en pied de page."
+        },
+        {
+          "heading": "Analytique",
+          "body": "J'utilise Vercel Web Analytics, sans cookies, qui ne remonte que des statistiques de trafic agrégées. Si vous acceptez les cookies d'analyse, Microsoft Clarity s'active aussi, enregistrant de façon anonyme le comportement de navigation (clics, défilement, parcours) pour m'aider à corriger les zones confuses du site."
+        },
+        {
+          "heading": "L'assistant IA Bezo",
+          "body": "Les messages envoyés à Bezo, le widget de chat, sont transmis à l'API Gemini de Google pour générer une réponse. Je n'associe votre nom ou vos coordonnées à ces messages que si vous les saisissez vous-même dans la conversation."
+        },
+        {
+          "heading": "Publicité",
+          "body": "Ce site peut afficher des publicités diffusées par Google AdSense. Si vous avez accepté les cookies publicitaires, Google et ses partenaires peuvent utiliser des cookies pour afficher des publicités basées sur vos visites ici et ailleurs. Vous pouvez désactiver la publicité personnalisée à tout moment via les paramètres publicitaires de Google (adssettings.google.com) ou la page technologies de Google (policies.google.com/technologies/ads), indépendamment du bandeau cookies de ce site."
+        },
+        {
+          "heading": "Où vont vos données",
+          "body": "Les messages du formulaire de contact et du café chat arrivent dans ma boîte mail via Resend. Le site est hébergé sur Vercel. Ces données ne sont jamais vendues, et je ne les partage avec personne au-delà de ce qui est nécessaire au fonctionnement de ces outils."
+        },
+        {
+          "heading": "Vos choix",
+          "body": "Vous pouvez retirer votre consentement aux cookies à tout moment via le lien en pied de page, effacer le stockage local de votre navigateur pour réafficher le bandeau, ou m'écrire pour savoir ce que je détiens et en demander la suppression."
+        },
+        {
+          "heading": "Confidentialité des enfants",
+          "body": "Ce site ne s'adresse pas aux enfants et je ne collecte sciemment aucune information venant d'une personne de moins de 13 ans."
+        },
+        {
+          "heading": "Modifications de cette politique",
+          "body": "Si je change la façon dont le site collecte ou utilise les données, je mettrai à jour la date en haut de cette page. Poursuivre votre navigation après une modification signifie que vous en avez pris connaissance."
+        },
+        {
+          "heading": "Contact",
+          "body": "Des questions sur cette politique ou vos données — écrivez-moi directement, je vous répondrai."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "intro": "Des conditions simples pour un site simple : en parcourant ce portfolio, vous acceptez les points ci-dessous.",
+      "sections": [
+        {
+          "heading": "Ce qu'est ce site",
+          "body": "Ceci est mon portfolio personnel — un recueil de projets, d'expérience et de compétences, et un moyen de me contacter. Il est informatif, pas un produit avec comptes ou transactions."
+        },
+        {
+          "heading": "Propriété intellectuelle",
+          "body": "Le design, le code et les textes du site m'appartiennent sauf mention contraire. Les captures d'écran et descriptions de projets concernent des travaux réalisés pour des clients ou employeurs, présentés ici à des fins de portfolio ; les produits eux-mêmes peuvent appartenir à leurs propriétaires respectifs."
+        },
+        {
+          "heading": "Liens externes",
+          "body": "Les fiches projets renvoient vers des produits en ligne et des dépôts que je ne contrôle pas (sites clients, GitHub…). Je ne suis pas responsable de leur contenu, leur disponibilité ou leurs politiques une fois que vous quittez ce site."
+        },
+        {
+          "heading": "Aucune garantie",
+          "body": "Ce site est fourni tel quel. Je fais de mon mieux pour qu'il reste exact et fonctionnel, mais je ne garantis pas qu'il soit exempt d'erreurs, ininterrompu, ou adapté à un usage particulier."
+        },
+        {
+          "heading": "Publicité",
+          "body": "Ce site peut afficher des publicités via Google AdSense. Ces publicités sont fournies par Google et ses partenaires ; je ne contrôle pas leur contenu, et leur affichage ne constitue pas une recommandation de ma part."
+        },
+        {
+          "heading": "Limitation de responsabilité",
+          "body": "Dans la limite permise par la loi, je ne suis pas responsable des dommages résultant de votre utilisation de ce site ou de votre confiance en son contenu."
+        },
+        {
+          "heading": "Modifications de ces conditions",
+          "body": "Je peux mettre à jour ces conditions à mesure que le site évolue. La date en haut de la politique de confidentialité reflète la dernière révision des deux pages."
+        },
+        {
+          "heading": "Contact",
+          "body": "Des questions sur ces conditions — écrivez-moi directement."
+        }
+      ]
+    }
+  },
+  "cookie_consent": {
+    "message": "Ce site utilise des cookies essentiels pour mémoriser votre thème et votre langue. Avec votre accord, il utilise aussi des cookies d'analyse (et, une fois activés, des cookies publicitaires Google AdSense) pour comprendre le trafic et afficher des publicités pertinentes.",
+    "accept": "Tout accepter",
+    "reject": "Essentiels uniquement",
+    "privacy_link": "Politique de confidentialité",
+    "manage": "Gérer les cookies"
   }
 }

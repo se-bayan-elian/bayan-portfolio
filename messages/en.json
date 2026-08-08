@@ -119,7 +119,9 @@
   "footer": {
     "rights": "All rights reserved.",
     "built_with": "Built with Next.js & Tailwind",
-    "made_with": "Made with"
+    "made_with": "Made with",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
   },
   "common": {
     "read_more": "Read more",
@@ -205,5 +207,100 @@
       "retry": "Try again",
       "cta_home": "Escape to home"
     }
+  },
+  "legal": {
+    "updated_label": "Last updated",
+    "updated_date": "August 8, 2026",
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "This site is my personal portfolio. This policy explains what information gets collected when you visit, why, and what say you have over it.",
+      "sections": [
+        {
+          "heading": "Information I collect",
+          "body": "When you use the contact form, the coffee-chat scheduler, or the Bezo chat widget, I collect what you type in — name, email, message, and any preferred date/time or topic — solely to respond to you. I don't ask for anything beyond what a form field asks for."
+        },
+        {
+          "heading": "Cookies and similar technologies",
+          "body": "Essential cookies remember your theme and language and are always on — the site doesn't work well without them. Everything else — analytics that record how pages are used, and advertising cookies once ads are enabled — only runs after you accept them in the cookie banner. You can change your choice at any time from the link in the footer."
+        },
+        {
+          "heading": "Analytics",
+          "body": "I use Vercel Web Analytics, which is cookieless and reports aggregated traffic counts only. If you accept analytics cookies, Microsoft Clarity also runs, recording anonymized session behavior (clicks, scroll, page flow) to help me fix confusing parts of the site."
+        },
+        {
+          "heading": "The Bezo AI assistant",
+          "body": "Messages you send to Bezo, the chat widget, are sent to Google's Gemini API to generate a reply. I don't attach your name or contact details to those messages unless you type them into the chat yourself."
+        },
+        {
+          "heading": "Advertising",
+          "body": "This site may show ads served by Google AdSense. If you've accepted advertising cookies, Google and its partners may use cookies to show ads based on your visits here and elsewhere. You can opt out of personalized advertising at any time via Google's Ads Settings (adssettings.google.com) or Google's technologies page (policies.google.com/technologies/ads), independent of this site's own cookie banner."
+        },
+        {
+          "heading": "Who your data goes to",
+          "body": "Contact and coffee-chat form submissions are delivered to my inbox via Resend. The site itself is hosted on Vercel. None of this data is sold, and I don't share it with anyone beyond what's needed to run these tools."
+        },
+        {
+          "heading": "Your choices",
+          "body": "You can withdraw cookie consent at any time from the footer link, clear your browser's local storage to reset the banner, or email me to ask what I have on file and have it deleted."
+        },
+        {
+          "heading": "Children's privacy",
+          "body": "This site isn't directed at children, and I don't knowingly collect information from anyone under 13."
+        },
+        {
+          "heading": "Changes to this policy",
+          "body": "If I change how the site collects or uses data, I'll update the date at the top of this page. Continued use after a change means you've seen the update."
+        },
+        {
+          "heading": "Contact",
+          "body": "Questions about this policy or your data — email me directly and I'll get back to you."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "intro": "Simple terms for a simple site: by browsing this portfolio, you agree to the points below.",
+      "sections": [
+        {
+          "heading": "What this site is",
+          "body": "This is my personal portfolio — a record of projects, experience, and skills, and a way to get in touch. It's informational, not a product with accounts or transactions."
+        },
+        {
+          "heading": "Intellectual property",
+          "body": "The site's design, code, and writing are mine unless stated otherwise. Project screenshots and descriptions relate to work built for clients or employers and are shared here for portfolio purposes; underlying products may belong to their respective owners."
+        },
+        {
+          "heading": "External links",
+          "body": "Project entries link out to live products and repositories I don't control (e.g. client sites, GitHub). I'm not responsible for their content, availability, or policies once you leave this site."
+        },
+        {
+          "heading": "No warranty",
+          "body": "This site is provided as-is. I do my best to keep it accurate and running, but I make no guarantee it will be error-free, uninterrupted, or fit for any particular purpose."
+        },
+        {
+          "heading": "Advertising",
+          "body": "This site may display ads served through Google AdSense. Ads are provided by Google and its advertising partners; I don't control their content and displaying an ad isn't an endorsement of the advertiser."
+        },
+        {
+          "heading": "Limitation of liability",
+          "body": "To the extent permitted by law, I'm not liable for any damages arising from your use of this site or reliance on its content."
+        },
+        {
+          "heading": "Changes to these terms",
+          "body": "I may update these terms as the site evolves. The date at the top of the Privacy Policy reflects the latest revision across both pages."
+        },
+        {
+          "heading": "Contact",
+          "body": "Questions about these terms — email me directly."
+        }
+      ]
+    }
+  },
+  "cookie_consent": {
+    "message": "This site uses essential cookies to remember your theme and language. With your consent, it also uses analytics cookies (and, once enabled, advertising cookies from Google AdSense) to understand traffic and show relevant ads.",
+    "accept": "Accept all",
+    "reject": "Essential only",
+    "privacy_link": "Privacy Policy",
+    "manage": "Manage cookies"
   }
 }

@@ -4,6 +4,8 @@ import { NextIntlClientProvider } from "next-intl";
 import type { AbstractIntlMessages, Locale } from "next-intl";
 import type { ReactNode } from "react";
 import { GoogleTags } from "@/components/analytics/GoogleTags";
+import { AdsenseScript } from "@/components/analytics/AdsenseScript";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 import { MotionProvider } from "./MotionProvider";
 import { ThemeProvider } from "./ThemeProvider";
 import { ToasterHost } from "./ToasterHost";
@@ -19,10 +21,12 @@ export function AppProviders({ children, messages }: Props) {
   return (
     <NextIntlClientProvider messages={messages} locale={locale as Locale}>
       <ClarityProvider/>
+      <AdsenseScript />
       <ThemeProvider>
         <MotionProvider>{children}</MotionProvider>
         <ToasterHost />
         <GoogleTags />
+        <CookieConsent />
       </ThemeProvider>
     </NextIntlClientProvider>
   );

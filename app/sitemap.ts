@@ -3,7 +3,7 @@ import { projects } from "@/data/projects";
 import { personal } from "@/data/personal";
 import { routing } from "@/i18n/routing";
 
-const STATIC_PATHS = ["", "/about", "/projects", "/skills", "/experience", "/contact"];
+const STATIC_PATHS = ["", "/about", "/projects", "/skills", "/experience", "/contact", "/privacy", "/terms"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = personal.siteUrl.replace(/\/$/, "");

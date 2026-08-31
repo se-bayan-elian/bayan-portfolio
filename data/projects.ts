@@ -28,6 +28,62 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "9",
+    slug: "james-group",
+    title: "James Group",
+    titleAr: "جيمس جروب",
+    titleFr: "James Group",
+    description:
+      "Corporate website for a Miami-based holding company — a portfolio of 10 brands across events, entertainment, hospitality, technology, and workforce services, with an interactive synergy ecosystem map.",
+    descriptionAr:
+      "موقع مؤسسي لشركة قابضة مقرها ميامي — محفظة من 10 علامات تجارية في الفعاليات والترفيه والضيافة والتقنية وخدمات القوى العاملة، مع خريطة تفاعلية لمنظومة التكامل.",
+    descriptionFr:
+      "Site corporate d'une holding basée à Miami — un portefeuille de 10 marques dans l'événementiel, le divertissement, l'hôtellerie, la technologie et les services RH, avec une carte interactive de l'écosystème.",
+    longDescription:
+      "James Group (jamesgroup-usa.com) is a Miami-headquartered diversified holding company under the banner \"Building Businesses. Creating Opportunities.\" The site presents the group's five industrial divisions — Events & Experiences, Entertainment & Lifestyle, Hospitality & Food, Technology, and Workforce & Business Services — and its 10 portfolio companies, including Quinta Las Américas, El Guacalito Restaurant, Mi Tierra Bakery, Emporium Agency, All Starz Group, Empleo Match, Talent Smart, Alliance Best, and Premier Clean Team.\n\nThe centerpiece is an interactive synergy ecosystem map that visualizes how the independent brands collaborate and compound value across the portfolio, alongside division-filtered portfolio browsing, company-specific landing pages, and a confidential intake flow for corporate partnerships, M&A, and enterprise inquiries.\n\nI built the corporate web experience end to end with Next.js: polished brand storytelling around the group's four pillars (People, Growth, Innovation, Collaboration), optimized imagery, and a structure designed to scale as new companies join the group.",
+    longDescriptionAr:
+      "جيمس جروب (jamesgroup-usa.com) شركة قابضة متنوعة مقرها ميامي تحت شعار \"نبني الأعمال. نصنع الفرص.\" الموقع يعرض الأقسام الصناعية الخمسة للمجموعة — الفعاليات والتجارب، الترفيه ونمط الحياة، الضيافة والغذاء، التقنية، وخدمات القوى العاملة والأعمال — وشركاتها العشر ومنها Quinta Las Américas ومطعم El Guacalito ومخبز Mi Tierra وEmporium Agency وAll Starz Group وEmpleo Match وTalent Smart وAlliance Best وPremier Clean Team.\n\nمحور الموقع خريطة تفاعلية لمنظومة التكامل توضح كيف تتعاون العلامات المستقلة وتضاعف القيمة عبر المحفظة، إضافة إلى تصفح المحفظة حسب القسم، وصفحات مخصصة لكل شركة، ومسار سري لاستقبال طلبات الشراكات والاستحواذ والاستفسارات المؤسسية.\n\nبنيت التجربة المؤسسية من البداية للنهاية بـ Next.js: سرد مصقول لهوية المجموعة حول ركائزها الأربع (الناس، النمو، الابتكار، التعاون)، صور محسّنة، وبنية قابلة للتوسع مع انضمام شركات جديدة.",
+    longDescriptionFr:
+      "James Group (jamesgroup-usa.com) est une holding diversifiée basée à Miami, sous la bannière « Building Businesses. Creating Opportunities. » Le site présente les cinq divisions du groupe — Événementiel & Expériences, Divertissement & Lifestyle, Hôtellerie & Restauration, Technologie, et Services RH & Business — ainsi que ses 10 sociétés, dont Quinta Las Américas, El Guacalito, Mi Tierra Bakery, Emporium Agency, All Starz Group, Empleo Match, Talent Smart, Alliance Best et Premier Clean Team.\n\nLa pièce maîtresse est une carte interactive de l'écosystème qui visualise les synergies entre les marques, avec un portefeuille filtrable par division, des pages dédiées par société et un parcours confidentiel pour partenariats, M&A et demandes entreprises.\n\nJ'ai livré l'expérience web corporate de bout en bout avec Next.js : storytelling autour des quatre piliers du groupe (Personnes, Croissance, Innovation, Collaboration), images optimisées et structure évolutive.",
+    thumbnail: "/projects/james-group/home.png",
+    images: [
+      "/projects/james-group/home.png",
+      "/projects/james-group/section-1.png",
+      "/projects/james-group/section-2.png",
+      "/projects/james-group/section-3.png",
+      "/projects/james-group/section-4.png",
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "SEO"],
+    category: "web",
+    featured: true,
+    liveUrl: "https://www.jamesgroup-usa.com/en",
+    githubUrl: "",
+    status: "live",
+    startDate: "2026-07",
+    endDate: "2026-08",
+    highlights: [
+      "Corporate site for a Miami holding company with 10 portfolio brands across 5 divisions",
+      "Interactive synergy ecosystem map with hover/click exploration of brand relationships",
+      "Portfolio filtering by industry division with company-specific landing pages",
+      "Brand storytelling around the group's four pillars: People, Growth, Innovation, Collaboration",
+      "Confidential intake flow for partnerships, M&A, and enterprise inquiries",
+    ],
+    highlightsAr: [
+      "موقع مؤسسي لشركة قابضة في ميامي تضم 10 علامات عبر 5 أقسام",
+      "خريطة تفاعلية لمنظومة التكامل لاستكشاف علاقات العلامات",
+      "تصفية المحفظة حسب القسم مع صفحات مخصصة لكل شركة",
+      "سرد للهوية حول الركائز الأربع: الناس، النمو، الابتكار، التعاون",
+      "مسار سري لاستقبال طلبات الشراكات والاستحواذ والاستفسارات المؤسسية",
+    ],
+    highlightsFr: [
+      "Site corporate d'une holding de Miami avec 10 marques réparties sur 5 divisions",
+      "Carte interactive de l'écosystème pour explorer les synergies entre marques",
+      "Portefeuille filtrable par division avec pages dédiées par société",
+      "Storytelling autour des quatre piliers : Personnes, Croissance, Innovation, Collaboration",
+      "Parcours confidentiel pour partenariats, M&A et demandes entreprises",
+    ],
+  },
+  {
     id: "8",
     slug: "msooqak",
     title: "Msooqak — Smart Marketer",

@@ -525,6 +525,7 @@
 .btn-fx-primary,
 .btn-fx-glass,
 .btn-fx-glass-icon {
+  position: relative;
   isolation: isolate;
 }
 

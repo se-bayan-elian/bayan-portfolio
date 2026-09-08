@@ -93,39 +93,37 @@ function LogoMark({ className, labelId }: { className?: string; labelId: string 
         </linearGradient>
       </defs>
       <rect
-        x="2.5"
-        y="2.5"
-        width="43"
-        height="43"
-        rx="14"
-        fill="var(--logo-frame-fill)"
-        stroke="var(--logo-frame-stroke)"
-        strokeWidth="1.25"
+        x="2"
+        y="2"
+        width="44"
+        height="44"
+        rx="13"
+        fill={`url(#${labelId})`}
       />
-      <text
-        x="24"
-        y="30.5"
-        textAnchor="middle"
-        fill={`url(#${labelId})`}
-        style={{ fontFamily: "var(--font-logo-display)" }}
-        fontSize="16.5"
-        fontWeight="800"
-        letterSpacing="-0.04em"
-      >
-        BE
-      </text>
-      <text
-        x="36.5"
-        y="40.5"
-        textAnchor="end"
-        fill={`url(#${labelId})`}
-        style={{ fontFamily: "ui-monospace, monospace" }}
-        fontSize="7.5"
-        fontWeight="700"
-        opacity={0.95}
-      >
-        {"\u003c/\u003e"}
-      </text>
+      <rect
+        x="2.6"
+        y="2.6"
+        width="42.8"
+        height="42.8"
+        rx="12.4"
+        fill="none"
+        stroke="#ffffff"
+        strokeOpacity="0.25"
+        strokeWidth="1.2"
+      />
+      {/* B monogram with code-chevron counters */}
+      <path
+        fill="#ffffff"
+        fillRule="evenodd"
+        d="M15 10 H26.5 C31.6 10 34.6 12.8 34.6 16.9 C34.6 19.6 33.3 21.6 31.1 22.7 C34.2 23.7 36 26.1 36 29.4 C36 34.2 32.4 38 27 38 H15 Z M20.3 14.6 H25.2 L28.2 18.4 L25.2 22.2 H20.3 L23.3 18.4 Z M20.3 26.2 H26.2 L29.8 30.4 L26.2 34.6 H20.3 L23.9 30.4 Z"
+      />
+      <path
+        d="M39.5 33.5 L36.9 40.5"
+        stroke="#ffffff"
+        strokeOpacity="0.85"
+        strokeWidth="2.1"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

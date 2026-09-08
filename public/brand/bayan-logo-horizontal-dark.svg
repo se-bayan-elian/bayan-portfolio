@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 56" width="520" height="112" role="img" aria-label="Bayan Alreqeb — FULL STACK ENGINEER">
+  <defs>
+    <linearGradient id="bg" x1="6" y1="6" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="0.55" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#bef264"/>
+    </linearGradient>
+    <linearGradient id="name" x1="62" y1="20" x2="200" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#bef264"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(4,6) scale(0.9167)">
+    <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#bg)"/>
+    <rect x="2.6" y="2.6" width="42.8" height="42.8" rx="12.4" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.2"/>
+    <path fill="#0f172a" fill-rule="evenodd" d="
+      M15 10 H26.5 C31.6 10 34.6 12.8 34.6 16.9 C34.6 19.6 33.3 21.6 31.1 22.7
+      C34.2 23.7 36 26.1 36 29.4 C36 34.2 32.4 38 27 38 H15 Z
+      M20.3 14.6 H25.2 L28.2 18.4 L25.2 22.2 H20.3 L23.3 18.4 Z
+      M20.3 26.2 H26.2 L29.8 30.4 L26.2 34.6 H20.3 L23.9 30.4 Z
+    "/>
+    <path d="M39.5 33.5 L36.9 40.5" stroke="#0f172a" stroke-opacity="0.85" stroke-width="2.1" stroke-linecap="round"/>
+  </g>
+
+  <text x="60" y="30" font-family="Outfit, 'Segoe UI', system-ui, sans-serif" font-size="21" font-weight="700" letter-spacing="-0.4">
+    <tspan fill="#f8fafc">Bayan</tspan>
+    <tspan fill="url(#name)" dx="4">Alreqeb</tspan>
+  </text>
+  <text x="61" y="45" font-family="Outfit, 'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" letter-spacing="3.1" fill="#94a3b8">FULL STACK ENGINEER</text>
+</svg>

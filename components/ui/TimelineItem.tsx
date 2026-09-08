@@ -1,9 +1,10 @@
 "use client";
 
-import { m } from "framer-motion";
+import { m, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Braces, Building2, Home, Radio } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useRef } from "react";
 import type { Experience } from "@/data/experience";
 import type { Locale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
@@ -30,9 +31,19 @@ export function TimelineItem({
   const t = useTranslations("experience");
   const isEven = index % 2 === 0;
   const dateRange = formatRange(item.startDate, item.endDate, item.current, t);
+  const reducedMotion = useReducedMotion();
+
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const spin = useTransform(scrollYProgress, [0, 1], [0, 270]);
+  const rotate = reducedMotion ? 0 : spin;
 
   return (
     <m.article
+      ref={ref}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-8% 0px" }}
@@ -92,7 +103,14 @@ export function TimelineItem({
       </m.div>
 
       <div className="relative z-[1] hidden md:col-start-2 md:row-start-1 md:flex md:flex-col md:items-center md:px-2">
-        <div className="mt-8 h-3.5 w-3.5 shrink-0 rounded-full border-2 border-[var(--accent)] bg-[var(--bg-primary)] shadow-[0_0_0_6px_var(--accent-subtle)]" />
+        <div className="relative mt-6 flex h-8 w-8 shrink-0 items-center justify-center">
+          <m.span
+            aria-hidden
+            style={{ rotate }}
+            className="absolute inset-0 rounded-full border-2 border-dashed border-[var(--accent)]/70"
+          />
+          <span className="h-3.5 w-3.5 rounded-full border-2 border-[var(--accent)] bg-[var(--bg-primary)] shadow-[0_0_0_5px_var(--accent-subtle)]" />
+        </div>
       </div>
 
       <m.div

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="192" height="192" role="img" aria-label="Bayan Elian logo (monochrome)">
+  <!-- currentColor: inherits text color — works on light and dark backgrounds -->
+  <g fill="currentColor">
+    <path fill-rule="evenodd" d="
+      M15 10 H26.5 C31.6 10 34.6 12.8 34.6 16.9 C34.6 19.6 33.3 21.6 31.1 22.7
+      C34.2 23.7 36 26.1 36 29.4 C36 34.2 32.4 38 27 38 H15 Z
+      M20.3 14.6 H25.2 L28.2 18.4 L25.2 22.2 H20.3 L23.3 18.4 Z
+      M20.3 26.2 H26.2 L29.8 30.4 L26.2 34.6 H20.3 L23.9 30.4 Z
+    "/>
+    <path d="M40.6 32.9 a1.05 1.05 0 0 1 .99 1.42 l-2.6 7 a1.05 1.05 0 0 1 -1.97 -.73 l2.6 -7 a1.05 1.05 0 0 1 .98 -.69 Z"/>
+  </g>
+</svg>

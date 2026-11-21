@@ -113,11 +113,11 @@ function Step({
     >
       <m.span
         style={{ scale: iconScale }}
-        className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-muted)] shadow-[var(--shadow)] lg:mx-auto"
+        className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-muted)] lg:mx-auto"
       >
         <m.span
           style={{ opacity: ringOpacity }}
-          className="absolute inset-0 rounded-2xl bg-gradient-cta shadow-glow"
+          className="absolute inset-0 rounded-2xl bg-[var(--accent)] shadow-[0_10px_26px_-12px_var(--accent)]"
           aria-hidden
         />
         <Icon className="relative h-6 w-6" aria-hidden />
@@ -135,7 +135,7 @@ function Step({
 /** White icon that fades in over the gradient once the step is reached. */
 function LitIcon({ lit, Icon }: { lit: MotionValue<number>; Icon: typeof Search }) {
   return (
-    <m.span style={{ opacity: lit }} className="absolute inset-0 flex items-center justify-center text-white" aria-hidden>
+    <m.span style={{ opacity: lit }} className="absolute inset-0 flex items-center justify-center text-[var(--bg-primary)]" aria-hidden>
       <Icon className="h-6 w-6" />
     </m.span>
   );

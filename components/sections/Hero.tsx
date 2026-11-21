@@ -56,7 +56,7 @@ export function Hero() {
     <section
       // Pull the hero (and its grid / glow backdrop) up behind the fixed navbar so the
       // top of the page reads as one surface instead of a separate band above the hero.
-      className="relative isolate -mt-[5.25rem] overflow-hidden pb-14 pt-[6.25rem] sm:-mt-[5.5rem] sm:pt-[6.5rem] md:pb-20 md:pt-[7rem] lg:flex lg:min-h-[100svh] lg:items-center lg:pb-16 lg:pt-[5.5rem]"
+      className="relative isolate -mt-[5.25rem] overflow-hidden pb-14 pt-[7.75rem] sm:-mt-[5.5rem] sm:pt-[8.25rem] md:pb-20 md:pt-[8.75rem] lg:flex lg:min-h-[100svh] lg:items-center lg:pb-16 lg:pt-[7.5rem]"
     >
       {/* Stack: grid lines → mesh → glows (all pointer-events-none, above page backdrop) */}
       <div className="hero-bg-grid pointer-events-none absolute inset-0 z-0" aria-hidden />

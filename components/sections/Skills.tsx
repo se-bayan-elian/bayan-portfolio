@@ -62,7 +62,6 @@ export function Skills({ featuredOnly = false }: SkillsProps) {
               className="card-surface card-surface-glow rounded-3xl p-5"
               onPointerMove={liq.onPointerMove}
               onPointerLeave={liq.onPointerLeave}
-              whileHover={glassCardHover}
               whileTap={glassCardTap}
             >
               <SkillBar name={s.name} level={s.level} />
@@ -79,7 +78,6 @@ export function Skills({ featuredOnly = false }: SkillsProps) {
           <MotionLink
             href="/skills"
             className="group/skills inline-flex items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)]/95 px-5 py-2.5 text-sm font-semibold text-[var(--text-primary)] shadow-sm transition-colors hover:border-[var(--accent-2)]/40 hover:text-[var(--accent)] hover:shadow-glow"
-            whileHover={{ y: -3, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             <Layers className="h-4 w-4 shrink-0 text-[var(--accent)] transition duration-300 group-hover/skills:rotate-12 motion-reduce:transition-none" aria-hidden />
@@ -103,7 +101,6 @@ export function Skills({ featuredOnly = false }: SkillsProps) {
                   className="card-surface card-surface-glow rounded-3xl p-6"
                   onPointerMove={liq.onPointerMove}
                   onPointerLeave={liq.onPointerLeave}
-                  whileHover={glassCardHover}
                   whileTap={glassCardTap}
                 >
                   <h3 className="text-lg font-semibold text-[var(--text-primary)]">

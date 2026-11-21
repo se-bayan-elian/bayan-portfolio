@@ -11,6 +11,7 @@ import { Cursor } from "@/components/ui/Cursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { TelegramFloatButton } from "@/components/ui/TelegramFloatButton";
 import { BezoChat } from "@/components/ui/BezoChat";
+import { WebMcpTools } from "@/components/agent/WebMcpTools";
 import { routing } from "@/i18n/routing";
 import { Analytics } from "@vercel/analytics/next";
 import '../globals.css'
@@ -37,6 +38,12 @@ const outfit = Outfit({
   weight: ["600", "700"],
 });
 
+/**
+ * Runs before first paint so the saved / system theme is applied immediately
+ * (otherwise the page renders without any theme tokens until React hydrates).
+ */
+const themeInitScript = `(function(){try{var k="bayan-portfolio-theme",l=["light","dark","dracula","nord","solarized","payload"],t=localStorage.getItem(k);if(l.indexOf(t)<0){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`;
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -58,7 +65,14 @@ export default async function LocaleLayout({ children, params }: Props) {
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale} dir={dir} suppressHydrationWarning>
+    <html lang={locale} dir={dir} data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {/* Agent discovery */}
+        <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" />
+        <link rel="alternate" type="text/markdown" href={`/${locale}`} title="Markdown (send Accept: text/markdown)" />
+        <link rel="describedby" href="/llms.txt" type="text/plain" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tajawal.variable} ${outfit.variable} min-h-screen antialiased`}
       >
@@ -77,6 +91,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Footer />
           <TelegramFloatButton />
           <BezoChat />
+          <WebMcpTools />
         </AppProviders>
         <Analytics />
       </body>

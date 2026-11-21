@@ -39,7 +39,6 @@ export function LanguageSwitcher() {
         aria-controls={panelId}
         aria-haspopup="listbox"
         onClick={() => setOpen((v) => !v)}
-        whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
         transition={{ type: "spring", stiffness: 420, damping: 28 }}
       >
@@ -70,7 +69,6 @@ export function LanguageSwitcher() {
                     router.replace(pathname, { locale: l });
                     setOpen(false);
                   }}
-                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >

@@ -5,6 +5,7 @@ import { ProjectDetailView } from "@/components/sections/ProjectDetailView";
 import { projects } from "@/data/projects";
 import { projectLocalized } from "@/lib/project-localize";
 import { buildMetadata } from "@/lib/metadata";
+import { isFrameable } from "@/lib/frameable";
 import type { Locale } from "@/i18n/routing";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -38,6 +39,7 @@ export default async function ProjectPage({ params }: Props) {
 
   const loc = projectLocalized(project, locale as Locale);
   const t = await getTranslations("projects");
+  const embeddable = await isFrameable(project.liveUrl);
 
   return (
     <PageMotion>
@@ -48,6 +50,7 @@ export default async function ProjectPage({ params }: Props) {
         body={loc.body}
         highlights={loc.highlights}
         awardLabel={project.award ? t("award_ribbon") : undefined}
+        embeddable={embeddable}
       />
     </PageMotion>
   );

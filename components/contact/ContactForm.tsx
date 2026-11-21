@@ -136,7 +136,6 @@ export function ContactForm() {
         type="submit"
         disabled={sending}
         className="group/submit mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-md shadow-[color-mix(in_srgb,var(--accent)_35%,transparent)] transition-[box-shadow,background-color] duration-300 hover:bg-[var(--accent-hover)] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none"
-        whileHover={sending ? undefined : { scale: 1.01 }}
         whileTap={sending ? undefined : { scale: 0.985 }}
       >
         {sending ? (

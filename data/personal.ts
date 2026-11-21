@@ -39,7 +39,7 @@ export const personal = {
 
   bioFr: "Je suis ingénieur full-stack : je livre des produits en production avec Next.js et NestJS — du premier build au trafic réel, en passant par les correctifs et les refactors qui gardent un produit maintenable sur la durée.\n\nEn quatre ans, j'ai livré dans l'éducation (Qader), l'e-commerce groupé (Jmaa), l'IA (Survey Genius — 1er prix, hackathon national IA), le secteur associatif, le POS et le recrutement bilingue (Empleo Match) pour des équipes en Arabie, dans le Golfe et aux États-Unis. Autant à l'aise pour stabiliser un frontend legacy sous pression que pour concevoir des APIs REST, des flux de paiement, du temps réel et des expériences localisées arabe/anglais.\n\nJe privilégie une architecture propre, des performances mesurables et des interfaces rapides et soignées. Ouvert au full-time, au contrat et à des missions freelance sélectives.",
 
-  avatar: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776844571/Gemini_Generated_Image_epd9ffepd9ffepd9_hn1guw.png",
+  avatar: "/images/bayan-portrait.jpg",
   resume: "https://drive.google.com/uc?export=download&id=19_KFfqggVgbvqrzneDzWFOOHLUHHJ0f7",
   siteUrl: "https://bayan-reqeb.tech",
 

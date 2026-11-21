@@ -143,7 +143,6 @@ export function BayanLogo({ variant = "horizontal", size = "md", className }: Pr
     return (
       <m.span
         className={cn("inline-flex shrink-0", className)}
-        whileHover={reduceMotion ? undefined : { skewX: locale === "ar" ? 6 : -6 }}
         transition={{ type: "spring", stiffness: 440, damping: 28 }}
       >
         <LogoMark className={markSize} labelId={gradId} />
@@ -158,12 +157,10 @@ export function BayanLogo({ variant = "horizontal", size = "md", className }: Pr
         size === "sm" && "gap-2",
         className,
       )}
-      whileHover={skewHover}
       transition={{ type: "spring", stiffness: 440, damping: 28 }}
     >
       <m.span
         className="relative shrink-0"
-        whileHover={reduceMotion ? undefined : { rotate: locale === "ar" ? -2 : 2 }}
         transition={{ type: "spring", stiffness: 380, damping: 22 }}
       >
         <LogoMark className={markSize} labelId={gradId} />

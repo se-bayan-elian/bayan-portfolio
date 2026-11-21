@@ -1,17 +1,9 @@
-"use client";
-
-import { m } from "framer-motion";
 import type { ReactNode } from "react";
 
+/**
+ * Page entrance. Pure CSS (see `.page-enter` in globals.css) so the server-rendered
+ * HTML is visible immediately instead of waiting for JS hydration to fade it in.
+ */
 export function PageMotion({ children }: { children: ReactNode }) {
-  return (
-    <m.div
-      className="bg-transparent"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </m.div>
-  );
+  return <div className="page-enter bg-transparent">{children}</div>;
 }

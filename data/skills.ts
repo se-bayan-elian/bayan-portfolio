@@ -25,6 +25,8 @@ export const skills: Skill[] = [
   { name: "MUI", level: 80, category: "frontend", yearsOfExperience: 2, featured: false },
   { name: "i18n / next-intl", level: 88, category: "frontend", yearsOfExperience: 2, featured: false },
   { name: "Nest.js", level: 90, category: "backend", yearsOfExperience: 3, featured: true },
+  { name: "Python", level: 80, category: "backend", yearsOfExperience: 1, featured: false },
+  { name: "Flask", level: 80, category: "backend", yearsOfExperience: 1, featured: false },
   { name: "REST APIs", level: 92, category: "backend", yearsOfExperience: 3, featured: false },
   { name: "Microservices", level: 78, category: "backend", yearsOfExperience: 2, featured: false },
   { name: "WebSockets", level: 80, category: "backend", yearsOfExperience: 2, featured: false },

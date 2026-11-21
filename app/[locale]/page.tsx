@@ -4,7 +4,9 @@ import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
-import { Skills } from "@/components/sections/Skills";
+import { SkillsShowcase } from "@/components/sections/SkillsShowcase";
+import { ShippedStrip } from "@/components/sections/ShippedStrip";
+import { Process } from "@/components/sections/Process";
 import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { buildMetadata } from "@/lib/metadata";
@@ -41,10 +43,12 @@ export default async function HomePage({ params }: Props) {
       />
       <PageMotion>
         <Hero />
+        <ShippedStrip />
         <Stats />
+        <SkillsShowcase />
         <Projects />
-        <Skills featuredOnly />
         <Experience />
+        <Process />
         <Testimonials />
         <Contact />
       </PageMotion>

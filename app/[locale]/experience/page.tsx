@@ -1,7 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { PageMotion } from "@/components/PageMotion";
-import { EducationBlock } from "@/components/sections/EducationBlock";
-import { Experience } from "@/components/sections/Experience";
+import { ExperiencePageView } from "@/components/sections/ExperiencePageView";
 import { buildMetadata } from "@/lib/metadata";
 import type { Locale } from "@/i18n/routing";
 
@@ -23,8 +22,7 @@ export default async function ExperiencePage({ params }: Props) {
 
   return (
     <PageMotion>
-      <Experience showViewAll={false} />
-      <EducationBlock locale={locale as Locale} />
+      <ExperiencePageView locale={locale as Locale} />
     </PageMotion>
   );
 }

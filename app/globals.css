@@ -79,7 +79,7 @@
   height: min(90vw, 48rem);
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.26;
+  opacity: 0.14;
   will-change: transform;
 }
 
@@ -313,7 +313,6 @@
   .glass-nav-shell:hover {
     box-shadow: var(--shadow), 0 28px 72px -18px color-mix(in srgb, var(--accent) 22%, transparent),
       var(--glass-highlight), var(--glass-lowlight);
-    transform: translateY(-1px) translateZ(0);
   }
 }
 
@@ -416,7 +415,7 @@
   opacity: 0.42;
 }
 
-[data-theme="light"] .hero-bg-grid {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-bg-grid {
   background-image: linear-gradient(
       color-mix(in srgb, var(--text-primary) 8%, transparent) 1px,
       transparent 1px
@@ -430,12 +429,12 @@
 }
 
 /* Softer animated mesh on light so the grid stays readable */
-[data-theme="light"] .hero-mesh-layer {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-mesh-layer {
   opacity: 0.52 !important;
 }
 
 /* Light theme: editorial badges & CTA (avoid heavy teal / emerald fills) */
-[data-theme="light"] .hero-badge-years {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-badge-years {
   background: var(--bg-card);
   background-image: none;
   border: 1px solid var(--border);
@@ -457,42 +456,42 @@
   color: rgb(5, 150, 105);
 }
 
-[data-theme="dark"] .hero-badge-available .hero-available-icon {
+:is([data-theme="dark"], [data-theme="dracula"], [data-theme="nord"], [data-theme="payload"]) .hero-badge-available .hero-available-icon {
   color: rgb(110, 231, 183);
 }
 
-[data-theme="light"] .hero-badge-available .hero-available-ping {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-badge-available .hero-available-ping {
   background: color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
-[data-theme="light"] .hero-badge-available .hero-available-dot {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-badge-available .hero-available-dot {
   background: var(--accent);
 }
 
-[data-theme="light"] .hero-badge-available .hero-available-icon {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-badge-available .hero-available-icon {
   color: var(--accent-hover);
 }
 
-[data-theme="light"] .hero-role-line {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-role-line {
   background: none !important;
   background-image: none !important;
   -webkit-text-fill-color: currentColor;
   color: var(--accent-hover);
 }
 
-[data-theme="light"] .hero-badge-available {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-badge-available {
   background: color-mix(in srgb, var(--accent-subtle) 55%, var(--bg-card));
   border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
   color: var(--accent-hover);
 }
 
-[data-theme="light"] .hero-cta-primary {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-cta-primary {
   background: var(--accent);
   background-image: none;
   box-shadow: var(--shadow);
 }
 
-[data-theme="light"] .hero-cta-primary:hover {
+:is([data-theme="light"], [data-theme="solarized"]) .hero-cta-primary:hover {
   box-shadow: var(--shadow-glow);
 }
 
@@ -704,7 +703,7 @@
     inset 0 1px 0 rgb(255 255 255 / 0.42);
 }
 
-[data-theme="dark"] .project-polaroid-frame {
+:is([data-theme="dark"], [data-theme="dracula"], [data-theme="nord"], [data-theme="payload"]) .project-polaroid-frame {
   background: color-mix(in srgb, var(--bg-secondary) 78%, #1e293b);
   box-shadow:
     0 2px 8px rgb(0 0 0 / 0.45),
@@ -793,3 +792,383 @@
   color: var(--text-secondary) !important;
 }
 
+
+/* ───────────── Entrance animations (pure CSS: visible before JS hydrates) ───────────── */
+
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.page-enter {
+  animation: enter-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.enter-up {
+  animation: enter-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--enter-delay, 0s) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .enter-up {
+    animation: none;
+  }
+}
+
+/* ───────────── Theme polish ───────────── */
+
+:root {
+  color-scheme: dark;
+}
+
+:is([data-theme="light"], [data-theme="solarized"]) {
+  color-scheme: light;
+}
+
+/* Theme-tinted scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 45%, var(--border)) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--accent) 40%, var(--border)) padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent) padding-box;
+}
+
+/* ───────────── Performance: lighter glass on small / low-power screens ───────────── */
+
+@media (max-width: 768px) {
+  .card-surface,
+  .glass-panel {
+    backdrop-filter: blur(20px) saturate(1.5);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  }
+
+  .liquid-ambient__orb {
+    animation: none;
+    filter: blur(60px);
+  }
+
+  .mesh-bg {
+    animation: none;
+  }
+}
+
+/* ───────────── Testimonials marquee ───────────── */
+
+.testimonial-marquee {
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  padding-block: 0.75rem;
+}
+
+.testimonial-marquee__track {
+  animation: t-marquee 55s linear infinite;
+}
+
+.testimonial-marquee__track--reverse {
+  animation-direction: reverse;
+  animation-duration: 65s;
+}
+
+.testimonial-marquee:hover .testimonial-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes t-marquee {
+  to {
+    transform: translateX(calc(-50% - 0.625rem));
+  }
+}
+
+[dir="rtl"] .testimonial-marquee__track {
+  animation-name: t-marquee-rtl;
+}
+
+@keyframes t-marquee-rtl {
+  to {
+    transform: translateX(calc(50% + 0.625rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-marquee__track {
+    animation: none;
+  }
+  .testimonial-marquee {
+    overflow-x: auto;
+  }
+}
+
+/* ───────────── Hire CTA: cursor spotlight + rotating conic halo ───────────── */
+
+.hire-card__spot {
+  background: radial-gradient(
+    28rem circle at var(--spot-x, 50%) var(--spot-y, 30%),
+    color-mix(in srgb, var(--accent) 22%, transparent),
+    transparent 60%
+  );
+}
+
+.hire-card__halo {
+  background: conic-gradient(from 0deg, var(--accent), var(--accent-2), transparent 40%, var(--accent));
+  animation: hire-spin 18s linear infinite;
+}
+
+@keyframes hire-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hire-card__halo {
+    animation: none;
+  }
+}
+
+/* ───────────── Calm CTAs ─────────────
+   Primary buttons use ink/cream instead of a loud accent fill; the accent stays for details.
+   (--cta-fg defaults to white so the other themes keep their colored buttons.) */
+.bg-gradient-cta {
+  color: var(--cta-fg, #fff) !important;
+  --tw-shadow: 0 10px 24px -14px rgb(0 0 0 / 0.55) !important;
+  --tw-shadow-colored: 0 10px 24px -14px rgb(0 0 0 / 0.55) !important;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.bg-gradient-cta:hover {
+  filter: brightness(1.06);
+}
+
+:is([data-theme="light"], [data-theme="solarized"]) .hero-cta-primary {
+  background: var(--gradient-cta);
+}
+
+/* Hire card: keep only a soft, warm spotlight (no spinning halo) */
+.hire-card__halo {
+  display: none;
+}
+
+.hire-card__spot {
+  background: radial-gradient(
+    30rem circle at var(--spot-x, 50%) var(--spot-y, 20%),
+    color-mix(in srgb, var(--accent) 10%, transparent),
+    transparent 65%
+  );
+}
+
+
+/* ───────────── In-place hover effects (nothing moves) ───────────── */
+
+/* Primary buttons: a soft light sweep passes across the button */
+.bg-gradient-cta {
+  background-image:
+    linear-gradient(110deg, transparent 30%, color-mix(in srgb, var(--accent) 30%, transparent) 48%, color-mix(in srgb, #fff 35%, transparent) 50%, transparent 68%),
+    var(--gradient-cta) !important;
+  background-size: 260% 100%, 100% 100% !important;
+  background-position: 130% 0, 0 0 !important;
+  background-repeat: no-repeat !important;
+  transition: background-position 0.75s cubic-bezier(0.22, 1, 0.36, 1), filter 0.2s ease, box-shadow 0.3s ease !important;
+}
+
+.bg-gradient-cta:hover {
+  background-position: -30% 0, 0 0 !important;
+  filter: none;
+}
+
+/* Glass / outline buttons: accent border lights up + same sweep */
+.glass-control {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    linear-gradient(110deg, transparent 30%, color-mix(in srgb, var(--accent) 22%, transparent) 50%, transparent 70%),
+    linear-gradient(180deg, color-mix(in srgb, #ffffff 0.12, transparent) 0%, transparent 50%);
+  background-size: 260% 100%, 100% 100%;
+  background-position: 130% 0, 0 0;
+  background-repeat: no-repeat;
+  transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease,
+    background-position 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-control:hover {
+  background-position: -30% 0, 0 0;
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--glass-border));
+  box-shadow: var(--glass-highlight), 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+/* Cards: an accent line draws along the bottom edge; border warms up */
+.card-surface-glow {
+  background-image:
+    linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, var(--accent-2))),
+    linear-gradient(180deg, color-mix(in srgb, #ffffff 0.24, transparent) 0%, transparent 46%);
+  background-size: 0% 2px, 100% 100%;
+  background-position: 0 100%, 0 0;
+  background-repeat: no-repeat;
+  transition: background-size 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+[dir="rtl"] .card-surface-glow {
+  background-position: 100% 100%, 0 0;
+}
+
+.card-surface-glow:hover {
+  background-size: 100% 2px, 100% 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-gradient-cta,
+  .glass-control,
+  .card-surface-glow {
+    transition: none !important;
+  }
+}
+
+
+/* ───────────── Hero personality ───────────── */
+
+.hero-wave {
+  animation: hero-wave 2.4s ease-in-out 1.1s 2;
+}
+
+@keyframes hero-wave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(16deg); }
+  20% { transform: rotate(-8deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.hand-underline path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: hand-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.7s forwards;
+}
+
+@keyframes hand-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.ring-spin {
+  animation: ring-spin 16s linear infinite;
+}
+
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-wave,
+  .ring-spin {
+    animation: none;
+  }
+  .hand-underline path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* ───────────── Hero: sticker highlight, text links, stack chips ───────────── */
+
+/* Solid marker behind the role — slightly tilted, like a sticker */
+.hero-sticker {
+  display: inline-block;
+  padding: 0.1em 0.55em 0.15em;
+  border-radius: 0.6rem;
+  background: var(--accent);
+  color: var(--accent-fg, #fff);
+  transform: rotate(-1.5deg);
+  box-shadow: 0 10px 24px -14px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+[data-theme="dark"] .hero-sticker {
+  --accent-fg: #1a1210;
+}
+
+[dir="rtl"] .hero-sticker {
+  transform: rotate(1.5deg);
+}
+
+/* Text links: underline draws in from the start edge on hover (in place) */
+.hero-text-link span {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[dir="rtl"] .hero-text-link span {
+  background-position: 100% 100%;
+}
+
+.hero-text-link {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 30%, transparent);
+  text-underline-offset: 6px;
+}
+
+.hero-text-link:hover {
+  text-decoration-color: transparent;
+}
+
+.hero-text-link:hover span {
+  background-size: 100% 1.5px;
+}
+
+/* Stack chips: solid, high-contrast pills with real logos */
+.stack-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 9999px;
+  padding: 0.4rem 0.85rem 0.4rem 0.45rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+[dir="rtl"] .stack-chip {
+  padding: 0.4rem 0.45rem 0.4rem 0.85rem;
+}
+
+.stack-chip__icon {
+  display: inline-flex;
+  height: 1.5rem;
+  width: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stack-chip:hover .stack-chip__icon {
+  transform: rotate(-20deg);
+}

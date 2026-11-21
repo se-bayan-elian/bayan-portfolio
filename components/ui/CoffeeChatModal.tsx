@@ -220,7 +220,6 @@ export function CoffeeChatModal({ open, onClose }: Props) {
                   type="submit"
                   disabled={sending}
                   className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-coffee)] px-5 py-3 text-sm font-semibold text-white shadow-md shadow-[color-mix(in_srgb,var(--color-coffee)_35%,transparent)] transition hover:bg-[var(--color-coffee-hover)] disabled:cursor-not-allowed disabled:opacity-60"
-                  whileHover={sending ? undefined : { scale: 1.01 }}
                   whileTap={sending ? undefined : { scale: 0.985 }}
                 >
                   {sending ? (

@@ -82,7 +82,6 @@ export function EducationBlock({ locale }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group/cert glass-control inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-[var(--text-primary)] transition-colors hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
-                  whileHover={{ y: -1 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <FileBadge
@@ -102,7 +101,6 @@ export function EducationBlock({ locale }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group/tr glass-control inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-[var(--text-primary)] transition-colors hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
-                  whileHover={{ y: -1 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <ScrollText

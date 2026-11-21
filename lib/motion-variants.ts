@@ -1,7 +1,7 @@
 /** Spring lift + subtle scale for glass cards (Framer whileHover) */
 export const glassCardHover = {
-  y: -7,
-  scale: 1.02,
+  y: 0,
+  scale: 1,
   transition: {
     type: "spring" as const,
     stiffness: 360,
@@ -16,7 +16,7 @@ export const glassCardRest = { y: 0, scale: 1 };
 
 /** When `overflow: hidden` would clip spring lift (e.g. CTA strip). */
 export const glassCardHoverTight = {
-  scale: 1.02,
+  scale: 1,
   transition: {
     type: "spring" as const,
     stiffness: 400,

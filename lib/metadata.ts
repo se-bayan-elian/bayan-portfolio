@@ -100,7 +100,7 @@ export function buildMetadata({
     icons: {
       icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
       shortcut: "/favicon.svg",
-      apple: "/favicon.svg",
+      apple: "/apple-icon.png",
     },
     openGraph: {
       type: "website",

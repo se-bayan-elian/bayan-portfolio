@@ -85,13 +85,13 @@ export function TimelineItem({
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {item.current && (
-                  <span className="group/cur inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-700 transition duration-300 hover:scale-105 dark:text-emerald-300 motion-reduce:transition-none motion-reduce:hover:scale-100">
+                  <span className="group/cur inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-700 transition duration-300 dark:text-emerald-300 motion-reduce:transition-none motion-reduce:hover:scale-100">
                     <Radio className="h-3 w-3 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden />
                     {t("current")}
                   </span>
                 )}
                 {item.remote && (
-                  <span className="group/rem inline-flex items-center gap-1 rounded-full bg-[var(--accent-subtle)] px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)] transition duration-300 hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-100">
+                  <span className="group/rem inline-flex items-center gap-1 rounded-full bg-[var(--accent-subtle)] px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)] transition duration-300 motion-reduce:transition-none motion-reduce:hover:scale-100">
                     <Home className="h-3 w-3 shrink-0 opacity-80 transition group-hover/rem:rotate-12 motion-reduce:transition-none" aria-hidden />
                     {t("remote")}
                   </span>

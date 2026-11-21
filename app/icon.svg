@@ -1,34 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="192" height="192" role="img" aria-label="Bayan Elian logo">
-  <defs>
-    <linearGradient id="bg" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#06b6d4"/>
-      <stop offset="0.55" stop-color="#0d9488"/>
-      <stop offset="1" stop-color="#65a30d"/>
-    </linearGradient>
-    <linearGradient id="sheen" x1="4" y1="4" x2="24" y2="30" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffffff" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-
-  <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#bg)"/>
-  <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#sheen)"/>
-  <rect x="2.6" y="2.6" width="42.8" height="42.8" rx="12.4" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="192" height="192" role="img" aria-label="Bayan Alreqeb logo">
+  <!-- Ink tile, cream monogram, one burnt-orange accent — matches the site palette -->
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="#1d1b18"/>
+  <rect x="2.6" y="2.6" width="42.8" height="42.8" rx="11.4" fill="none" stroke="#f3efe8" stroke-opacity="0.1" stroke-width="1.2"/>
 
   <!-- B monogram with code-chevron counters -->
-  <path fill="#ffffff" fill-rule="evenodd" d="
-    M15 10
-    H26.5
-    C31.6 10 34.6 12.8 34.6 16.9
-    C34.6 19.6 33.3 21.6 31.1 22.7
-    C34.2 23.7 36 26.1 36 29.4
-    C36 34.2 32.4 38 27 38
-    H15
+  <path fill="#f3efe8" fill-rule="evenodd" d="
+    M14 10
+    H25.5
+    C30.6 10 33.6 12.8 33.6 16.9
+    C33.6 19.6 32.3 21.6 30.1 22.7
+    C33.2 23.7 35 26.1 35 29.4
+    C35 34.2 31.4 38 26 38
+    H14
     Z
-    M20.3 14.6 H25.2 L28.2 18.4 L25.2 22.2 H20.3 L23.3 18.4 Z
-    M20.3 26.2 H26.2 L29.8 30.4 L26.2 34.6 H20.3 L23.9 30.4 Z
+    M19.3 14.6 H24.2 L27.2 18.4 L24.2 22.2 H19.3 L22.3 18.4 Z
+    M19.3 26.2 H25.2 L28.8 30.4 L25.2 34.6 H19.3 L22.9 30.4 Z
   "/>
 
   <!-- slash accent -->
-  <path d="M39.5 33.5 L36.9 40.5" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M40 31.5 L36.6 40.5" stroke="#ff8552" stroke-width="3" stroke-linecap="round"/>
 </svg>

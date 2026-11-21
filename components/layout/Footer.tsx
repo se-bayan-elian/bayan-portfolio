@@ -40,7 +40,6 @@ export function Footer() {
               rel="noreferrer"
               className="glass-control inline-flex h-10 w-10 text-[var(--text-secondary)] hover:text-[var(--accent)]"
               aria-label="GitHub"
-              whileHover={{ y: -2, scale: 1.06 }}
               whileTap={{ scale: 0.94 }}
               transition={{ type: "spring", stiffness: 400, damping: 24 }}
             >
@@ -52,7 +51,6 @@ export function Footer() {
               rel="noreferrer"
               className="glass-control inline-flex h-10 w-10 text-[var(--text-secondary)] hover:text-[var(--accent)]"
               aria-label="LinkedIn"
-              whileHover={{ y: -2, scale: 1.06 }}
               whileTap={{ scale: 0.94 }}
               transition={{ type: "spring", stiffness: 400, damping: 24 }}
             >
@@ -62,7 +60,6 @@ export function Footer() {
               href={personal.social.email}
               className="glass-control inline-flex h-10 w-10 text-[var(--text-secondary)] hover:text-[var(--accent)]"
               aria-label="Email"
-              whileHover={{ y: -2, scale: 1.06 }}
               whileTap={{ scale: 0.94 }}
               transition={{ type: "spring", stiffness: 400, damping: 24 }}
             >
@@ -75,7 +72,6 @@ export function Footer() {
                 rel="noreferrer"
                 className="glass-control inline-flex h-10 w-10 text-[#229ED9] hover:text-[#1f8fc7]"
                 aria-label="Telegram"
-                whileHover={{ y: -2, scale: 1.06 }}
                 whileTap={{ scale: 0.94 }}
                 transition={{ type: "spring", stiffness: 400, damping: 24 }}
               >

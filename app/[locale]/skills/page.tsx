@@ -1,6 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { PageMotion } from "@/components/PageMotion";
-import { Skills } from "@/components/sections/Skills";
+import { SkillsPageView } from "@/components/sections/SkillsPageView";
 import { buildMetadata } from "@/lib/metadata";
 import type { Locale } from "@/i18n/routing";
 
@@ -21,7 +21,7 @@ export default async function SkillsPage({ params }: Props) {
 
   return (
     <PageMotion>
-      <Skills featuredOnly={false} />
+      <SkillsPageView />
     </PageMotion>
   );
 }

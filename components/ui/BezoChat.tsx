@@ -148,7 +148,6 @@ export function BezoChat() {
           "telegram-fab overflow-visible fixed bottom-4 end-4 z-[54] flex h-[3.65rem] w-[3.65rem] items-center justify-center rounded-full bg-[var(--accent)] text-white shadow-[0_12px_40px_-8px_color-mix(in_srgb,var(--accent)_60%,transparent)] outline-none ring-2 ring-white/20 transition-colors hover:bg-[var(--accent-hover)] md:bottom-2 md:end-8",
           !open && !reducedMotion && "telegram-fab-bounce",
         )}
-        whileHover={reducedMotion ? undefined : { scale: 1.06 }}
         whileTap={reducedMotion ? undefined : { scale: 0.94 }}
       >
         {!open && !reducedMotion ? (

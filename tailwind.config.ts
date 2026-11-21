@@ -1,6 +1,11 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  // `dark:` follows the selected site theme (not the OS), for every dark-family theme.
+  darkMode: [
+    "variant",
+    '&:is([data-theme="dark"] *, [data-theme="dracula"] *, [data-theme="nord"] *, [data-theme="payload"] *)',
+  ],
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",

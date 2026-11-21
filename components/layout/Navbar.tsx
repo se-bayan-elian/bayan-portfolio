@@ -35,10 +35,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <m.header
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    <header
       className="pointer-events-none fixed inset-x-0 top-0 z-50 w-full min-w-0"
     >
       <div className="pointer-events-auto mx-auto w-full min-w-0 max-w-full px-4 pt-3 md:px-6 md:pt-4 lg:max-w-6xl">
@@ -111,7 +108,6 @@ export function Navbar() {
                 aria-expanded={open}
                 aria-controls="mobile-nav"
                 onClick={() => setOpen((v) => !v)}
-                whileHover={{ scale: 1.06 }}
                 whileTap={{ scale: 0.94 }}
                 transition={{ type: "spring", stiffness: 460, damping: 28 }}
               >
@@ -170,6 +166,6 @@ export function Navbar() {
           </m.div>
         ) : null}
       </AnimatePresence>
-    </m.header>
+    </header>
   );
 }

@@ -28,6 +28,66 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "10",
+    slug: "ucas-help-center",
+    title: "UCAS Student Digital Services Center",
+    titleAr: "مركز الخدمات الطلابية الرقمي — UCAS",
+    titleFr: "Centre de services numériques étudiants — UCAS",
+    description: "Support platform for the University College of Applied Sciences: a Flask bot that routes WhatsApp & Telegram student requests to the right department through Chatwoot, plus an admin dashboard with live tickets, department analytics and a visual routing-rules editor.",
+    descriptionAr: "منصة دعم الكلية الجامعية للعلوم التطبيقية: بوت Flask يوجّه طلبات الطلاب من واتساب وتيليجرام إلى القسم الصحيح عبر Chatwoot، مع لوحة إدارة لمتابعة التذاكر لحظياً وإحصائيات الأقسام ومحرر مرئي لقواعد التحويل.",
+    descriptionFr: "Plateforme de support de l'UCAS : un bot Flask qui oriente les demandes étudiantes WhatsApp et Telegram vers le bon service via Chatwoot, avec un tableau de bord admin : tickets en direct, statistiques par département et éditeur visuel des règles de routage.",
+    longDescription: "The Student Digital Services Center (help.ucas.edu.ps) is the single front door for student support at the University College of Applied Sciences (UCAS). Students write on WhatsApp or Telegram; a Flask webhook bot greets them, verifies their identity against the college's live student-mobile API, walks them through a menu of departments and deanships, and opens a tracked ticket that lands with the right team inside Chatwoot. Staff replies are forwarded back to the student on whichever channel they used last, inactive conversations get reminders, and expired WhatsApp windows are closed automatically.\n\nOn top of the bot I built a full admin portal at /admin. It signs people in with their existing Chatwoot accounts (no separate passwords) and derives five roles — developer, admin, overseer, dean/head and deputy — from Chatwoot team membership, enforced on the server. Admins get a live tickets board that refreshes every 15 seconds, per-department and per-employee statistics (reply rate, time to first reply, stuck tickets by topic), a routing tree that shows exactly which team receives each request, and a visual rules editor with drafts, approval, revision history and a built-in student-conversation simulator to test changes before they go live.\n\nThe interface is Arabic-first and RTL, with light and dark themes, a Ctrl+K command palette, collapsible sidebar and skeleton loaders, all in plain HTML, CSS and JavaScript with no build step. The service runs under Gunicorn and systemd with a CI/CD deploy workflow, ships with a test suite, and is documented with published guides for students, staff and deans.",
+    longDescriptionAr: "مركز الخدمات الطلابية الرقمي (help.ucas.edu.ps) هو البوابة الموحدة لدعم الطلاب في الكلية الجامعية للعلوم التطبيقية (UCAS). يكتب الطالب على واتساب أو تيليجرام، فيستقبله بوت Flask، ويتحقق من هويته عبر واجهة الكلية الحية لأرقام الطلاب، ويقوده عبر قائمة الأقسام والعمادات، ثم يفتح تذكرة متابَعة تصل إلى الفريق الصحيح داخل Chatwoot. تُعاد ردود الموظفين للطالب على آخر قناة استخدمها، وتُرسل تذكيرات للمحادثات الخاملة، وتُغلق نوافذ واتساب المنتهية تلقائياً.\n\nبنيت فوق البوت لوحة إدارة كاملة على /admin: تسجيل دخول بحسابات Chatwoot نفسها دون كلمات مرور منفصلة، وخمسة أدوار (مطور، إدارة، نواب الكلية، العمداء ورؤساء الأقسام، النواب) تُستنتج من عضوية فرق Chatwoot وتُفرض من الخادم. توفر اللوحة متابعة حية للتذاكر تتجدد كل 15 ثانية، وإحصائيات لكل قسم وموظف (نسبة الرد، زمن أول رد، التذاكر المتعثرة حسب الموضوع)، وشجرة تحويلات توضح من يستلم كل طلب، ومحرراً مرئياً لقواعد التحويل مع مسودات واعتماد وسجل إصدارات ومحاكي محادثة طالب لاختبار التغييرات قبل تفعيلها.\n\nالواجهة عربية أولاً وباتجاه RTL، مع وضعين فاتح وداكن، وقائمة أوامر Ctrl+K، وشريط جانبي قابل للطي، وهياكل تحميل — كلها HTML وCSS وJavaScript بدون خطوة بناء. تعمل الخدمة عبر Gunicorn وsystemd مع نشر تلقائي CI/CD، ومجموعة اختبارات، وأدلة منشورة للطلاب والموظفين والعمداء.",
+    longDescriptionFr: "Le Centre de services numériques étudiants (help.ucas.edu.ps) est la porte d'entrée unique du support étudiant de l'UCAS. Les étudiants écrivent sur WhatsApp ou Telegram ; un bot Flask les accueille, vérifie leur identité via l'API étudiante de l'établissement, les guide dans un menu de départements et de doyennés, puis ouvre un ticket suivi qui arrive à la bonne équipe dans Chatwoot. Les réponses du personnel reviennent à l'étudiant sur son dernier canal, les conversations inactives reçoivent des rappels et les fenêtres WhatsApp expirées sont fermées automatiquement.\n\nAu-dessus du bot, j'ai construit un portail d'administration complet sur /admin : connexion avec les comptes Chatwoot existants (sans mots de passe séparés) et cinq rôles déduits de l'appartenance aux équipes Chatwoot, appliqués côté serveur. On y trouve un suivi des tickets en direct (rafraîchi toutes les 15 secondes), des statistiques par département et par employé, un arbre de routage montrant quelle équipe reçoit chaque demande, et un éditeur visuel des règles avec brouillons, validation, historique et simulateur de conversation étudiante.\n\nL'interface est pensée d'abord en arabe (RTL), avec thèmes clair et sombre, palette Ctrl+K, barre latérale repliable et squelettes de chargement — en HTML, CSS et JavaScript sans étape de build. Le service tourne sous Gunicorn et systemd avec déploiement CI/CD, une suite de tests et des guides publiés pour étudiants, personnel et doyens.",
+    thumbnail: "/projects/ucas-help-center/admin-home.webp",
+    images: [
+      "/projects/ucas-help-center/admin-home.webp",
+      "/projects/ucas-help-center/admin-rules-editor.webp",
+      "/projects/ucas-help-center/admin-departments.webp",
+      "/projects/ucas-help-center/admin-routing-tree.webp",
+      "/projects/ucas-help-center/guide.webp",
+    ],
+    techStack: [
+      "Python",
+      "Flask",
+      "Chatwoot API",
+      "WhatsApp",
+      "Telegram Bot API",
+      "Gunicorn",
+      "SQLite",
+      "JavaScript",
+      "CI/CD",
+    ],
+    category: "web",
+    featured: true,
+    liveUrl: "https://help.ucas.edu.ps/guide/",
+    githubUrl: "",
+    status: "live",
+    startDate: "2026-11",
+    endDate: null,
+    highlights: [
+      "Flask webhook bot routing WhatsApp & Telegram students to the right department via Chatwoot",
+      "Identity verification against the college's live student API, with cross-channel matching",
+      "Admin portal with 5 server-enforced roles derived from Chatwoot teams — no separate passwords",
+      "Live tickets board, per-department & per-staff analytics, stuck-ticket tracking",
+      "Visual routing-rules editor with drafts, approval, history and a conversation simulator",
+    ],
+    highlightsAr: [
+      "بوت Flask يوجّه طلاب واتساب وتيليجرام للقسم الصحيح عبر Chatwoot",
+      "تحقق من هوية الطالب عبر واجهة الكلية الحية مع مطابقة بين القنوات",
+      "لوحة إدارة بخمسة أدوار مفروضة من الخادم ومستنتجة من فرق Chatwoot — بدون كلمات مرور منفصلة",
+      "متابعة حية للتذاكر وإحصائيات لكل قسم وموظف وتتبع التذاكر المتعثرة",
+      "محرر مرئي لقواعد التحويل مع مسودات واعتماد وسجل ومحاكي محادثة",
+    ],
+    highlightsFr: [
+      "Bot Flask orientant les étudiants WhatsApp & Telegram vers le bon service via Chatwoot",
+      "Vérification d'identité via l'API étudiante de l'établissement, avec rapprochement multicanal",
+      "Portail admin avec 5 rôles appliqués côté serveur, issus des équipes Chatwoot",
+      "Suivi des tickets en direct, statistiques par département et par employé",
+      "Éditeur visuel des règles de routage avec brouillons, validation, historique et simulateur",
+    ],
+  },
+  {
     id: "9",
     slug: "james-group",
     title: "James Group",
@@ -45,8 +105,9 @@ export const projects: Project[] = [
       "جيمس جروب (jamesgroup-usa.com) شركة قابضة متنوعة مقرها ميامي تحت شعار \"نبني الأعمال. نصنع الفرص.\" الموقع يعرض الأقسام الصناعية الخمسة للمجموعة — الفعاليات والتجارب، الترفيه ونمط الحياة، الضيافة والغذاء، التقنية، وخدمات القوى العاملة والأعمال — وشركاتها العشر ومنها Quinta Las Américas ومطعم El Guacalito ومخبز Mi Tierra وEmporium Agency وAll Starz Group وEmpleo Match وTalent Smart وAlliance Best وPremier Clean Team.\n\nمحور الموقع خريطة تفاعلية لمنظومة التكامل توضح كيف تتعاون العلامات المستقلة وتضاعف القيمة عبر المحفظة، إضافة إلى تصفح المحفظة حسب القسم، وصفحات مخصصة لكل شركة، ومسار سري لاستقبال طلبات الشراكات والاستحواذ والاستفسارات المؤسسية.\n\nبنيت التجربة المؤسسية من البداية للنهاية بـ Next.js: سرد مصقول لهوية المجموعة حول ركائزها الأربع (الناس، النمو، الابتكار، التعاون)، صور محسّنة، وبنية قابلة للتوسع مع انضمام شركات جديدة.",
     longDescriptionFr:
       "James Group (jamesgroup-usa.com) est une holding diversifiée basée à Miami, sous la bannière « Building Businesses. Creating Opportunities. » Le site présente les cinq divisions du groupe — Événementiel & Expériences, Divertissement & Lifestyle, Hôtellerie & Restauration, Technologie, et Services RH & Business — ainsi que ses 10 sociétés, dont Quinta Las Américas, El Guacalito, Mi Tierra Bakery, Emporium Agency, All Starz Group, Empleo Match, Talent Smart, Alliance Best et Premier Clean Team.\n\nLa pièce maîtresse est une carte interactive de l'écosystème qui visualise les synergies entre les marques, avec un portefeuille filtrable par division, des pages dédiées par société et un parcours confidentiel pour partenariats, M&A et demandes entreprises.\n\nJ'ai livré l'expérience web corporate de bout en bout avec Next.js : storytelling autour des quatre piliers du groupe (Personnes, Croissance, Innovation, Collaboration), images optimisées et structure évolutive.",
-    thumbnail: "/projects/james-group/home.png",
+    thumbnail: "/projects/james-group/cover.webp",
     images: [
+      "/projects/james-group/cover.webp",
       "/projects/james-group/home.png",
       "/projects/james-group/section-1.png",
       "/projects/james-group/section-2.png",
@@ -101,8 +162,9 @@ export const projects: Project[] = [
       "مسوّقك الذكي (ilanakdhaki.com) وكالة تسويق بالذكاء الاصطناعي للتجار السعوديين: لوحة إنتاجية تتصل بتطبيقات متاجر سلة وزد لجلب كتالوج المنتجات، ثم تستخدم إيجنتات ذكية لتحويل المخزون إلى محتوى قابل للبيع.\n\nمن المنتجات المزامنة، تولّد المنصة فيديوهات ومنشورات ومواد جاهزة للإعلان — ثم تطلق الحملات على Meta وSnapchat وTikTok وGoogle وتستمر في تحسين الأداء بشكل مستمر (ضبط كل 15 دقيقة). القصة تتمحور حول 60 إيجنت ذكي يعملون 24/7 ليتمكن أصحاب المتاجر من توسيع التسويق دون فريق داخلي كامل.\n\nبنيت تجربة التاجر من البداية للنهاية: واجهة عربية أولاً، تكامل سلة وزد، هيكل جاهز كـ PWA، ومسار مصقول من مزامنة المنتجات → توليد المحتوى → إطلاق الحملات → التحسين.",
     longDescriptionFr:
       "Msooqak (ilanakdhaki.com) est une agence marketing IA pour commerçants saoudiens : un tableau de bord connecté aux apps Salla et Zid pour importer le catalogue produits, puis des agents intelligents transforment l'inventaire en créations vendables.\n\nÀ partir des produits synchronisés, la plateforme génère vidéos, posts et assets publicitaires — lance les campagnes sur Meta, Snapchat, TikTok et Google et optimise en continu (toutes les 15 minutes). Positionnement : 60 agents IA 24/7 pour scaler le marketing sans équipe interne.\n\nJ'ai livré l'expérience marchande de bout en bout : UX arabe d'abord, intégrations Salla/Zid, coque PWA et parcours soigné sync produits → génération de contenu → lancement campagnes → optimisation.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329476/ChatGPT_Image_6_%D9%8A%D9%88%D9%84%D9%8A%D9%88_2026_12_17_32_%D9%85_rbyk4m.png",
+    thumbnail: "/projects/msooqak/cover.webp",
     images: [
+      "/projects/msooqak/cover.webp",
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329447/1_s40l68.png",
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329450/2_b1ljer.png",
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783329450/2_b1ljer.png",
@@ -162,8 +224,9 @@ export const projects: Project[] = [
       "إمبليو ماتش (empleo-match.com) منصة توظيف وتوظيف ثنائية اللغة تخدم جنوب فلوريدا — بتركيز على ميامي والمدن المحيطة. دليل الوظائف العام يتيح للمرشحين التصفية حسب الفئة (نظافة، دعم فعاليات، مستودعات ولوجستيات، أمن، ضيافة، إداري)، نوع التوظيف (دوام كامل، جزئي، مؤقت، عقد)، والمدينة مع نطاقات رواتب ومواقع واضحة.\n\nالسطح التسويقي يبرز التوظيف النشط عبر عدة مدن وخدمات أصحاب العمل ومسار تقديم مصمم لجمهور إسباني/إنجليزي.\n\nسلّمت تجربة الويب الإنتاجية من البداية للنهاية: واجهة قوائم متجاوبة، مسارات محلية، ومسار مصقول من الاكتشاف إلى تفاصيل الوظيفة والتقديم.",
     longDescriptionFr:
       "Empleo Match (empleo-match.com) est une plateforme de recrutement bilingue pour le sud de la Floride — autour de Miami et des villes voisines. L'annuaire public permet de filtrer par catégorie (propreté, événementiel, entrepôt & logistique, sécurité, hôtellerie, administratif), type de contrat et ville, avec fourchettes salariales et localisation.\n\nLe site met en avant les placements actifs, les services employeurs et un parcours de candidature pensé pour un public anglophone et hispanophone.\n\nJ'ai livré l'expérience web de production : listes responsives, routage localisé et tunnel soigné de la découverte au détail d'offre et à la candidature.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327981/ChatGPT_Image_6_%D9%8A%D9%88%D9%84%D9%8A%D9%88_2026_11_52_39_%D8%B5_lnxu3g.png",
+    thumbnail: "/projects/empleo-match/cover.webp",
     images: [
+      "/projects/empleo-match/cover.webp",
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327577/366bb306-808b-4aec-8bae-98996ff0cdd8_j7btpi.png",
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327820/e9e9d5fb-9451-4654-8246-35391bbff1d1_gg6f4z.png",
       "https://res.cloudinary.com/nextjs-bayan/image/upload/v1783327839/a6c9092d-6671-4056-9a22-5ab2ac7be1b3_e9ninv.png",
@@ -214,17 +277,17 @@ export const projects: Project[] = [
     descriptionFr:
       "Plateforme SaaS éducative centrée sur l'apprentissage, les évaluations et l'interaction en temps réel.",
     longDescription:
-      "Qader (qader.vip) positions itself as a companion for assessments and learning—an educational ecosystem where students engage with structured content, tests, and performance insights.\n\nI worked as a Next.js frontend developer on the main production platform: stabilizing large legacy areas of the UI, fixing critical production bugs, and refactoring for maintainability. I contributed to real-time group chat used by study and trading communities, built and improved assessment flows, and helped integrate AI-assisted score analysis so educators get faster, clearer feedback.\n\nThe work emphasized performance, resilience, and UX quality across a high-traffic SaaS surface.",
+      "Qader (qader.com) positions itself as a companion for assessments and learning—an educational ecosystem where students engage with structured content, tests, and performance insights.\n\nI worked as a Next.js frontend developer on the main production platform: stabilizing large legacy areas of the UI, fixing critical production bugs, and refactoring for maintainability. I contributed to real-time group chat used by study and trading communities, built and improved assessment flows, and helped integrate AI-assisted score analysis so educators get faster, clearer feedback.\n\nThe work emphasized performance, resilience, and UX quality across a high-traffic SaaS surface.",
     longDescriptionAr:
-      "منصة قادر (qader.vip) تقدّم نفسها كرفيق للاختبارات والتعلّم: منظومة تعليمية يتفاعل فيها الطلاب مع محتوى منظم واختبارات ورؤى أداء.\n\nعملت كمطوّر واجهات Next.js على المنصة الإنتاجية الرئيسية: تثبيت أجزاء واسعة من الواجهة القديمة، إصلاح أعطال حرجة في الإنتاج، وإعادة هيكلة لسهولة الصيانة. ساهمت في دردشة جماعية فورية لمجتمعات دراسية وتداول، وبناء وتحسين مسارات التقييم، ودعم دمج تحليل الدرجات بمساعدة الذكاء الاصطناعي ليتلقى المعلّمون ملاحظات أسرع أوضح.\n\nركّز العمل على الأداء والاستقرار وجودة تجربة المستخدم على واجهة SaaS مزدحمة.",
+      "منصة قادر (qader.com) تقدّم نفسها كرفيق للاختبارات والتعلّم: منظومة تعليمية يتفاعل فيها الطلاب مع محتوى منظم واختبارات ورؤى أداء.\n\nعملت كمطوّر واجهات Next.js على المنصة الإنتاجية الرئيسية: تثبيت أجزاء واسعة من الواجهة القديمة، إصلاح أعطال حرجة في الإنتاج، وإعادة هيكلة لسهولة الصيانة. ساهمت في دردشة جماعية فورية لمجتمعات دراسية وتداول، وبناء وتحسين مسارات التقييم، ودعم دمج تحليل الدرجات بمساعدة الذكاء الاصطناعي ليتلقى المعلّمون ملاحظات أسرع أوضح.\n\nركّز العمل على الأداء والاستقرار وجودة تجربة المستخدم على واجهة SaaS مزدحمة.",
     longDescriptionFr:
-      "Qader (qader.vip) se présente comme un compagnon pour les évaluations et l'apprentissage : un écosystème où les étudiants accèdent à du contenu structuré, des tests et des indicateurs de performance.\n\nJ'ai travaillé en Next.js sur la plateforme de production : stabilisation de larges zones héritées, correction de bugs critiques et refactorisation pour la maintenabilité. J'ai contribué au chat de groupe temps réel (communautés d'étude et de trading), aux modules d'évaluation et à l'intégration d'analyses de scores assistées par l'IA pour des retours plus rapides aux enseignants.\n\nPriorité à la performance, la résilience et l'UX sur une SaaS à fort trafic.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776940079/kb6rh61hrwfhre6jajnv_spal9r.webp",
-    images: ["https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861190/%D9%82%D8%A7%D8%AF%D8%B1-Qader-%D8%B1%D9%81%D9%8A%D9%82-%D8%AF%D8%B1%D8%A8%D9%83-%D9%84%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA-04-22-2026_03_24_PM_w7yj7q.png",
-      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861179/%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF-%D9%85%D8%B3%D8%AA%D9%88%D8%A7%D9%83-04-22-2026_03_31_PM_hq4kkw.png",
-      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861191/%D9%81%D9%8A%D8%AF%D9%8A%D9%88-%D8%AC%D8%AF%D9%8A%D8%AF-%D8%AC%D8%AF%D9%8A%D8%AF-04-22-2026_03_30_PM_dcupv3.png",
-      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861186/%D9%85%D8%AC%D9%85%D9%88%D8%B9%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-04-22-2026_03_30_PM_nyxv4f.png",
-      "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776861178/%D8%B3%D9%88%D9%84%D9%81-%D9%88%D9%8A-%D8%AE%D9%88%D9%8A-%D8%A5%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-04-22-2026_03_30_PM_s1xhh5.png"
+      "Qader (qader.com) se présente comme un compagnon pour les évaluations et l'apprentissage : un écosystème où les étudiants accèdent à du contenu structuré, des tests et des indicateurs de performance.\n\nJ'ai travaillé en Next.js sur la plateforme de production : stabilisation de larges zones héritées, correction de bugs critiques et refactorisation pour la maintenabilité. J'ai contribué au chat de groupe temps réel (communautés d'étude et de trading), aux modules d'évaluation et à l'intégration d'analyses de scores assistées par l'IA pour des retours plus rapides aux enseignants.\n\nPriorité à la performance, la résilience et l'UX sur une SaaS à fort trafic.",
+    thumbnail: "/projects/qader-platform/cover.webp",
+    images: [
+      "/projects/qader-platform/cover.webp",
+      "/projects/qader-platform/dashboard-study.webp",
+      "/projects/qader-platform/dashboard-statistics.webp",
+      "/projects/qader-platform/ai-assistant.webp",
     ],
     techStack: [
       "Next.js",
@@ -237,7 +300,7 @@ export const projects: Project[] = [
     ],
     category: "web",
     featured: true,
-    liveUrl: "https://qader.vip",
+    liveUrl: "https://qader.com",
     githubUrl: "",
     status: "live",
     startDate: "2025-12",
@@ -285,8 +348,9 @@ export const projects: Project[] = [
       "جمعة (jmaa.sa) سوق سعودي للشراء الجماعي: يتجمّع المشترون على نفس المنتج ليحصل الجميع على سعر أقل عند اكتمال المجموعة — بشعار «اشترِ معاً ووفّر أكثر». المتجر يعرض إلكترونيات وغيرها مع مقارنة واضحة بين السعر العادي وسعر جمعة ورسائل تقسيط تمارا.\n\nعلى الصعيد التقني ساهمت عبر خدمات NestJS وواجهة Next.js: تكاملات دفع (منها NowLater وPaymob وAmwal Tech)، إعادة هيكلة، وإصلاح أعطال حرجة للحفاظ على موثوقية الدفع ومسارات المجموعة على نطاق واسع.",
     longDescriptionFr:
       "Jmaa (jmaa.sa) est une place de marché d'achat groupé : les acheteurs se regroupent sur un même produit pour obtenir un prix de groupe une fois le quota atteint — « Achetez ensemble. Économisez plus. » Le site met en avant l'électronique avec prix normal vs prix groupe et mentions Tamara.\n\nCôté technique : contributions NestJS et Next.js, intégrations paiement (NowLater, Paymob, Amwal Tech), refactorisations et corrections pour fiabiliser checkout et flux de groupe.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776941962/Gemini_Generated_Image_r22x9er22x9er22x_cbiuuc.webp",
-    images: [],
+    thumbnail: "/projects/jmaa-store/cover.webp",
+    images: [
+      "/projects/jmaa-store/cover.webp"],
     techStack: ["Next.js", "NestJS", "TypeScript", "Paymob", "NowLater", "Amwal Tech"],
     category: "ecommerce",
     featured: true,
@@ -436,8 +500,9 @@ export const projects: Project[] = [
       "وايتر (waiter.sa) يستهدف المطاعم والمقاهي والسوبرماركت التي تريد صندوقاً يقدّم الجوال أولاً: تكامل أجهزة نقاط البيع، تجربة ثنائية اللغة، ووعد بإطلاق سريع—غالباً خلال نحو 48 ساعة دون مطوّر داخل المنظمة.\n\nالتقنية تمر عبر Next.js مع Styled Components وMUI وRTK وnext-i18n لتجربة عربي/إنجليزي متسقة مع إدارة العمليات والإحصاءات من لوحة واحدة.",
     longDescriptionFr:
       "Waiter (waiter.sa) cible restaurants, cafés et supermarchés avec une caisse mobile-first : intégration TPE, UX bilingue et mise en ligne rapide — souvent sous ~48 h sans développeur interne.\n\nStack Next.js, Styled Components, MUI, RTK et next-i18n pour parcours AR/EN homogènes et pilotage opérationnel centralisé.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776941992/Gemini_Generated_Image_temq93temq93temq_a8j94s.webp",
-    images: [],
+    thumbnail: "/projects/waiter-app/cover.webp",
+    images: [
+      "/projects/waiter-app/cover.webp"],
     techStack: ["Next.js", "Styled Components", "MUI", "Next i18n", "RTK", "TypeScript"],
     category: "web",
     featured: false,
@@ -486,8 +551,13 @@ export const projects: Project[] = [
       "البيان الخيرية (albayancharity.org) تعرض رسالة مؤسسة البيان: مساعدات إنسانية للعائلات (منها نداءات تركز على غزة)، قصص شفافية، عدادات للمستفيدين، حضور المتطوعين، وأسئلة شائعة حول استخدام التبرعات.\n\nتقنياً تربط لوحة Next.js وShadCN وTailwind مع خلفية NestJS وMongoDB، وتدفقات OAuth2، وRBAC لأدوار الطاقم، وCI/CD عبر GitHub Actions، وNginx كوسيط عكسي، ونشر على عدة نطاقات فرعية على بنية VPS.",
     longDescriptionFr:
       "Albayan Charity (albayancharity.org) présente la fondation : aide humanitaire (appels dont Gaza), transparence, chiffres clés bénéficiaires/bénévoles, FAQ sur l'usage des dons.\n\nIngénierie : Next.js + ShadCN + Tailwind, backend NestJS + MongoDB, OAuth2, RBAC, CI/CD GitHub Actions, Nginx et sous-domaines sur VPS.",
-    thumbnail: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776944078/Gemini_Generated_Image_n6lbbwn6lbbwn6lb_krzgni.webp",
-    images: [],
+    thumbnail: "/projects/albayan-charity/cover.webp",
+    images: [
+      "/projects/albayan-charity/cover.webp",
+      "/projects/albayan-charity/dashboard.webp",
+      "/projects/albayan-charity/dashboard-stories.webp",
+      "/projects/albayan-charity/dashboard-projects.webp",
+    ],
     techStack: [
       "Next.js",
       "NestJS",

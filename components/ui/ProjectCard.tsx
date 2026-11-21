@@ -1,6 +1,6 @@
 "use client";
 
-import { m, useMotionTemplate, useMotionValue } from "framer-motion";
+import { m, useMotionValue } from "framer-motion";
 import {
   ArrowRight,
   Braces,
@@ -13,7 +13,7 @@ import {
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import type { Project } from "@/data/projects";
-import { glassCardHover, glassCardTap } from "@/lib/motion-variants";
+import { glassCardTap } from "@/lib/motion-variants";
 import { Link } from "@/navigation";
 import { cn } from "@/lib/utils";
 
@@ -26,6 +26,8 @@ type Props = {
   description: string;
   highlights: string[];
   awardLabel?: string;
+  /** Shorter card for the pinned horizontal gallery (fits short viewports). */
+  compact?: boolean;
 };
 
 export function ProjectCard({
@@ -34,19 +36,14 @@ export function ProjectCard({
   description,
   highlights,
   awardLabel,
+  compact = false,
 }: Props) {
   const t = useTranslations("projects");
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const rotateX = useMotionTemplate`rotateX(${my}deg)`;
-  const rotateY = useMotionTemplate`rotateY(${mx}deg)`;
 
   const onCardMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    mx.set(px * -10);
-    my.set(py * 10);
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     e.currentTarget.style.setProperty("--liq-x", `${x.toFixed(1)}%`);
@@ -65,13 +62,12 @@ export function ProjectCard({
   return (
     <m.div
       className="group h-full [perspective:1200px]"
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      
     >
       <m.div
         className="card-surface !overflow-hidden  card-surface-glow group/card relative flex h-full flex-col rounded-3xl"
         onMouseMove={onCardMove}
         onMouseLeave={onCardLeave}
-        whileHover={glassCardHover}
         whileTap={glassCardTap}
       >
         <Link
@@ -79,21 +75,26 @@ export function ProjectCard({
           className="group/img w-full  relative mx-auto block  outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
           aria-label={`${title} — ${t("view_details")}`}
         >
-          <div className="relative   min-h-[220px] w-full  rounded-[2px]   sm:min-h-[260px] md:min-h-[300px]">
+          <div
+            className={cn(
+              "relative w-full",
+              compact ? "h-[clamp(8.5rem,24svh,13rem)]" : "min-h-[220px] sm:min-h-[260px] md:min-h-[300px]",
+            )}
+          >
             <Image
               src={project.thumbnail}
               alt=""
               fill
               quality={96}
-              className="object-cover transition duration-500 ease-out group-hover/img:scale-[1.06] motion-reduce:group-hover/img:scale-100"
+              className="object-cover object-top transition-[object-position] duration-[2600ms] ease-in-out group-hover/img:object-bottom motion-reduce:transition-none"
               sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, (max-width: 1536px) 34vw, min(720px, 38vw)"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/82 via-[var(--bg-primary)]/12 to-[var(--accent-2)]/5" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg-card)]/70 via-transparent to-transparent" />
           </div>
         </Link>
 
-        <div className="flex flex-1 flex-col p-6">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className={cn("flex flex-1 flex-col", compact ? "p-5" : "p-6")}>
+          <div className={cn("flex items-center gap-2", compact ? "flex-nowrap overflow-hidden" : "flex-wrap")}>
             {project.award && awardLabel ? (
               <span className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-[color-mix(in_srgb,var(--accent-2)_42%,var(--border))] bg-[color-mix(in_srgb,var(--accent-subtle)_70%,var(--bg-secondary))] px-2.5 py-0.5 text-xs font-semibold text-[var(--text-primary)] ring-1 ring-[color-mix(in_srgb,var(--accent-2)_25%,transparent)]">
                 <Trophy
@@ -104,7 +105,7 @@ export function ProjectCard({
               </span>
             ) : null}
             {project.featured && (
-              <span className="group/feat inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[var(--accent)]/20 to-[var(--accent-2)]/20 px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20 transition duration-300 hover:-translate-y-0.5 hover:shadow-sm motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+              <span className="group/feat inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[var(--accent)]/20 to-[var(--accent-2)]/20 px-2.5 py-0.5 text-xs font-medium text-[var(--text-primary)] ring-1 ring-[var(--accent)]/20 transition duration-300 hover:shadow-sm motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                 <Star
                   className="h-3 w-3 shrink-0 text-[var(--accent)] transition duration-300 group-hover/feat:fill-[var(--accent)] group-hover/feat:rotate-12 motion-reduce:transition-none"
                   aria-hidden
@@ -121,16 +122,17 @@ export function ProjectCard({
             </span>
           </div>
 
-          <h3 className="mt-3 text-xl font-semibold text-[var(--text-primary)]">
+          <h3 className={cn("font-semibold text-[var(--text-primary)]", compact ? "mt-2 truncate text-lg" : "mt-3 text-xl")}>
             {title}
           </h3>
-          <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+          <p className={cn("mt-2 text-sm leading-relaxed text-[var(--text-secondary)]", compact ? "line-clamp-2" : "line-clamp-3")}>
             {description}
           </p>
 
           <ul
             className={cn(
               "mt-4 space-y-1 text-sm text-[var(--text-muted)]",
+              compact && "hidden",
               "list-disc ps-4 [dir=rtl]:ps-0 [dir=rtl]:pe-4",
             )}
           >
@@ -139,8 +141,8 @@ export function ProjectCard({
             ))}
           </ul>
 
-          <div className="mt-auto flex flex-wrap gap-2 pt-5">
-            {project.techStack.slice(0, 4).map((tech) => (
+          <div className={cn("mt-auto flex gap-2", compact ? "flex-nowrap overflow-hidden pt-3" : "flex-wrap pt-5")}>
+            {project.techStack.slice(0, compact ? 3 : 4).map((tech) => (
               <span
                 key={tech}
                 className="group/tech inline-flex items-center gap-1 rounded-md border border-[var(--border)]/60 bg-gradient-to-r from-[var(--bg-secondary)] to-[var(--bg-card)] px-2 py-0.5 text-xs text-[var(--text-secondary)] transition duration-300 hover:border-[var(--accent)]/30 hover:text-[var(--accent)] motion-reduce:transition-none"
@@ -154,14 +156,13 @@ export function ProjectCard({
             ))}
           </div>
 
-          <div className="mt-5 flex flex-wrap items-center gap-2">
+          <div className={cn("flex flex-wrap items-center gap-2", compact ? "mt-3 [&>a]:whitespace-nowrap" : "mt-5")}>
             {liveHref ? (
               <MotionA
                 href={liveHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-fx-glass flex-1 group/live inline-flex justify-between min-h-11 items-center gap-2 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--glass-bg)] px-4 py-2.5 text-sm font-semibold text-[var(--text-primary)] shadow-sm transition-colors hover:border-[var(--accent)]/45 hover:text-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
-                whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={(e) => e.stopPropagation()}
               >
@@ -179,7 +180,6 @@ export function ProjectCard({
             <MotionLink
               href={`/projects/${project.slug}`}
               className="group/view justify-between flex-1 btn-fx-primary inline-flex min-h-11 w-fit items-center gap-2 overflow-hidden rounded-xl bg-gradient-cta px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/25 transition-shadow duration-300 hover:shadow-xl hover:shadow-[var(--accent)]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] motion-reduce:transition-none"
-              whileHover={{ y: -2, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={(e) => e.stopPropagation()}
             >

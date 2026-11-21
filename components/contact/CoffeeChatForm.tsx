@@ -166,7 +166,6 @@ export function CoffeeChatForm() {
         type="submit"
         disabled={isSubmitting}
         className="group/submit mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-coffee)] px-5 py-3 text-sm font-semibold text-white shadow-md shadow-[color-mix(in_srgb,var(--color-coffee)_35%,transparent)] transition hover:bg-[var(--color-coffee-hover)] disabled:cursor-not-allowed disabled:opacity-60"
-        whileHover={isSubmitting ? undefined : { scale: 1.01 }}
         whileTap={isSubmitting ? undefined : { scale: 0.985 }}
       >
         {isSubmitting ? (

@@ -1,119 +1,141 @@
 "use client";
 
 import { m } from "framer-motion";
-import { ArrowRight, Coffee, Mail, Send } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { ArrowRight, Check, Clock3, Coffee, Copy, Globe2, Mail } from "lucide-react";
+import { FaTelegramPlane } from "react-icons/fa";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
 import { personal } from "@/data/personal";
-import { glassCardHoverTight, glassCardTapTight } from "@/lib/motion-variants";
-import { useLiquidGlassPointer } from "@/lib/use-liquid-glass";
+import { Magnetic } from "@/components/motion/Magnetic";
 import { Link } from "@/navigation";
 
-const MotionLink = m(Link);
-
+/** Closing call-to-action: spotlight card that follows the cursor, availability + response promise. */
 export function Contact() {
-  const t = useTranslations("contact");
-  const tHero = useTranslations("hero");
+  const t = useTranslations("hire");
   const tCoffee = useTranslations("coffee_chat");
-  const liq = useLiquidGlassPointer();
-  const liqCoffee = useLiquidGlassPointer();
+  const locale = useLocale();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false);
+  const [month, setMonth] = useState("");
+
+  // Client-only so the static build never freezes an old month into the HTML.
+  useEffect(() => {
+    setMonth(new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(new Date()));
+  }, [locale]);
+
+  const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = cardRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--spot-x", `${e.clientX - r.left}px`);
+    el.style.setProperty("--spot-y", `${e.clientY - r.top}px`);
+  };
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(personal.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      window.location.href = personal.social.email;
+    }
+  };
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 md:px-6">
-      <div className="grid gap-4 sm:grid-cols-2">
-        {/* Work contact card */}
-        <m.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
-          className="card-surface card-surface-glow relative overflow-hidden rounded-[2rem] p-8 md:p-10"
-          onPointerMove={liq.onPointerMove}
-          onPointerLeave={liq.onPointerLeave}
-          whileHover={glassCardHoverTight}
-          whileTap={glassCardTapTight}
-        >
-          <div
-            data-glass-back
-            className="pointer-events-none absolute -end-16 -top-16 h-56 w-56 rounded-full bg-[var(--accent)]/25 blur-3xl"
-          />
-          <div
-            data-glass-back
-            className="pointer-events-none absolute -bottom-8 -start-10 h-40 w-40 rounded-full bg-[var(--accent-2)]/15 blur-3xl"
-          />
-          <div className="relative flex h-full flex-col gap-6">
-            <div className="flex-1">
-              <h2 className="section-heading text-2xl font-semibold tracking-tight text-[var(--text-primary)] md:text-3xl">
-                {t("title")}
-              </h2>
-              <p className="mt-2 text-[var(--text-secondary)]">{t("subtitle")}</p>
-              <m.a
-                href={personal.social.email}
-                className="group/mail mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent-2)]"
-                whileHover={{ x: 0, y: -1 }}
-                whileTap={{ scale: 0.99 }}
-                transition={{ type: "spring", stiffness: 380, damping: 28 }}
-              >
-                <Mail className="h-4 w-4 transition duration-300 group-hover/mail:-rotate-12 group-hover/mail:scale-110 motion-reduce:transition-none" aria-hidden />
-                {personal.email}
-              </m.a>
-            </div>
-            <MotionLink
-              href="/contact"
-              className="group/cta inline-flex items-center gap-2 self-start rounded-2xl bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-shadow hover:shadow-xl"
-              whileHover={{ y: -2, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Send className="h-4 w-4 shrink-0 opacity-95 transition duration-300 group-hover/cta:-rotate-12 group-hover/cta:scale-110 motion-reduce:transition-none" aria-hidden />
-              {tHero("cta_contact")}
-              <ArrowRight className="h-4 w-4 transition duration-300 group-hover/cta:translate-x-1 rtl:rotate-180 rtl:group-hover/cta:-translate-x-1 motion-reduce:transition-none" aria-hidden />
-            </MotionLink>
-          </div>
-        </m.div>
+    <section className="mx-auto max-w-6xl px-4 py-20 md:px-6">
+      <m.div
+        ref={cardRef}
+        onPointerMove={onMove}
+        initial={{ opacity: 0, y: 30, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: "-10% 0px" }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="hire-card card-surface relative overflow-hidden rounded-[2.5rem] px-6 py-14 text-center sm:px-12 md:py-20"
+      >
+        {/* cursor spotlight + slow conic halo */}
+        <div className="hire-card__spot pointer-events-none absolute inset-0 -z-10" aria-hidden />
+        <div className="hire-card__halo pointer-events-none absolute left-1/2 top-1/2 -z-20 h-[46rem] w-[46rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-3xl" aria-hidden />
 
-        {/* Coffee chat card */}
-        <m.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, delay: 0.1 }}
-          className="card-surface relative overflow-hidden rounded-[2rem] p-8 md:p-10"
-          onPointerMove={liqCoffee.onPointerMove}
-          onPointerLeave={liqCoffee.onPointerLeave}
-          whileHover={glassCardHoverTight}
-          whileTap={glassCardTapTight}
-        >
-          <div
-            data-glass-back
-            className="pointer-events-none absolute -end-16 -top-16 h-56 w-56 rounded-full bg-[var(--color-coffee)]/20 blur-3xl"
-          />
-          <div
-            data-glass-back
-            className="pointer-events-none absolute -bottom-8 -start-10 h-40 w-40 rounded-full bg-[var(--color-coffee)]/10 blur-3xl"
-          />
-          <div className="relative flex h-full flex-col gap-6">
-            <div className="flex-1">
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--color-coffee)_30%,var(--border))] bg-[color-mix(in_srgb,var(--color-coffee)_10%,var(--bg-primary))] px-3 py-1 text-xs font-semibold text-[var(--color-coffee)]">
-                <Coffee className="h-3.5 w-3.5 shrink-0" aria-hidden />
-                {tCoffee("section_badge")}
-              </div>
-              <h2 className="text-2xl font-semibold tracking-tight text-[var(--text-primary)] md:text-3xl">
-                {tCoffee("section_title")}
-              </h2>
-              <p className="mt-2 text-[var(--text-secondary)]">{tCoffee("section_body")}</p>
-            </div>
-            <MotionLink
+        <div className="mx-auto flex max-w-3xl flex-col items-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/12 px-4 py-1.5 text-sm font-semibold text-emerald-700 ring-1 ring-emerald-500/30 dark:text-emerald-300">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            </span>
+            {t("available")}
+            {month ? <span className="font-normal opacity-80">· {month}</span> : null}
+          </span>
+
+          <h2 className="mt-7 text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-[var(--text-primary)] sm:text-5xl md:text-6xl rtl:leading-[1.3]">
+            {t("title")} <span className="text-gradient-hero">{t("title_accent")}</span>
+          </h2>
+          <p className="mt-5 max-w-xl text-pretty text-lg text-[var(--text-secondary)]">{t("subtitle")}</p>
+
+          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
+            <Magnetic>
+              <Link
+                href="/contact"
+                className="btn-fx-primary group/go inline-flex min-h-14 items-center gap-2 overflow-hidden rounded-2xl bg-gradient-cta px-8 text-base font-semibold text-white"
+              >
+                {t("cta")}
+                <ArrowRight className="h-5 w-5 transition-transform group-hover/go:translate-x-1 rtl:rotate-180 rtl:group-hover/go:-translate-x-1" aria-hidden />
+              </Link>
+            </Magnetic>
+            <Link
               href="/contact?tab=coffee"
-              className="group/cta inline-flex items-center gap-2 self-start rounded-2xl bg-[var(--color-coffee)] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[color-mix(in_srgb,var(--color-coffee)_35%,transparent)] transition hover:bg-[var(--color-coffee-hover)] hover:shadow-xl"
-              whileHover={{ y: -2, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="glass-control inline-flex min-h-14 items-center gap-2 rounded-2xl px-7 text-base font-semibold"
             >
-              <Coffee className="h-4 w-4 shrink-0 opacity-95 transition duration-300 group-hover/cta:rotate-12 group-hover/cta:scale-110 motion-reduce:transition-none" aria-hidden />
+              <Coffee className="h-5 w-5 text-[var(--color-coffee)]" aria-hidden />
               {tCoffee("section_cta")}
-              <ArrowRight className="h-4 w-4 transition duration-300 group-hover/cta:translate-x-1 rtl:rotate-180 rtl:group-hover/cta:-translate-x-1 motion-reduce:transition-none" aria-hidden />
-            </MotionLink>
+            </Link>
           </div>
-        </m.div>
-      </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+            <button
+              type="button"
+              onClick={copy}
+              className="glass-control group/cp gap-2 px-4 py-2 text-sm font-medium"
+              aria-live="polite"
+            >
+              <Mail className="h-4 w-4 text-[var(--accent)]" aria-hidden />
+              <span dir="ltr">{personal.email}</span>
+              {copied ? (
+                <Check className="h-4 w-4 text-emerald-500" aria-hidden />
+              ) : (
+                <Copy className="h-3.5 w-3.5 opacity-60 group-hover/cp:opacity-100" aria-hidden />
+              )}
+              <span className="sr-only">{copied ? t("copied") : t("copy")}</span>
+            </button>
+            {personal.social.telegram?.trim() ? (
+              <a
+                href={personal.social.telegram.trim()}
+                target="_blank"
+                rel="noreferrer"
+                className="glass-control gap-2 px-4 py-2 text-sm font-medium"
+              >
+                <FaTelegramPlane className="h-4 w-4 text-[#229ED9]" aria-hidden />
+                Telegram
+              </a>
+            ) : null}
+          </div>
+
+          <ul className="mt-10 grid w-full max-w-2xl grid-cols-1 gap-3 text-sm sm:grid-cols-3">
+            {[
+              { Icon: Clock3, text: t("fact_reply") },
+              { Icon: Globe2, text: t("fact_timezone") },
+              { Icon: Check, text: t("fact_free") },
+            ].map(({ Icon, text }) => (
+              <li
+                key={text}
+                className="flex items-center justify-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--glass-track)] px-3 py-2.5 text-[var(--text-secondary)]"
+              >
+                <Icon className="h-4 w-4 shrink-0 text-[var(--accent)]" aria-hidden />
+                {text}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </m.div>
     </section>
   );
 }

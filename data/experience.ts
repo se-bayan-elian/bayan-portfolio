@@ -28,7 +28,7 @@ export const experiences: Experience[] = [
     company: "Qader",
     companyAr: "قادر",
     companyFr: "Qader",
-    companyUrl: "https://qader.vip",
+    companyUrl: "https://qader.com",
     companyLogo: "https://res.cloudinary.com/nextjs-bayan/image/upload/v1776862416/newlogo_tsilib.png",
     role: "Front-end Web and Mobile Developer",
     roleAr: "مطور واجهات ويب وموبايل",
@@ -40,11 +40,11 @@ export const experiences: Experience[] = [
     endDate: null,
     current: true,
     description:
-      "Working as a Next.js developer on the Qader.vip platform — the company's main software product. Responsible for fixing bugs, reviewing and improving the existing codebase, and enhancing overall application stability and performance. Contributed to group chat features for study and trading rooms, test and assessment modules, and AI-based score analysis.",
+      "Working as a Next.js developer on the Qader.com platform — the company's main software product. Responsible for fixing bugs, reviewing and improving the existing codebase, and enhancing overall application stability and performance. Contributed to group chat features for study and trading rooms, test and assessment modules, and AI-based score analysis.",
     descriptionAr:
-      "أعمل كمطور Next.js على منصة Qader.vip البرنامج الرئيسي للشركة. مسؤول عن إصلاح الأخطاء ومراجعة قاعدة الكود وتعزيز استقرار التطبيق وأدائه. ساهمت في ميزات الدردشة الجماعية لغرف الدراسة والتداول، ووحدات الاختبار والتقييم، وتحليل الدرجات بالذكاء الاصطناعي.",
+      "أعمل كمطور Next.js على منصة Qader.com البرنامج الرئيسي للشركة. مسؤول عن إصلاح الأخطاء ومراجعة قاعدة الكود وتعزيز استقرار التطبيق وأدائه. ساهمت في ميزات الدردشة الجماعية لغرف الدراسة والتداول، ووحدات الاختبار والتقييم، وتحليل الدرجات بالذكاء الاصطناعي.",
     descriptionFr:
-      "Développeur Next.js sur la plateforme Qader.vip, logiciel principal de l'entreprise. Responsable de la correction de bugs, de la revue et de l'amélioration de la base de code.",
+      "Développeur Next.js sur la plateforme Qader.com, logiciel principal de l'entreprise. Responsable de la correction de bugs, de la revue et de l'amélioration de la base de code.",
     responsibilities: [
       "Reviewed and improved existing codebase for stability and performance",
       "Developed group chat features for study and trading rooms",
